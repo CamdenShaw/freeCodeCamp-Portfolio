@@ -15,6 +15,27 @@ body {
   padding-left: 1vw;
   padding-right: 1vw; }
 
+.grid-box {
+  border: 2px solid whitesmoke;
+  padding: 10px;
+  margin: 16px;
+  border-radius: 5px;
+  background-color: rgba(234, 235, 236, 0.5); }
+
+.grid-box.l {
+  margin-left: 0; }
+
+.grid-box.r {
+  margin-right: 0; }
+
+.col-sm-6 {
+  padding: 0; }
+
+.around-web {
+  background-color: lightblue;
+  height: 200px;
+  width: 100vw; }
+
 footer {
   background: black;
   color: white;
