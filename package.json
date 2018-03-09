@@ -1,0 +1,38 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "Camden Shaw's portfolio site built per requisites from freeCodeCamp",
+    "main": "index.html",
+    "dependencies": {
+        "babel-core": "^6.26.0",
+        "babel-preset-es2017": "^6.24.1",
+        "browser-sync": "^2.23.6",
+        "eslint": "^4.18.2",
+        "graceful-fs": "^4.1.11",
+        "gulp-autoprefixer": "^5.0.0",
+        "gulp-cssnano": "^2.1.2",
+        "gulp-babel": "^7.0.1",
+        "gulp-eslint": "^4.0.2",
+        "gulp-prettyerror": "^1.2.1",
+        "gulp-sass": "^3.1.0",
+        "gulp-uglify": "^3.0.0",
+        "gulp-util": "^3.0.8",
+        "gulp-rename": "^1.2.2",
+        "minimatch": "^3.0.2"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CamdenShaw/freeCodeCamp-Portfolio.git"
+    },
+    "keywords": ["Camden", "Shaw", "Portfolio"],
+    "author": "Camden Shaw",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/CamdenShaw/freeCodeCamp-Portfolio/issues"
+    },
+    "homepage": "https://github.com/CamdenShaw/freeCodeCamp-Portfolio#readme"
+}
