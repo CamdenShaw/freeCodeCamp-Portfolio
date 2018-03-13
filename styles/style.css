@@ -22,16 +22,13 @@ body {
     border: 2px solid whitesmoke;
     padding: 10px;
     margin: 16px;
+    height: 100%;
     border-radius: 5px;
     background-color: rgba(234, 235, 236, 0.5);
 }
 
-.grid-box.l {
-    margin-left: 0;
-}
-
-.grid-box.r {
-    margin-right: 0;
+h3 {
+    text-align: center;
 }
 
 .col-sm-6 {
@@ -59,15 +56,24 @@ footer p {
 @media screen and (min-width: 768px) {
     #about,
     #portfolio,
-    #contact {
+    #contact,
+    #media {
         width: 100%;
+    }
+    .grid-box.l {
+        margin-left: 0;
+    }
+
+    .grid-box.r {
+        margin-right: 0;
     }
 }
 
 @media screen and (min-width: 792px) {
     #about,
     #portfolio,
-    #contact {
+    #contact,
+    #media {
         width: 750px;
     }
 }
@@ -75,7 +81,8 @@ footer p {
 @media screen and (min-width: 992px) {
     #about,
     #portfolio,
-    #contact {
+    #contact,
+    #media {
         width: 100%;
     }
 }
@@ -83,7 +90,8 @@ footer p {
 @media screen and (min-width: 1010px) {
     #about,
     #portfolio,
-    #contact {
+    #contact,
+    #media {
         width: 970px;
     }
 }
@@ -91,7 +99,8 @@ footer p {
 @media screen and (min-width: 1200px) {
     #about,
     #portfolio,
-    #contact {
+    #contact,
+    #media {
         width: 100%;
     }
 }
@@ -99,7 +108,8 @@ footer p {
 @media screen and (min-width: 1210px) {
     #about,
     #portfolio,
-    #contact {
+    #contact,
+    #media {
         width: 1170px;
     }
 }
