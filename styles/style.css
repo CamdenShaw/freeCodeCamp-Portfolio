@@ -3,6 +3,7 @@ body {
     padding-top: 70px;
     background-color: navy;
     font-family: Abel;
+    font-size: 14px;
 }
 
 .main-site.container {
@@ -36,9 +37,57 @@ h3 {
 }
 
 .around-web {
-    background-color: lightblue;
+    background-color: #b1dae7;
     height: 200px;
     width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.social {
+    text-align: center;
+    font-size: 0;
+}
+
+.social .row {
+    margin: 0;
+}
+
+.social.col-xs-12 {
+    margin-top: 29px;
+}
+
+.link.col-xs-1 {
+    padding: 0;
+    margin-right: 1px;
+}
+
+.social a {
+    background-color: #9fd0e0;
+    position: relative;
+    padding: 47%;
+    color: yellow;
+    border: 1px whitesmoke solid;
+    border-radius: 40%;
+    box-sizing: content-box;
+}
+
+.social a:hover {
+    background-color: #c1e1f1;
+    color: darkorange;
+    border: 1px white solid;
+    border-radius: 43%;
+    box-shadow: 0px 1px 3px white;
+}
+
+.social i {
+    position: absolute;
+    font-size: 3rem;
+    transform: translate(-50%, -50%);
+}
+
+i.fa-google-plus {
+    font-size: 2.5rem;
 }
 
 footer {
@@ -66,6 +115,10 @@ footer p {
 
     .grid-box.r {
         margin-right: 0;
+    }
+
+    .social .link.col-sm-2 {
+        padding: 10px;
     }
 }
 
