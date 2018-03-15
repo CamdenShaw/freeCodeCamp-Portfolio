@@ -12,21 +12,25 @@ body {
     width: auto;
     background-image: radial-gradient(
             rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.2) 50%,
-            rgba(255, 170, 200, 1) 100%
+            rgba(255, 255, 255, 0.1) 60%,
+            rgba(255, 170, 200, 0.9) 100%
         ),
-        url("https://photos-6.dropbox.com/t/2/AAByJpDdTJD-qCkb5HQrkpi3clMZljjhdtgVzzDMEuDmbA/12/170540797/jpeg/32x32/1/_/1/2/drop-red-verticleb.jpg/EL3R_4EBGPEGIAcoBw/_YTOH2ubOMjE6NtiogAMOvGxck2zyA2tDltureftxpU?size=2048x1536&size_mode=3");
+        url("https://photos-4.dropbox.com/t/2/AAD5dR14IB0YDCdU4KusBh-xnRLdYTuQoFssvmcawnFJNA/12/170540797/jpeg/32x32/1/_/1/2/drop-red-verticlec.jpg/EL3R_4EBGPIGIAcoBw/JFIhejuCIA1n5mm07NI-Yq2RmPEy3LIjVP887nDjKbg%2CcxhuIhnSLeesqCEBzCyYJFOIk2VQBfLeIETWQsEp6Ug?size=2048x1536&size_mode=3");
     background-position: center, top;
     background-size: cover, contain;
-}
-
-#about {
-    padding-top: 20px;
 }
 
 .container {
     padding-left: 1vw;
     padding-right: 1vw;
+}
+
+.jumbotron {
+    background-color: rgba(137, 255, 255, 0.9);
+}
+
+#about {
+    padding-top: 20px;
 }
 
 .grid-box {
