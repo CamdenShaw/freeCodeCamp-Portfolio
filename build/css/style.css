@@ -46,6 +46,40 @@ img.col-xs-12 {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%); }
 
+.modal {
+  width: 95%;
+  margin: 3% auto 2%;
+  border: 1px solid white;
+  background-color: whitesmoke; }
+
+.modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0; }
+
+.modal-header {
+  padding: 0; }
+
+.modal-header h4 {
+  text-align: center;
+  padding-top: 20px; }
+
+.modal-header button.close {
+  padding: 5px 10px; }
+
+.modal-body {
+  height: calc(100% - 45px - 65px); }
+
+.modal-body .item, .carousel, .carousel-inner {
+  height: 100%; }
+
+iframe {
+  width: 100%;
+  height: 100%; }
+
+.item.one .click-box a {
+  padding: 0 5px; }
+
 .around-web {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(7, 3, 3, 0.5))), url("https://photos-4.dropbox.com/t/2/AAAQu-TEoT13SRgtd67hdMNjIHljweUTUzNftkbYhfw_gw/12/170540797/jpeg/32x32/1/_/1/2/drop-blueb.jpg/EL3R_4EBGPEGIAcoBw/1BfFX13n0Pc0izXK-O7gpvEgl5V4DQvXF1FRG__OxGA%2Cm6x9RUoavKG6q65dins-ADGUEaC2mzBIXLpQMWh6d_g%2CLxLNr7tdzBjoX2kO7aQyXsYtk3lFVmh4IJldTT7Y8cM%2CTzLjSUwxLtzGL9AHlhtkecctwbm-DJSJynEYQfskNJI%2CbysU_16euE80vGLhLtqt-g-EpCplbCvifmBfhZxw4uo%2C2Ri-TRrUjQBXafJt6PUerpMBla0DZD0VPsg4WqczL8Q%2C-M7Bf9Y9wQ8F5bUVHBdKYa4ZMsWEs7vQ-9CtC31lwVE%2C4itok9L7LwEdml2rpWOazusTA76guGxjXYRC6fi9IyU%2CTuUNMu6MluX7xrPLvt3IWFlv1FAhwe6MNVUIlwejbIM%2Cc4oJ0MHo-SJE3I9nzhLlDr7zCPZZcPXDiuhJm3i3A4o?size=2048x1536&size_mode=3");
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(7, 3, 3, 0.5)), url("https://photos-4.dropbox.com/t/2/AAAQu-TEoT13SRgtd67hdMNjIHljweUTUzNftkbYhfw_gw/12/170540797/jpeg/32x32/1/_/1/2/drop-blueb.jpg/EL3R_4EBGPEGIAcoBw/1BfFX13n0Pc0izXK-O7gpvEgl5V4DQvXF1FRG__OxGA%2Cm6x9RUoavKG6q65dins-ADGUEaC2mzBIXLpQMWh6d_g%2CLxLNr7tdzBjoX2kO7aQyXsYtk3lFVmh4IJldTT7Y8cM%2CTzLjSUwxLtzGL9AHlhtkecctwbm-DJSJynEYQfskNJI%2CbysU_16euE80vGLhLtqt-g-EpCplbCvifmBfhZxw4uo%2C2Ri-TRrUjQBXafJt6PUerpMBla0DZD0VPsg4WqczL8Q%2C-M7Bf9Y9wQ8F5bUVHBdKYa4ZMsWEs7vQ-9CtC31lwVE%2C4itok9L7LwEdml2rpWOazusTA76guGxjXYRC6fi9IyU%2CTuUNMu6MluX7xrPLvt3IWFlv1FAhwe6MNVUIlwejbIM%2Cc4oJ0MHo-SJE3I9nzhLlDr7zCPZZcPXDiuhJm3i3A4o?size=2048x1536&size_mode=3");
