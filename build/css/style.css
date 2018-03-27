@@ -9,9 +9,9 @@ body {
   margin: -20px 20px 0;
   padding: 0;
   width: auto;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(0, 255, 255, 0.6) 95%), url("https://photos-4.dropbox.com/t/2/AAB5vGHYx2mGy4D1GcwCh2fbHfFNeCif814NUe193mdJxg/12/170540797/jpeg/32x32/1/_/1/2/drop-red-verticlee.jpg/EL3R_4EBGPQGIAcoBw/RPRHe4pHcaHat1U_7qLJdPBzhtciFJfj3NoUU9t6onw%2C4cBBTBS6Mlkcb_bF4h1Pf3UTHsPZ4_dHtnd9bInOD5Y%2CiEOpiz2qhlX75Z3dgKyhpj5HPoSyQ6bHvvOetv7bIPE%2CE99pJ7uz66Tb-a9tvrJMki-Q9rJZpfw4n1eCoksyzdw?size=2048x1536&size_mode=3");
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 64, 0.2) 70%, rgba(0, 0, 128, 0.9) 95%), url("../../assets/images/background2.png");
   background-position: center, top;
-  background-size: cover, contain; }
+  background-size: contain, cover; }
 
 .container {
   padding-left: 1vw;
@@ -197,9 +197,15 @@ footer p {
   #contact,
   #media {
     width: 970px; }
-  .main-site.container {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(0, 255, 255, 0.6) 95%), url("https://photos-2.dropbox.com/t/2/AABYE1F1UR4tYCDbqD1vczDolTyPddy0dPosmsLyEpKYig/12/170540797/jpeg/32x32/1/_/1/2/drop-red-verticled.jpg/EL3R_4EBGPMGIAcoBw/puvUEhHK6uSdWtwDpni8BFpD_s8mIozQKtd76hrDBpc%2C375tEWTTtLJkpBOlSRqOWL4_6SAfuLyiwPQrpAXZUa0?size=2048x1536&size_mode=3");
-    background-position: center, top; } }
+  /* .main-site.container {
+        background-image: radial-gradient(
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(0, 0, 64, 0.2) 70%,
+                rgba(0, 0, 128, 0.9) 95%
+            ),
+            url("../../assets/images/background2.png");
+        background-position: center, top;
+    } */ }
 
 @media screen and (min-width: 1200px) {
   #about,
