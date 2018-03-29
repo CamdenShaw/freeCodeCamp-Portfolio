@@ -11,11 +11,11 @@ body {
     padding: 0;
     width: auto;
     background-image: radial-gradient(
-        rgba(0, 0, 0, 0.1) 50%,
-        rgba(0, 0, 64, 0.2) 70%,
-        rgba(0, 0, 128, 0.9) 95%
+        rgba(230, 230, 255, 0.8) 5%,
+        rgba(230, 230, 255, 0.85) 11%,
+        rgba(230, 230, 255, 0.9) 95%
         ),
-        url("../../assets/images/background2.png");
+        url("../../assets/images/background2@0.5x.png");
     background-position: center, top;
     background-size: contain, cover;
 }
@@ -26,8 +26,8 @@ body {
 }
 
 .jumbotron {
-    border: 1px solid rgb(255, 185, 106);
-    background-color: rgba(218, 255, 255, 0.86);
+    border: 1px solid rgba(255, 185, 106, 0.8);
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 #about {
@@ -44,7 +44,7 @@ img.col-xs-12 {
     margin: 16px;
     height: 100%;
     border-radius: 5px;
-    background-color: rgba(234, 235, 236, 0.5);
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 h3 {
@@ -180,6 +180,14 @@ footer p {
 }
 
 @media screen and (min-width: 768px) {
+    .main-site.container {
+    background-image: radial-gradient(
+        rgba(230, 230, 255, 0.8) 5%,
+        rgba(230, 230, 255, 0.85) 11%,
+        rgba(230, 230, 255, 0.9) 95%
+        ),
+        url("../../assets/images/background2.png");
+    }
     #about,
     #portfolio,
     #contact,
@@ -246,6 +254,14 @@ footer p {
 }
 
 @media screen and (min-width: 1010px) {
+    .main-site.container {
+    background-image: radial-gradient(
+        rgba(230, 230, 255, 0.8) 5%,
+        rgba(230, 230, 255, 0.85) 11%,
+        rgba(230, 230, 255, 0.9) 95%
+        ),
+        url("../../assets/images/background2@2x.png");
+    }
     #about,
     #portfolio,
     #contact,
@@ -273,6 +289,14 @@ footer p {
 }
 
 @media screen and (min-width: 1210px) {
+    .main-site.container {
+    background-image: radial-gradient(
+        rgba(230, 230, 255, 0.8) 5%,
+        rgba(230, 230, 255, 0.85) 11%,
+        rgba(230, 230, 255, 0.9) 95%
+        ),
+        url("../../assets/images/background2@3x.png");
+    }
     #about,
     #portfolio,
     #contact,
