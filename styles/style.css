@@ -177,9 +177,10 @@ iframe {
 }
 
 .link.col-xs-1 {
+    min-width: 30px;
     padding: 0;
-    margin-right: 2px;
-    margin-left: 2px;
+    margin-right: 1px;
+    margin-left: 1px;
 }
 
 .social div:first-child {
@@ -211,7 +212,7 @@ iframe {
 }
 
 i.fa-google-plus {
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 footer {
