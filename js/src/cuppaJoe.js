@@ -1,5 +1,4 @@
 $(document).ready(() => {
-    console.log("document is ready")
     const forceBox = () => {
         let image = $("img")
         let i = 0
@@ -31,22 +30,18 @@ $(document).ready(() => {
     }
 
     $(window).ready(() => {
-        console.log("window is ready")
         forceBox()
     })
 
     $(".early-success").ready(() => {
-        console.log("last image is ready")
         setSrc()
         //mute pong somehow
     })
 
     $(".main-site").ready(() => {
-        console.log("main site is ready")
         let carousel = $(".car")
         let i = 1
         Object.values(carousel).forEach(car => {
-            console.log(car, carousel[carousel.length - 2])
             if (car === carousel.length) {
                 return
             }
@@ -65,14 +60,12 @@ $(document).ready(() => {
 
     $("iframe")
         .mouseenter(() => {
-            console.log("enter")
             $(".carousel").carousel({
                 pause: true,
                 interval: false
             })
         })
         .mouseleave(() => {
-            console.log("leave")
             $(".carousel").carousel({
                 pause: false,
                 interval: true
