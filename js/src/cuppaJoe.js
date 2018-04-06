@@ -31,5 +31,19 @@ $(document).ready(() => {
     window.addEventListener("resize", () => {
         forceBox()
     })
-    $(window).on("load", forceBox())
+    $(window).on("load", () => {
+        forceBox()
+        let carousel = $(".car")
+
+        let i = 1
+        Object.values(carousel).forEach(car => {
+            console.log(car.children[0], $(car.children[0]).is("a"))
+            if (!$(car.children[0]).is("a")) {
+                $(car).addClass(`${i}`)
+                const comingSoon = "<div class='coming-soon'><h3>Coming Soon</h3></div>"
+                car.innerHTML = `${car.innerHTML}${comingSoon}`
+            }
+            i++
+        })
+    })
 })
