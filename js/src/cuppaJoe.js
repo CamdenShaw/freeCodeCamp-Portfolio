@@ -1,12 +1,14 @@
 $(document).ready(() => {
     $("iframe")
         .mouseenter(() => {
+            console.log("enter")
             $(".carousel").carousel({
                 pause: true,
                 interval: false
             })
         })
         .mouseleave(() => {
+            console.log("leave")
             $(".carousel").carousel({
                 pause: false,
                 interval: true
