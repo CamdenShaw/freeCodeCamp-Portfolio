@@ -5,12 +5,13 @@ $(document).ready(() => {
 
         do {
             if (image[i].height > image[i].width) {
-                $(image[i]).css("max-height", image[i + 1].height - 2)
-                $(image[i]).css("width", "auto")
                 if (i % 2 === 0) {
                     $(image[i + 1]).css("height", `${$(image[i]).css("auto")}`)
                 }
                 $(image[i + 1]).css("width", `100%`)
+                console.log(image[i + 1], image[i + 1].height - 2)
+                $(image[i]).css("height", image[i + 1].height - 1)
+                $(image[i]).css("width", "auto")
             }
             i++
         } while (i < image.length - 1)

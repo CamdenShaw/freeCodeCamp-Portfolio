@@ -38,7 +38,7 @@ img.col-xs-12 {
 
 .coming-soon {
   position: absolute;
-  z-index: 1000;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -60,7 +60,9 @@ img.col-xs-12 {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; }
 
 h3 {
-  text-align: center; }
+  text-align: center;
+  position: relative;
+  z-index: 2; }
 
 .col-sm-6 {
   padding: 0; }
@@ -305,4 +307,6 @@ footer p {
   #portfolio,
   #contact,
   #media {
-    width: 1170px; } }
+    width: 1170px; }
+  .coming-soon h3 {
+    font-size: 5rem; } }
