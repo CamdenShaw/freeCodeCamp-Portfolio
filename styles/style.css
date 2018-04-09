@@ -156,9 +156,28 @@ a.carousel-control .glyphicon-chevron-right {
     transform: rotate(45deg)
 }
 
+.block {
+    height: 100%;
+}
+
+.block h3 {
+    background-color: rgba(0,0,100,0.5);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: rgb(255, 50, 50);
+    padding: 0;
+    margin: 0;
+    text-shadow: 0 0 20px navy;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 iframe {
     width: 100%;
-    height: 100%
+    height: 100%;
+    position: absolute;
 }
 
 .carousel-indicators{

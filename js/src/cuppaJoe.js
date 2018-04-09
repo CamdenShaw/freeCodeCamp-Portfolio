@@ -30,13 +30,17 @@ $(document).ready(() => {
         )
     }
 
+    const inProgress = () => {
+        $(".in-progress").wrap('<div class="block"></div>')
+        $(".block").ready(() => $(".block").append("<h3>In Progress</h3>"))
+    }
+
     $(window).ready(() => {
         forceBox()
     })
 
     $(".early-success").ready(() => {
         setSrc()
-        //mute pong somehow
     })
 
     $(".main-site").ready(() => {
@@ -53,6 +57,7 @@ $(document).ready(() => {
             }
             i++
         })
+        inProgress()
     })
 
     window.addEventListener("resize", () => {
