@@ -21,9 +21,9 @@ $(document).ready(() => {
         $(".mars-colony-frame").attr("src", "https://camdenshaw.github.io/Project-5/")
         $(".note-dot-js-frame").attr("src", "https://note-dot-js.herokuapp.com")
         $(".pong-frame").attr("src", "https://camdenshaw.github.io/Pong/")
-        $(".vatjss-frame").attr("https://vatjssportfolio.herokuapp.com")
-        $(".aloha-frame").attr("https://camdenshaw.github.io/Aloha/")
-        $(".instanews-frame").attr("https://camdenshaw.github.io/Instanews/")
+        $(".vatjss-frame").attr("src", "https://vatjssportfolio.herokuapp.com")
+        $(".aloha-frame").attr("src", "https://camdenshaw.github.io/Aloha/")
+        $(".instanews-frame").attr("src", "https://camdenshaw.github.io/Instanews/")
         $(".wu-zetian-frame").attr(
             "src",
             "https://camdenshaw.github.io/Wu-Zetian-Tribute-freeCodeCamp/"
