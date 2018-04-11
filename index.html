@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Camden Shaw's Portfolio Site</title>
-        <meta name="description" content="">
+        <meta name="description" content="Camden Shaw Developer Portfolio">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
         <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -69,15 +69,19 @@
                               <li data-target="#webAppCarousel" data-slide-to="0" class="active"></li>
                               <li data-target="#webAppCarousel" data-slide-to="1" class="active"></li>
                               <li data-target="#webAppCarousel" data-slide-to="2" class="active"></li>
+                              <li data-target="#webAppCarousel" data-slide-to="3" class="active"></li>
                             </ol>
                             <div class="carousel-inner">
                               <div class="item one active">
                                 <iframe class="mars-colony-frame" src="about:blank">Loading...</iframe>
                               </div>
-                              <div class="item two">
-                                  <iframe class="note-dot-js-frame in-progress" src="about:blank" >Loading...</iframe>
+                              <div class = "item two">
+                                <iframe class="weather-app-frame" src="about:blank">Loading...</iframe>
                               </div>
                               <div class="item three">
+                                  <iframe class="note-dot-js-frame in-progress" src="about:blank" >Loading...</iframe>
+                              </div>
+                              <div class="item four">
                                 <iframe class="pong-frame" src="about:blank">Loading...</iframe>
                               </div>
                             </div>
@@ -184,6 +188,8 @@
           </div>
         </div>
         <hr>
+        <div class="spacer"></div>
+        <hr>
         <div id="media" class="container">
           <div class="container col-xs-12">
             <h1>In The Media</h1>
@@ -211,18 +217,18 @@
         <div id="contact" class="container">
           <div class="jumbotron"><h1>Contact</h1><p>test</p></div>
         </div>
-      </div>
-      <div class="around-web container row">
-        <div class="col-xs-12 col-sm-6 row">
-          <h3>About this Site</h3>
-        </div>
-        <div class="col-xs-12 col-sm-6 row">
-          <h3>Around the Web</h3>
-          <div class="social col-xs-12">
-            <div class="link col-sm-2 col-xs-1 col-sm-offset-2 col-xs-offset-4"> <a target="_blank" href="https://twitter.com/shawdencam"><i class="fa fa-twitter"></i></a></div>
-            <div class="link col-sm-2 col-xs-1" ><a target="_blank" href="https://www.linkedin.com/in/camden-shaw/"><i class="fa fa-linkedin"></i></a></div>
-            <div class="link col-sm-2 col-xs-1" ><a target="_blank" href="https://github.com/CamdenShaw"><i class="fa fa-github"></i></a></div>
-            <div class="link col-sm-2 col-xs-1" ><a target="_blank" href="https://plus.google.com/u/0/108768219755784368022"><i class="fa fa-google-plus"></i></a></div>
+        <div class="around-web container row">
+          <div class="col-xs-12 col-sm-6 row">
+            <h3>About this Site</h3>
+          </div>
+          <div class="col-xs-12 col-sm-6 row">
+            <h3>Around the Web</h3>
+            <div class="social col-xs-12">
+              <div class="link col-sm-2 col-xs-1 col-sm-offset-2 col-xs-offset-4"> <a target="_blank" href="https://twitter.com/shawdencam"><i class="fa fa-twitter"></i></a></div>
+              <div class="link col-sm-2 col-xs-1" ><a target="_blank" href="https://www.linkedin.com/in/camden-shaw/"><i class="fa fa-linkedin"></i></a></div>
+              <div class="link col-sm-2 col-xs-1" ><a target="_blank" href="https://github.com/CamdenShaw"><i class="fa fa-github"></i></a></div>
+              <div class="link col-sm-2 col-xs-1" ><a target="_blank" href="https://plus.google.com/u/0/108768219755784368022"><i class="fa fa-google-plus"></i></a></div>
+            </div>
           </div>
         </div>
       </div>
@@ -231,6 +237,7 @@
       </footer>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="build/js/reposition.min.js"></script>
       <script src="build/js/cuppaJoe.min.js"></script>
       </body>
 </html>

@@ -19,6 +19,7 @@ $(document).ready(() => {
 
     const setSrc = () => {
         $(".mars-colony-frame").attr("src", "https://camdenshaw.github.io/Project-5/")
+        $(".weather-app-frame").attr("src", "https://camdenshaw.github.io/weather-app/")
         $(".note-dot-js-frame").attr("src", "https://note-dot-js.herokuapp.com")
         $(".pong-frame").attr("src", "https://camdenshaw.github.io/Pong/")
         $(".vatjss-frame").attr("src", "http://vatjssportfolio.herokuapp.com")

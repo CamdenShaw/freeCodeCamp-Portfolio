@@ -1,0 +1,24 @@
+$(document).ready(() => {
+    const mainSite = $(".main-site"),
+        totalContentHeight = mainSite[0].scrollHeight
+
+    const reposition = () => {
+        let posPercent = 120,
+            newPosition = mainSite[0].scrollTop * 0.3,
+            newPosPercent = newPosition / totalContentHeight * 100
+        mainSite.css("background-position", `0 ${newPosPercent - posPercent}%`)
+        console.log(
+            "repositioning",
+            `${posPercent}%`,
+            "new position",
+            newPosition,
+            "new position percentage",
+            `${newPosPercent - posPercent}%`
+        )
+    }
+
+    mainSite.on("scroll", () => {
+        reposition()
+        console.log("scrolling")
+    })
+})
