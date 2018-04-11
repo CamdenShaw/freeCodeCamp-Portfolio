@@ -9,7 +9,6 @@ $(document).ready(() => {
                     $(image[i + 1]).css("height", `${$(image[i]).css("auto")}`)
                 }
                 $(image[i + 1]).css("width", `100%`)
-                console.log(image[i + 1], image[i + 1].height - 2)
                 $(image[i]).css("height", image[i + 1].height - 1)
                 $(image[i]).css("width", "auto")
             }
