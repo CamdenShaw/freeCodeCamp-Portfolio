@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    let offset = 200
+    let offset = 100
 
     const forceBox = () => {
         let image = $("img")
