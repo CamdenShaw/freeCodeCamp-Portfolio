@@ -52,7 +52,7 @@ gulp.task("hi", () => {
 })
 
 gulp.task("watch", () => {
-    gulp.watch(input, ["scripts"])
+    gulp.watch("./js/src/*.js", ["scripts"])
     gulp.watch("./styles/*.css", ["sass"])
 })
 

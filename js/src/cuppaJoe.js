@@ -1,4 +1,6 @@
 $(document).ready(() => {
+    let offset = 200
+
     const forceBox = () => {
         let image = $("img")
         let i = 0
@@ -35,12 +37,26 @@ $(document).ready(() => {
         $(".block").ready(() => $(".block").append("<h3>In Progress</h3>"))
     }
 
+    $(".carousel").carousel({
+        pause: "hover",
+        interval: 7000,
+        wrap: true,
+        keyboard: true
+    })
+
+    $(".navbar li a").click(function(event) {
+        event.preventDefault()
+        $($(this).attr("href"))[0]
+            .scrollIntoView({ behavior: "smooth" })
+            .scrollBy(0, -offset)
+    })
+
     $(window).ready(() => {
         forceBox()
     })
 
     $(".early-success").ready(() => {
-        setSrc()
+        setTimeout(setSrc(), 100)
     })
 
     $(".main-site").ready(() => {
@@ -58,23 +74,14 @@ $(document).ready(() => {
             i++
         })
         inProgress()
+        $(".main-site").scrollSpy({
+            spy: "scroll",
+            target: "#myNavbar",
+            offset: 140
+        })
     })
 
     window.addEventListener("resize", () => {
         forceBox()
     })
-
-    $("iframe")
-        .mouseenter(() => {
-            $(".carousel").carousel({
-                pause: true,
-                interval: false
-            })
-        })
-        .mouseleave(() => {
-            $(".carousel").carousel({
-                pause: false,
-                interval: true
-            })
-        })
 })
