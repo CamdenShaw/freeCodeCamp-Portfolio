@@ -1,5 +1,6 @@
 $(document).ready(() => {
-    let offset = 100
+    let offset = 50,
+        view
 
     const forceBox = () => {
         let image = $("img")
@@ -18,7 +19,7 @@ $(document).ready(() => {
         } while (i < image.length - 1)
     }
 
-    const setSrc = () => {
+    function setSrc() {
         $(".mars-colony-frame").attr("src", "https://camdenshaw.github.io/Project-5/")
         $(".weather-app-frame").attr("src", "https://camdenshaw.github.io/weather-app/")
         $(".note-dot-js-frame").attr("src", "https://note-dot-js.herokuapp.com")
@@ -26,11 +27,11 @@ $(document).ready(() => {
         $(".vatjss-frame").attr("src", "http://vatjssportfolio.herokuapp.com")
         $(".inhabitent-frame").attr("src", "http://inhabi-tent.herokuapp.com/")
         $(".aloha-frame").attr("src", "https://camdenshaw.github.io/Aloha/")
-        $(".instanews-frame").attr("src", "https://camdenshaw.github.io/Instanews/")
         $(".wu-zetian-frame").attr(
             "src",
             "https://camdenshaw.github.io/Wu-Zetian-Tribute-freeCodeCamp/"
         )
+        $(".instanews-frame").attr("src", "https://camdenshaw.github.io/Instanews/")
     }
 
     const inProgress = () => {
@@ -47,9 +48,15 @@ $(document).ready(() => {
 
     $(".navbar li a").click(function(event) {
         event.preventDefault()
-        $($(this).attr("href"))[0]
-            .scrollIntoView({ behavior: "smooth" })
-            .scrollBy(0, -offset)
+
+        view = $(this.hash)[0].offsetTop - offset
+
+        $(".main-site").animate(
+            {
+                scrollTop: view
+            },
+            300
+        )
     })
 
     $(window).ready(() => {
@@ -57,7 +64,7 @@ $(document).ready(() => {
     })
 
     $(".early-success").ready(() => {
-        setTimeout(setSrc(), 100)
+        setTimeout(setSrc, 1)
     })
 
     $(".main-site").ready(() => {
