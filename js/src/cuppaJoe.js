@@ -1,6 +1,5 @@
 $(document).ready(() => {
-    let offset = 50,
-        view
+    let view
 
     const forceBox = () => {
         let image = $("img")
@@ -19,19 +18,28 @@ $(document).ready(() => {
         } while (i < image.length - 1)
     }
 
-    function setSrc() {
-        $(".mars-colony-frame").attr("src", "https://camdenshaw.github.io/Project-5/")
-        $(".weather-app-frame").attr("src", "https://camdenshaw.github.io/weather-app/")
-        $(".note-dot-js-frame").attr("src", "https://note-dot-js.herokuapp.com")
-        $(".pong-frame").attr("src", "https://camdenshaw.github.io/Pong/")
-        $(".vatjss-frame").attr("src", "http://vatjssportfolio.herokuapp.com")
-        $(".inhabitent-frame").attr("src", "http://inhabi-tent.herokuapp.com/")
-        $(".aloha-frame").attr("src", "https://camdenshaw.github.io/Aloha/")
-        $(".wu-zetian-frame").attr(
-            "src",
-            "https://camdenshaw.github.io/Wu-Zetian-Tribute-freeCodeCamp/"
-        )
-        $(".instanews-frame").attr("src", "https://camdenshaw.github.io/Instanews/")
+    function setSrc(source) {
+        if (source === "web app") {
+            $(".mars-colony-frame").attr("src", "https://camdenshaw.github.io/Project-5/")
+            $(".weather-app-frame").attr(
+                "src",
+                "https://camdenshaw.github.io/weather-app/"
+            )
+            $(".note-dot-js-frame").attr("src", "https://note-dot-js.herokuapp.com")
+            $(".pong-frame").attr("src", "https://camdenshaw.github.io/Pong/")
+        }
+        if (source === "wordpress") {
+            $(".vatjss-frame").attr("src", "http://vatjssportfolio.herokuapp.com")
+            $(".inhabitent-frame").attr("src", "http://inhabi-tent.herokuapp.com/")
+        }
+        if (source === "single page") {
+            $(".aloha-frame").attr("src", "https://camdenshaw.github.io/Aloha/")
+            $(".wu-zetian-frame").attr(
+                "src",
+                "https://camdenshaw.github.io/Wu-Zetian-Tribute-freeCodeCamp/"
+            )
+            $(".instanews-frame").attr("src", "https://camdenshaw.github.io/Instanews/")
+        }
     }
 
     const inProgress = () => {
@@ -49,7 +57,7 @@ $(document).ready(() => {
     $(".navbar li a").click(function(event) {
         event.preventDefault()
 
-        view = $(this.hash)[0].offsetTop - offset
+        view = $(this.hash)[0].offsetTop
 
         $(".main-site").animate(
             {
@@ -63,8 +71,17 @@ $(document).ready(() => {
         forceBox()
     })
 
-    $(".early-success").ready(() => {
-        setTimeout(setSrc, 1)
+    $("a.web-app-open").click(e => {
+        $(`#${e.currentTarget.nextElementSibling.id} iframe`)[0].attributes.src.value ===
+            "about:blank" && setSrc("web app")
+    })
+    $("a.wordpress-open").click(e => {
+        $(`#${e.currentTarget.nextElementSibling.id} iframe`)[0].attributes.src.value ===
+            "about:blank" && setSrc("wordpress")
+    })
+    $("a.single-page-open").click(e => {
+        $(`#${e.currentTarget.nextElementSibling.id} iframe`)[0].attributes.src.value ===
+            "about:blank" && setSrc("single page")
     })
 
     $(".main-site").ready(() => {

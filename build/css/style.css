@@ -20,7 +20,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
   display: none; }
 
 .main-site > div:not(:last-of-type) {
-  min-height: calc(100vh - 40px);
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,7 +47,8 @@ hr {
   margin: 0; }
 
 #portfolio {
-  background-color: rgba(200, 255, 255, 0.95); }
+  background-color: #c8ffff;
+  padding: 50px 1vw; }
 
 hr:last-of-type {
   margin-bottom: 20px; }
@@ -207,7 +208,8 @@ iframe {
   height: calc(100vh - 40px); }
 
 #media {
-  background-color: rgba(220, 20, 60, 0.96); }
+  background-color: crimson;
+  padding: 50px 1vw; }
 
 div.around-web {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(7, 3, 3, 0.5))), url("../../assets/images/drop-blueb.png");

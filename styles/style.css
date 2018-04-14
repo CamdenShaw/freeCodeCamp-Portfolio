@@ -23,7 +23,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
 }
 
 .main-site > div:not(:last-of-type) {
-    min-height: calc(100vh - 40px);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,7 +48,8 @@ hr {
 }
 
 #portfolio {
-    background-color: rgba(200, 290, 255, 0.95);
+    background-color: rgb(200, 290, 255);
+    padding: 50px 1vw;
 }
 
 hr:last-of-type {
@@ -225,7 +226,8 @@ iframe {
 }
 
 #media {
-    background-color: rgba(220, 20, 60, 0.96);
+    background-color: rgb(220, 20, 60);
+    padding: 50px 1vw;
 }
 
 div.around-web {
