@@ -39,12 +39,62 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
     background-color: rgba(255, 255, 255, 0.7);
 }
 
+.jumbotron p {
+    font-size: 16px;
+}
+
+.jumbotron h3 {
+    text-align: left;
+}
+
+.jumbotron h4 {
+    font-size: 19px;
+}
+
+.jumbotron ul {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    list-style-type: circle;
+}
+
+#about .jumbotron ul li {
+    min-width: 19rem;
+    margin: 0;
+}
+
 #about {
     padding-top: 20px;
 }
 
+#about .jumbotron * {
+    max-width: 61rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 hr {
     margin: 0;
+}
+
+h3 {
+    margin-bottom: 0;
+    padding-bottom: 10px;
+}
+
+a {
+    color: #222;
+}
+
+a:hover {
+    color: black;
+    font-family: Abel;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover h3 {
+    font-weight: 900;
 }
 
 #portfolio {
