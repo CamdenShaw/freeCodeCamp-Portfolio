@@ -39,8 +39,8 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
     background-color: rgba(255, 255, 255, 0.7);
 }
 
-.jumbotron p {
-    font-size: 16px;
+.jumbotron h1 {
+    font-size: 51px;
 }
 
 .jumbotron h3 {
@@ -51,12 +51,22 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
     font-size: 19px;
 }
 
+.jumbotron h5 span {
+    font-size: 19px;
+    line-height: 0;
+}
+
+.jumbotron p {
+    font-size: 16px;
+}
+
 .jumbotron ul {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     list-style-type: circle;
 }
+
 
 #about .jumbotron ul li {
     min-width: 19rem;
@@ -91,6 +101,11 @@ a:hover {
     font-family: Abel;
     text-decoration: none;
     cursor: pointer;
+}
+
+a:focus {
+    color: #010101;
+    text-decoration: none;
 }
 
 a:hover h3 {
@@ -285,7 +300,8 @@ div.around-web {
         url("../../assets/images/drop-blueb.png");
     background-position: center;
     background-size: cover;
-    height: 200px;
+    /* height: 200px; */
+    padding-bottom: 20px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -296,6 +312,22 @@ div.around-web {
     margin: 0;
 }
 
+.around-web p {
+    text-align: center;
+    display: block;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.around-web a {
+    color: orangered;
+}
+
+.around-web a:hover {
+    color: crimson;
+}
+
 .social {
     text-align: center;
     font-size: 0;
@@ -304,6 +336,7 @@ div.around-web {
 .social.col-xs-12 {
     margin-top: 29px;
     padding: 0;
+    margin-bottom: 40px;
 }
 
 .link.col-xs-1 {
@@ -325,6 +358,7 @@ div.around-web {
     border: 1px whitesmoke solid;
     border-radius: 40%;
     box-sizing: content-box;
+    transition: .5s;
 }
 
 .social a:hover {
@@ -333,6 +367,7 @@ div.around-web {
     border: 1px white solid;
     border-radius: 43%;
     box-shadow: 0px 1px 3px white;
+    transition: .5s;
 }
 
 .social i {

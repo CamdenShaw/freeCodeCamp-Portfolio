@@ -40,14 +40,21 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
   border: 1px solid rgba(255, 185, 106, 0.8);
   background-color: rgba(255, 255, 255, 0.7); }
 
-.jumbotron p {
-  font-size: 16px; }
+.jumbotron h1 {
+  font-size: 51px; }
 
 .jumbotron h3 {
   text-align: left; }
 
 .jumbotron h4 {
   font-size: 19px; }
+
+.jumbotron h5 span {
+  font-size: 19px;
+  line-height: 0; }
+
+.jumbotron p {
+  font-size: 16px; }
 
 .jumbotron ul {
   display: -webkit-box;
@@ -87,6 +94,10 @@ a:hover {
   font-family: Abel;
   text-decoration: none;
   cursor: pointer; }
+
+a:focus {
+  color: #010101;
+  text-decoration: none; }
 
 a:hover h3 {
   font-weight: 900; }
@@ -261,7 +272,8 @@ div.around-web {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(7, 3, 3, 0.5)), url("../../assets/images/drop-blueb.png");
   background-position: center;
   background-size: cover;
-  height: 200px;
+  /* height: 200px; */
+  padding-bottom: 20px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -270,13 +282,27 @@ div.around-web {
 .around-web .row {
   margin: 0; }
 
+.around-web p {
+  text-align: center;
+  display: block;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.around-web a {
+  color: orangered; }
+
+.around-web a:hover {
+  color: crimson; }
+
 .social {
   text-align: center;
   font-size: 0; }
 
 .social.col-xs-12 {
   margin-top: 29px;
-  padding: 0; }
+  padding: 0;
+  margin-bottom: 40px; }
 
 .link.col-xs-1 {
   min-width: 30px;
@@ -295,7 +321,9 @@ div.around-web {
   border: 1px whitesmoke solid;
   border-radius: 40%;
   -webkit-box-sizing: content-box;
-          box-sizing: content-box; }
+          box-sizing: content-box;
+  -webkit-transition: .5s;
+  transition: .5s; }
 
 .social a:hover {
   background-color: #c1e1f1;
@@ -303,7 +331,9 @@ div.around-web {
   border: 1px white solid;
   border-radius: 43%;
   -webkit-box-shadow: 0px 1px 3px white;
-          box-shadow: 0px 1px 3px white; }
+          box-shadow: 0px 1px 3px white;
+  -webkit-transition: .5s;
+  transition: .5s; }
 
 .social i {
   position: absolute;
