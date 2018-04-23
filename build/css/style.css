@@ -13,7 +13,7 @@ body {
   padding: 0;
   width: auto;
   background-image: url("../../assets/images/background2@0.5x.png");
-  background-position: 0 -100%;
+  background-position: 0 -100px;
   background-size: 100% auto; }
 
 html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar {
@@ -50,11 +50,15 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
   font-size: 19px; }
 
 .jumbotron h5 span {
-  font-size: 19px;
+  font-size: 11px;
   line-height: 0; }
 
+.jumbotron h5 {
+  font-size: 12px; }
+
 .jumbotron p {
-  font-size: 16px; }
+  font-size: 16px;
+  margin-top: 10px; }
 
 .jumbotron ul {
   display: -webkit-box;
@@ -353,6 +357,14 @@ footer {
 footer p {
   margin: 0;
   padding: 0; }
+
+@media screen and (min-width: 420px) {
+  .jumbotron h5 span {
+    font-size: 19px; }
+  .jumbotron h5 {
+    font-size: 14px; }
+  .jumbotron p {
+    font-size: 16px; } }
 
 @media screen and (min-width: 768px) {
   .main-site.container {
