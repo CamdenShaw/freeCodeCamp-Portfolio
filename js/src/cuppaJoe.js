@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    let view
+    let currentCarousel, view
 
     const forceBox = () => {
         let image = $("img")
@@ -104,6 +104,16 @@ $(document).ready(() => {
             target: "#myNavbar",
             offset: 140
         })
+    })
+
+    $("i.fa.fa-info-circle").click(e => {
+        let showElement = e.target.parentElement.nextElementSibling.className.split(" ").join(".")
+        $(`div.${showElement}`).toggleClass("show-info")
+    })
+
+    $("form.message-camden").on("submit", e => {
+        e.preventDefault()
+        alert("The form is not yet connected to the server, ", "<a href=mailto:camden.shaw@gmail.com>camden.shaw@gmail.com</a>", " click the link to get a hold of Camden.")
     })
 
     window.addEventListener("resize", () => {

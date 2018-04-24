@@ -6,6 +6,10 @@ body {
     font-size: 14px;
 }
 
+*:focus {
+    outline: none;
+}
+
 .main-site.container {
     height: calc(100vh - 40px);
     overflow-y: scroll;
@@ -41,6 +45,53 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
 
 .jumbotron h1 {
     font-size: 51px;
+}
+
+i.fa.fa-info-circle {
+    color: grey;
+    cursor: pointer;
+}
+
+i.fa.fa-info-circle:hover {
+    color: inherit;
+}
+
+.item-info {
+    width: 0;
+    height: 0;
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    transition: .6s;
+    border-bottom: 1px solid black;
+    border-radius: 0 0 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.item-info p {
+    display: block;
+    font-size: 0;
+    transition: .6s;
+    color: white;
+}
+
+.show-info {
+    background-color: rgba(10, 10, 200, .95);
+    width: 100%;
+    height: 200px;
+    border-radius: 0 0 0 0;
+    transition: .6s;
+    border-bottom: 3px solid rgb(220, 220, 255);
+}
+
+.show-info p {
+    font-size: inherit;
+    transition: .6s;
 }
 
 .jumbotron h3 {
@@ -180,11 +231,11 @@ img.col-xs-12 {
 }
 
 .modal-open .modal {
-    width: 95%;
-    margin: 3% auto 2%;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
     border: 1px solid white;
     background-color: whitesmoke;
-    overflow-y: hidden;
 }
 
 .modal-dialog {
@@ -197,26 +248,40 @@ img.col-xs-12 {
     padding: 0;
 }
 
-.modal-header h4 {
+.modal-header h3 {
     text-align: center;
-    padding-top: 20px;
+    margin-top: 20px;
+    padding: 0;
 }
 
 .modal-header button.close {
     padding: 5px 10px;
 }
 
+.item-title {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: -15px;
+    font-size: 14px;
+    left: 50%;
+    transform: translateX(calc(-50% - 15px))
+}
+
 .modal-body {
-    overflow: hidden;
     padding: 15px 0;
-    margin: 0 15px;
-    height: calc(100% - 45px);
+    margin: 0;
+    height: calc(100% - 68px);
 }
 
 .modal-body .item,
 .carousel,
 .carousel-inner {
     height: 100%;
+}
+
+.carousel-inner {
+    overflow: visible;
 }
 
 a.carousel-control {
@@ -300,12 +365,76 @@ iframe {
     padding: 50px 1vw;
 }
 
+#contact .col-xs-12 .col-xs-12, #contact .col-lg-6 {
+    padding: 0;
+}
+
+form.message-camden {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-camden input, .message-camden textarea, .message-camden button {
+    background-color: rgba(220,220,250,0.6);
+    border-radius: 20px;
+    border: 2px solid lavender;
+    border-style: outset;
+    padding: 13px;
+    margin: 15px 30px 15px 0;
+    font-size: 2rem;
+    transition: .3s;
+}
+
+.message-camden input {
+    height: 40px;
+}
+
+.message-camden textarea {
+    height: 130px;
+}
+
+.message-camden button {
+    background-color: rgb(220, 220, 250);
+    height: 40px;
+    padding:0;
+    position: relative;
+    width: 50%;
+    left: 25%;
+}
+
+.message-camden button:hover {
+    background-color: rgb(200, 200, 250);
+    box-shadow: 2px 2px 2px white;
+}
+
+.message-camden button:active {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 12px 12px 12px white;
+}
+
+.message-camden input:focus, .message-camden textarea:focus {
+    margin: 0 30px 0 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid darkred;
+    font-size: 2.5rem;
+    background-color: rgba(250, 250, 255, 0.1);
+    transition: .3s;
+}
+
+.message-camden input:focus {
+    height: 70px;
+}
+
+.message-camden textarea:focus {
+    height: 160px;
+}
+
 div.around-web {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(7, 3, 3, 0.5)),
         url("../../assets/images/drop-blueb.png");
     background-position: center;
     background-size: cover;
-    /* height: 200px; */
     padding-bottom: 20px;
     width: 100%;
     margin: 0;

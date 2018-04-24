@@ -5,6 +5,9 @@ body {
   font-family: Abel;
   font-size: 14px; }
 
+*:focus {
+  outline: none; }
+
 .main-site.container {
   height: calc(100vh - 40px);
   overflow-y: scroll;
@@ -42,6 +45,58 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
 
 .jumbotron h1 {
   font-size: 51px; }
+
+i.fa.fa-info-circle {
+  color: grey;
+  cursor: pointer; }
+
+i.fa.fa-info-circle:hover {
+  color: inherit; }
+
+.item-info {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 3;
+  -webkit-transition: .6s;
+  transition: .6s;
+  border-bottom: 1px solid black;
+  border-radius: 0 0 50% 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden; }
+
+.item-info p {
+  display: block;
+  font-size: 0;
+  -webkit-transition: .6s;
+  transition: .6s;
+  color: white; }
+
+.show-info {
+  background-color: rgba(10, 10, 200, 0.95);
+  width: 100%;
+  height: 200px;
+  border-radius: 0 0 0 0;
+  -webkit-transition: .6s;
+  transition: .6s;
+  border-bottom: 3px solid #dcdcff; }
+
+.show-info p {
+  font-size: inherit;
+  -webkit-transition: .6s;
+  transition: .6s; }
 
 .jumbotron h3 {
   text-align: left; }
@@ -162,11 +217,11 @@ img.col-xs-12 {
           transform: translateX(-50%); }
 
 .modal-open .modal {
-  width: 95%;
-  margin: 3% auto 2%;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
   border: 1px solid white;
-  background-color: whitesmoke;
-  overflow-y: hidden; }
+  background-color: whitesmoke; }
 
 .modal-dialog {
   width: 100%;
@@ -176,23 +231,36 @@ img.col-xs-12 {
 .modal-header {
   padding: 0; }
 
-.modal-header h4 {
+.modal-header h3 {
   text-align: center;
-  padding-top: 20px; }
+  margin-top: 20px;
+  padding: 0; }
 
 .modal-header button.close {
   padding: 5px 10px; }
 
+.item-title {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: -15px;
+  font-size: 14px;
+  left: 50%;
+  -webkit-transform: translateX(calc(-50% - 15px));
+          transform: translateX(calc(-50% - 15px)); }
+
 .modal-body {
-  overflow: hidden;
   padding: 15px 0;
-  margin: 0 15px;
-  height: calc(100% - 45px); }
+  margin: 0;
+  height: calc(100% - 68px); }
 
 .modal-body .item,
 .carousel,
 .carousel-inner {
   height: 100%; }
+
+.carousel-inner {
+  overflow: visible; }
 
 a.carousel-control {
   width: 15%;
@@ -271,12 +339,74 @@ iframe {
   background-color: crimson;
   padding: 50px 1vw; }
 
+#contact .col-xs-12 .col-xs-12, #contact .col-lg-6 {
+  padding: 0; }
+
+form.message-camden {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.message-camden input, .message-camden textarea, .message-camden button {
+  background-color: rgba(220, 220, 250, 0.6);
+  border-radius: 20px;
+  border: 2px solid lavender;
+  border-style: outset;
+  padding: 13px;
+  margin: 15px 30px 15px 0;
+  font-size: 2rem;
+  -webkit-transition: .3s;
+  transition: .3s; }
+
+.message-camden input {
+  height: 40px; }
+
+.message-camden textarea {
+  height: 130px; }
+
+.message-camden button {
+  background-color: #dcdcfa;
+  height: 40px;
+  padding: 0;
+  position: relative;
+  width: 50%;
+  left: 25%; }
+
+.message-camden button:hover {
+  background-color: #c8c8fa;
+  -webkit-box-shadow: 2px 2px 2px white;
+          box-shadow: 2px 2px 2px white; }
+
+.message-camden button:active {
+  background-color: white;
+  -webkit-box-shadow: 12px 12px 12px white;
+          box-shadow: 12px 12px 12px white; }
+
+.message-camden input:focus, .message-camden textarea:focus {
+  margin: 0 30px 0 0;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid darkred;
+  font-size: 2.5rem;
+  background-color: rgba(250, 250, 255, 0.1);
+  -webkit-transition: .3s;
+  transition: .3s; }
+
+.message-camden input:focus {
+  height: 70px; }
+
+.message-camden textarea:focus {
+  height: 160px; }
+
 div.around-web {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(7, 3, 3, 0.5))), url("../../assets/images/drop-blueb.png");
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(7, 3, 3, 0.5)), url("../../assets/images/drop-blueb.png");
   background-position: center;
   background-size: cover;
-  /* height: 200px; */
   padding-bottom: 20px;
   width: 100%;
   margin: 0;
