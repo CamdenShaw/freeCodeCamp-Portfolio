@@ -56,6 +56,14 @@ i.fa.fa-info-circle:hover {
     color: inherit;
 }
 
+.android-download {
+    display: none;
+}
+
+.ios-download {
+    display:none;
+}
+
 .item-info {
     width: 0;
     height: 0;
