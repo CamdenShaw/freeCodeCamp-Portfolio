@@ -116,6 +116,8 @@ $(document).ready(() => {
         alert("The form is not yet connected to the server, ", "<a href=mailto:camden.shaw@gmail.com>camden.shaw@gmail.com</a>", " click the link to get a hold of Camden.")
     })
 
+    console.log(navigator.userAgent.toLowerCase().search())
+
     window.addEventListener("resize", () => {
         forceBox()
     })
