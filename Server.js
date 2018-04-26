@@ -11,6 +11,10 @@ const smtpTransport = nodemailer.createTransport({
     }
 })
 
+app.get("/", (req, res) => {
+    res.sendFile("/Users/camdenshaw/Documents/freeCodeCamp/Portfolio/")
+})
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
