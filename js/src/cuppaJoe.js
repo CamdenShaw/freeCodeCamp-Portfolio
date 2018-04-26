@@ -112,10 +112,10 @@ $(document).ready(() => {
         $(`div.${showElement}`).toggleClass("show-info")
     })
 
-    $("form.message-camden").on("submit", e => {
-        e.preventDefault()
-        alert("The form is not yet connected to the server, ", "<a href=mailto:camden.shaw@gmail.com>camden.shaw@gmail.com</a>", " click the link to get a hold of Camden.")
-    })
+    // $("form.message-camden").on("submit", e => {
+    //     e.preventDefault()
+    //     alert("The form is not yet connected to the server, ", "<a href=mailto:camden.shaw@gmail.com>camden.shaw@gmail.com</a>", " click the link to get a hold of Camden.")
+    // })
 
     if (os === "Android" || os === "Linux" || os === null || os === "Linux aarch64" || os === "Linux armv5tejl" || os === "Linux armv6l" || os === "Linux armv7l" || os === "Linux i686" || os === "Linux i686 on x86_64" || os === "Linux i686 X11" || os === "Linux MSM8960_v3.2.1.1_N_R069_Rev:18" || os === "Linux ppc64" || os === "Linux x86_64" || os === "Linux x86_64 X11") {
         console.log("android ", os)

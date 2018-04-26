@@ -20,7 +20,10 @@
         "gulp-rename": "^1.2.2",
         "minimatch": "^3.0.2"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "express": "^4.16.3",
+        "nodemailer": "^4.6.4"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -28,7 +31,11 @@
         "type": "git",
         "url": "git+https://github.com/CamdenShaw/freeCodeCamp-Portfolio.git"
     },
-    "keywords": ["Camden", "Shaw", "Portfolio"],
+    "keywords": [
+        "Camden",
+        "Shaw",
+        "Portfolio"
+    ],
     "author": "Camden Shaw",
     "license": "ISC",
     "bugs": {
