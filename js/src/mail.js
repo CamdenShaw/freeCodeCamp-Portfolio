@@ -8,7 +8,7 @@ $(document).ready(() => {
         subject = `Message From ${from} Via camdenshaw.ca`
         text = `${$("[name='content']").val()}\n\n${from}\n${$("[name='phone#']").val()}\n${$("[name='email']").val()}`
         $(".status").text("Sending Email")
-        $.get("http://localhost:3010/send", {
+        $.get("camdenshaw.ca:3010/send", {
             from,
             to,
             subject,

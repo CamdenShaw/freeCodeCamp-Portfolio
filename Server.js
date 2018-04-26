@@ -7,14 +7,14 @@ const smtpTransport = nodemailer.createTransport({
     host: "smtp.gmail.com",
     auth: {
         user: "camden.shaw@gmail.com",
-        pass: "wohbocwhrvzhfjwg"
+        pass: "zhcxtwlhtsueeafq"
     }
 })
 
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'camdenshaw.ca');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET');
@@ -30,10 +30,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/", (req, res) => {
-    res.sendFile("/Users/camdenshaw/Documents/freeCodeCamp/Portfolio/")
-})
-
 app.get("/send", (req, res) => {
     let mailOptions = {
         from: req.query.from,
@@ -47,7 +43,7 @@ app.get("/send", (req, res) => {
             console.log(err)
             res.end("error")
         } else {
-            console.log(`Message sent: ${response}.`)
+            console.log(`Message sent: ${response.toString()}.`)
             res.end("sent")
         }
     })
