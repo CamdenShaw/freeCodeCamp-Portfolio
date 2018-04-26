@@ -25,6 +25,7 @@
         "nodemailer": "^4.6.4"
     },
     "scripts": {
+        "start": "PORT='3010' node Server",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
