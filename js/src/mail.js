@@ -2,6 +2,7 @@ $(document).ready(() => {
     let from, subject, text;
     const to = "camden.shaw@gmail.com"
 
+    
     $("form.message-camden").on("submit", (e) => {
         e.preventDefault()
         from = $("[name='from']").val()
@@ -9,7 +10,9 @@ $(document).ready(() => {
         text = `${$("[name='content']").val()}\n\n${from}\n${$("[name='phone#']").val()}\n${$("[name='email']").val()}`
         $(".status").text("Sending Email")
         console.log("before timeout")
-        setTimeout(() => {$(".status").text() === "Sending Email" && $(".status").text("No Response on Message Status")}, 40000)
+        let noResponse = setTimeout(() => {
+            $(".status").text() === "Sending Email" && $(".status").text("No Response on Message Status")
+        }, 40000)
         console.log("after timeout")
         $.get("https://camden-portfolio.herokuapp.com/send", {
             from,
@@ -18,9 +21,10 @@ $(document).ready(() => {
             text
         }, (data, err) => {
             console.log("inside end function", data, err)
+            clearTimeout(noResponse)
             data=="sent" && $(".status").empty().html("Email has been sent.")
             data=="error" && $(".status").empty().html(`<p>An error has occurred, please try again later. <i class="mail fa fa-info-circle></i></p> <p class="mail-error">${err}</p>`)
         })
-        setTimeout(()=> $(".status").empty(), 50000)
+        setTimeout(()=> $(".status").empty(), 20000)
     })
 })
