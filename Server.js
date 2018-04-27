@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'camdenshaw.ca');
+    res.setHeader('Access-Control-Allow-Origin', 'http://camdenshaw.ca');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET');
