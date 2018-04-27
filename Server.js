@@ -43,13 +43,16 @@ app.get("/send", (req, res) => {
     }
     console.log(mailOptions)
     smtpTransport.sendMail(mailOptions, (err, response) => {
-        if(err) {
-            console.log(err)
-            res.end("error")
-        } else {
-            console.log(`Message sent: ${response.toString()}.`)
-            res.end("sent")
-        }
+        setTimeout(() => {
+            if(err) {
+                console.log(err)
+                res.end("error")
+            } else {
+                console.log(`Message sent: ${response.toString()}.`)
+                res.end("sent")
+            }
+        }, 100)
+        setTimeout(() => {res.end("timeout")}, 40000)
     })
 })
 
