@@ -4,13 +4,13 @@ $(document).ready(() => {
         submitMessageStart = parseFloat($(".submit-message").css("marginBottom"))
 
     const formButtonMargin = () => {
-        if($(".status").html() === "" && parseFloat($(".submit-message").css("marginBottom")) === submitMessageStart - parseFloat($(".status").css("fontSize"))) {
-            $(".submit-message").css("marginBottom", 30)
-            $(".status").css("height", 0)
+        if($(".status")[0].classList.length === 1) {
+            if(parseFloat($(".submit-message").css("marginBottom")) === submitMessageStart - parseFloat($(".status").css("fontSize"))){
+                $(".submit-message").css("marginBottom", 30)
+            }
         }
         else {
             $(".submit-message").css("marginBottom", submitMessageStart - parseFloat($(".status").css("fontSize")))
-            $(".status").css("height", "100%")
         }
     }
 
@@ -23,18 +23,32 @@ $(document).ready(() => {
         from = $("[name='from']").val()
         subject = `Message From ${from} Via camdenshaw.ca`
         text = `${$("[name='content']").val()}\n\n${from}\n${$("[name='phone#']").val()}\n${$("[name='email']").val()}`
-        $(".status").html("Sending Email")
+
+        $(".status").empty().html("Sending Email")
+        toggleTheClass("sending")
         formButtonMargin()
+
         let noResponse = setTimeout(() => {
-            $(".status").toggleClass("warning").text() === "Sending Email" && $(".status").html("No Response on Message Status")
+            clearInterval(waitingForResponse)
+            clearInterval(clearDots)
+            $(".status").html($(".status").html().replace(/\./g, ""))
+            toggleTheClass("sending")
+            toggleTheClass("warning")
+            $(".status").text() === "Sending Email" && $(".status").empty().html("No Response on Message Status")
             formButtonMargin()
         }, 40000)
+
+        let waitingForResponse = setInterval(() => $(".status").append("."), 200)
+        let clearDots = setInterval(() => $(".status").html($(".status").html().replace(/\./g, "")), 2000)
+
         $.get("https://camden-portfolio.herokuapp.com/send", {
             from,
             to,
             subject,
             text
         }, (data, err) => {
+            clearInterval(waitingForResponse)
+            clearInterval(clearDots)
             clearTimeout(noResponse)
             toggleTheClass(data)
             data=="sent" && $(".status").empty().html(`Email has been sent.`)
@@ -42,9 +56,11 @@ $(document).ready(() => {
             setTimeout(() => toggleTheClass(data), 50000)
             formButtonMargin()
         })
+
         setTimeout(() => {
+            clearInterval(waitingForResponse)
+            clearInterval(clearDots)
             $(".status")[0].classList[1] === "warning" && toggleTheClass("warning")
-            $(".status").empty()
             formButtonMargin()
         }, 50000)
     })

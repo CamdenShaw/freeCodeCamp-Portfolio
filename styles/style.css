@@ -384,6 +384,7 @@ iframe {
 form.message-camden {
     display: flex;
     flex-direction: column;
+    margin-right:0;
 }
 
 .message-camden input, .message-camden textarea, .message-camden button {
@@ -394,6 +395,9 @@ form.message-camden {
     padding: 13px;
     margin: 15px 0 15px 0;
     font-size: 2rem;
+}
+
+.message-camden input, .message-camden textarea {
     transition: .3s;
 }
 
@@ -402,7 +406,7 @@ form.message-camden {
 }
 
 .message-camden input:focus, .message-camden textarea:focus {
-    margin: 0 30px 0 0;
+    margin: 0 30px 15px 0;
     border: none;
     border-radius: 0;
     border-bottom: 1px solid darkred;
@@ -448,19 +452,27 @@ form.message-camden {
     padding: 0;
     line-height: 1;
     height: 0;
-    transition: .3s;
+    color: rgba(0, 0, 0, 0);
 }
 
-.status.sent {
+.message-camden p.status.sending {
+    color: navy;
+    height:100%;
+}
+
+.message-camden p.status.sent {
     color: green;
+    height: 100%;
 }
 
-.status.error {
+.message-camden p.status.error {
     color: red;
+    height: 100%;
 }
 
-.status.warning {
-    color: orange
+.message-camden p.status.warning {
+    color: orange;
+    height: 100%;
 }
 
 div.around-web {
@@ -648,9 +660,10 @@ footer p {
 }
 
 @media screen and (min-width: 1200px) {
-    .message-camden input, .message-camden textarea, .message-camden button {
-        margin: 15px 30px 30px 0;
+    form.message-camden {
+        margin-right: 30px;
     }
+
     .main-site.container {
         background-image: url("../../assets/images/background2@3x.png");
     }

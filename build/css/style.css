@@ -358,7 +358,8 @@ form.message-camden {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column; }
+          flex-direction: column;
+  margin-right: 0; }
 
 .message-camden input, .message-camden textarea, .message-camden button {
   background-color: rgba(220, 220, 250, 0.6);
@@ -367,7 +368,9 @@ form.message-camden {
   border-style: outset;
   padding: 13px;
   margin: 15px 0 15px 0;
-  font-size: 2rem;
+  font-size: 2rem; }
+
+.message-camden input, .message-camden textarea {
   -webkit-transition: .3s;
   transition: .3s; }
 
@@ -375,7 +378,7 @@ form.message-camden {
   height: 40px; }
 
 .message-camden input:focus, .message-camden textarea:focus {
-  margin: 0 30px 0 0;
+  margin: 0 30px 15px 0;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid darkred;
@@ -417,17 +420,23 @@ form.message-camden {
   padding: 0;
   line-height: 1;
   height: 0;
-  -webkit-transition: .3s;
-  transition: .3s; }
+  color: transparent; }
 
-.status.sent {
-  color: green; }
+.message-camden p.status.sending {
+  color: navy;
+  height: 100%; }
 
-.status.error {
-  color: red; }
+.message-camden p.status.sent {
+  color: green;
+  height: 100%; }
 
-.status.warning {
-  color: orange; }
+.message-camden p.status.error {
+  color: red;
+  height: 100%; }
+
+.message-camden p.status.warning {
+  color: orange;
+  height: 100%; }
 
 div.around-web {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(7, 3, 3, 0.5))), url("../../assets/images/drop-blueb.png");
@@ -570,8 +579,8 @@ footer p {
     background-image: url("../../assets/images/background2@2x.png"); } }
 
 @media screen and (min-width: 1200px) {
-  .message-camden input, .message-camden textarea, .message-camden button {
-    margin: 15px 30px 30px 0; }
+  form.message-camden {
+    margin-right: 30px; }
   .main-site.container {
     background-image: url("../../assets/images/background2@3x.png"); }
   .coming-soon h3 {
