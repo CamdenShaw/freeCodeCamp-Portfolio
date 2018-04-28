@@ -36,9 +36,9 @@ $(document).ready(() => {
             text
         }, (data, err) => {
             clearTimeout(noResponse)
-            data=="sent" && $(".status").toggleClass(data).empty().html(`Email has been </p><p>sent.`)
+            data=="sent" && $(".status").toggleClass(data).empty().html(`Email has been sent.`)
             data=="error" && $(".status").toggleClass(data).empty().html(`An error has occurred, please try again later. <i class="mail fa fa-info-circle></i></p><p class="mail-error">${err}`)
-            toggleTheClass(data)
+            setTimeout(toggleTheClass(data), 50000)
             formButtonMargin()
         })
         setTimeout(() => {
