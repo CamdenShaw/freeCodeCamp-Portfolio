@@ -50,6 +50,7 @@ $(document).ready(() => {
             clearInterval(waitingForResponse)
             clearInterval(clearDots)
             clearTimeout(noResponse)
+            toggleTheClass("sending")
             toggleTheClass(data)
             data==="sent" && $(".status").empty().html(`Email has been sent.`)
             data==="error" && $(".status").empty().html(`An error has occurred, please try again later. <i class="mail fa fa-info-circle></i></p><p class="mail-error">${err}`)
