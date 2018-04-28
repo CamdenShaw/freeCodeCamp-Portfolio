@@ -59,13 +59,14 @@ $(document).ready(() => {
         })
         
         const clearStatus = () => {
+            console.log("clear status")
             clearInterval(waitingForResponse)
             clearInterval(clearDots)
             $(".status")[0].classList[1] === "warning" && toggleTheClass("warning")
             formButtonMargin()
             clearInterval(clearSent)
         }
-        
+
         let clearSent = setInterval(() => {
             console.log($(".status")[0].classList[1])
             if($(".status")[0].classList[1] === "sent") {
