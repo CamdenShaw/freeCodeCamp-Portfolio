@@ -59,7 +59,6 @@ $(document).ready(() => {
         })
         
         const clearStatus = (toggleClass) => {
-            console.log("clear status")
             clearInterval(waitingForResponse)
             clearInterval(clearDots)
             toggleTheClass(toggleClass)
@@ -68,9 +67,7 @@ $(document).ready(() => {
         }
 
         let clearSent = setInterval(() => {
-            console.log($(".status")[0].classList[1])
             if($(".status")[0].classList[1] === "sent") {
-                console.log($(".status")[0].classList[1])
                 clearTimeout(clearStatusMessage)
                 clearTimeout(toggleData)
                 setTimeout(() => clearStatus($(".status")[0].classList[1]), 5000)
