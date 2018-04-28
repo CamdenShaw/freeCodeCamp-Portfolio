@@ -51,8 +51,8 @@ $(document).ready(() => {
             clearInterval(clearDots)
             clearTimeout(noResponse)
             toggleTheClass(data)
-            data=="sent" && $(".status").empty().html(`Email has been sent.`)
-            data=="error" && $(".status").empty().html(`An error has occurred, please try again later. <i class="mail fa fa-info-circle></i></p><p class="mail-error">${err}`)
+            data==="sent" && $(".status").empty().html(`Email has been sent.`)
+            data==="error" && $(".status").empty().html(`An error has occurred, please try again later. <i class="mail fa fa-info-circle></i></p><p class="mail-error">${err}`)
             setTimeout(() => toggleTheClass(data), 50000)
             formButtonMargin()
         })
@@ -68,9 +68,11 @@ $(document).ready(() => {
             clearStatus()
         }, 50000)
 
-        if($(".status")[0].classList[1] === "sent") {
-            clearTimeout(clearStatusMessage)
-            setTimeout(() => clearStatus(), 5000)
-        }
+        setTimeout(() => {
+            if($(".status")[0].classList[1] === "sent") {
+                clearTimeout(clearStatusMessage)
+                setTimeout(() => clearStatus(), 5000)
+            }
+        }, 1)
     })
 })
