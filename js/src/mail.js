@@ -18,6 +18,8 @@ $(document).ready(() => {
         console.log(classToToggle, typeof classToToggle)
         $(".status").toggleClass(`${classToToggle}`)
         console.log($(".status")[0].classList)
+        $(".status").empty()
+        console.log($(".status")[0].classList)
     }
     
     $("form.message-camden").on("submit", (e) => {
