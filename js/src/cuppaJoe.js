@@ -118,13 +118,13 @@ $(document).ready(() => {
     // })
 
     if (os === "Android" || os === "Linux" || os === null || os === "Linux aarch64" || os === "Linux armv5tejl" || os === "Linux armv6l" || os === "Linux armv7l" || os === "Linux i686" || os === "Linux i686 on x86_64" || os === "Linux i686 X11" || os === "Linux MSM8960_v3.2.1.1_N_R069_Rev:18" || os === "Linux ppc64" || os === "Linux x86_64" || os === "Linux x86_64 X11") {
-        console.log("android ", os)
+        // console.log("android ", os)
         $(".android-download").css("display", "block")
      } else if (os === "iPhone" || os === "iPod" || os === "iPad" || os === "iPhone Simulator" || os === "iPod Simulator" || os === "iPad Simulator" || os === "Pike v7.6 release 92" || os === "Pike v7.8 release 517") {
-         console.log("iOS handheld", os)
+        //  console.log("iOS handheld", os)
          $(".android-download").css("display", "none")
      } else {
-         console.log("not handheld device", os)
+        //  console.log("not handheld device", os)
      }
 
     window.addEventListener("resize", () => {
