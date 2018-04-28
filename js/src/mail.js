@@ -17,6 +17,7 @@ $(document).ready(() => {
     const toggleTheClass = (classToToggle) => {
         console.log(classToToggle, typeof classToToggle)
         $(".status").toggleClass(`${classToToggle}`)
+        console.log($(".status")[0].classList)
     }
     
     $("form.message-camden").on("submit", (e) => {
