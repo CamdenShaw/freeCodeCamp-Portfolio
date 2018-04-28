@@ -374,27 +374,6 @@ form.message-camden {
 .message-camden input {
   height: 40px; }
 
-.message-camden textarea {
-  height: 130px; }
-
-.message-camden button {
-  background-color: #dcdcfa;
-  height: 40px;
-  padding: 0;
-  position: relative;
-  width: 50%;
-  left: 25%; }
-
-.message-camden button:hover {
-  background-color: #c8c8fa;
-  -webkit-box-shadow: 2px 2px 2px white;
-          box-shadow: 2px 2px 2px white; }
-
-.message-camden button:active {
-  background-color: white;
-  -webkit-box-shadow: 12px 12px 12px white;
-          box-shadow: 12px 12px 12px white; }
-
 .message-camden input:focus, .message-camden textarea:focus {
   margin: 0 30px 0 0;
   border: none;
@@ -408,8 +387,47 @@ form.message-camden {
 .message-camden input:focus {
   height: 70px; }
 
+.message-camden textarea {
+  height: 130px; }
+
 .message-camden textarea:focus {
   height: 160px; }
+
+.message-camden button {
+  background-color: #dcdcfa;
+  height: 40px;
+  padding: 0;
+  position: relative;
+  width: 50%;
+  margin-bottom: 30px;
+  left: 25%; }
+
+.message-camden button:hover {
+  background-color: #c8c8fa;
+  -webkit-box-shadow: 2px 2px 2px white;
+          box-shadow: 2px 2px 2px white; }
+
+.message-camden button:active {
+  background-color: white;
+  -webkit-box-shadow: 12px 12px 12px white;
+          box-shadow: 12px 12px 12px white; }
+
+.message-camden p.status {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  height: 0;
+  -webkit-transition: .3s;
+  transition: .3s; }
+
+.status.sent {
+  color: green; }
+
+.status.error {
+  color: red; }
+
+.status.warning {
+  color: orange; }
 
 div.around-web {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(7, 3, 3, 0.5))), url("../../assets/images/drop-blueb.png");
@@ -553,7 +571,7 @@ footer p {
 
 @media screen and (min-width: 1200px) {
   .message-camden input, .message-camden textarea, .message-camden button {
-    margin: 15px 30px 15px 0; }
+    margin: 15px 30px 30px 0; }
   .main-site.container {
     background-image: url("../../assets/images/background2@3x.png"); }
   .coming-soon h3 {
