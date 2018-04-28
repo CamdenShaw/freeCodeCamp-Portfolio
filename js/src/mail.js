@@ -73,6 +73,7 @@ $(document).ready(() => {
                 console.log($(".status")[0].classList[1])
                 clearTimeout(clearStatusMessage)
                 setTimeout(() => clearStatus(), 5000)
+                clearInterval(clearSent)
             }
         }, 100)
 
