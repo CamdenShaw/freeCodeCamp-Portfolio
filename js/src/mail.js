@@ -70,7 +70,9 @@ $(document).ready(() => {
         }, 50000)
 
         setTimeout(() => {
+            console.log($(".status")[0].classList[1])
             if($(".status")[0].classList[1] === "sent") {
+                console.log($(".status")[0].classList[1])
                 clearTimeout(clearStatusMessage)
                 setTimeout(() => clearStatus(), 5000)
             }
