@@ -15,6 +15,7 @@ $(document).ready(() => {
     }
 
     const toggleTheClass = (classToToggle) => {
+        console.log(classToToggle, typeof classToToggle)
         $(".status").toggleClass(`${classToToggle}`)
     }
     
