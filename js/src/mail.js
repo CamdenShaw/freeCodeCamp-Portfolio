@@ -23,11 +23,11 @@ $(document).ready(() => {
         from = $("[name='from']").val()
         subject = `Message From ${from} Via camdenshaw.ca`
         text = `${$("[name='content']").val()}\n\n${from}\n${$("[name='phone#']").val()}\n${$("[name='email']").val()}`
-
+        
         $(".status").empty().html("Sending Email")
         toggleTheClass("sending")
         formButtonMargin()
-
+        
         let noResponse = setTimeout(() => {
             clearInterval(waitingForResponse)
             clearInterval(clearDots)
@@ -37,7 +37,7 @@ $(document).ready(() => {
             $(".status").text() === "Sending Email" && $(".status").empty().html("No Response on Message Status")
             formButtonMargin()
         }, 40000)
-
+        
         let waitingForResponse = setInterval(() => $(".status").append("."), 200)
         let clearDots = setInterval(() => $(".status").html($(".status").html().replace(/\./g, "")), 2000)
 
@@ -56,12 +56,21 @@ $(document).ready(() => {
             setTimeout(() => toggleTheClass(data), 50000)
             formButtonMargin()
         })
-
-        setTimeout(() => {
+        
+        const clearStatus = () => {
             clearInterval(waitingForResponse)
             clearInterval(clearDots)
             $(".status")[0].classList[1] === "warning" && toggleTheClass("warning")
             formButtonMargin()
+        }
+
+        let clearStatusMessage = setTimeout(() => {
+            clearStatus()
         }, 50000)
+
+        if($(".status")[0].classList[1] === "sent") {
+            clearTimeout(clearStatusMessage)
+            setTimeout(clearStatus, 5000)
+        }
     })
 })
