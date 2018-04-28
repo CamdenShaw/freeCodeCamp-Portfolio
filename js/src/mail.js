@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    let from, subject, text;
+    let from, subject, text, toggleData;
     const to = "camden.shaw@gmail.com",
         submitMessageStart = parseFloat($(".submit-message").css("marginBottom"))
 
@@ -54,15 +54,15 @@ $(document).ready(() => {
             toggleTheClass(data)
             data==="sent" && $(".status").empty().html(`Email has been sent.`)
             data==="error" && $(".status").empty().html(`An error has occurred, please try again later. <i class="mail fa fa-info-circle></i></p><p class="mail-error">${err}`)
-            setTimeout(() => toggleTheClass(data), 50000)
+            toggleData = setTimeout(() => toggleTheClass(data), 50000)
             formButtonMargin()
         })
         
-        const clearStatus = () => {
+        const clearStatus = (toggleClass) => {
             console.log("clear status")
             clearInterval(waitingForResponse)
             clearInterval(clearDots)
-            $(".status")[0].classList[1] === "warning" && toggleTheClass("warning")
+            toggleTheClass(toggleClass)
             formButtonMargin()
             clearInterval(clearSent)
         }
@@ -72,13 +72,14 @@ $(document).ready(() => {
             if($(".status")[0].classList[1] === "sent") {
                 console.log($(".status")[0].classList[1])
                 clearTimeout(clearStatusMessage)
-                setTimeout(() => clearStatus(), 5000)
+                clearTimeout(toggleData)
+                setTimeout(() => clearStatus($(".status")[0].classList[1]), 5000)
                 clearInterval(clearSent)
             }
         }, 100)
 
         let clearStatusMessage = setTimeout(() => {
-            clearStatus()
+            clearStatus($(".status")[0].classList[1])
         }, 50000)
 
     })
