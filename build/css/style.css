@@ -526,8 +526,8 @@ footer p {
 
 @media screen and (min-width: 420px) {
   .row {
-    margin-right: -15px;
-    margin-left: -15px; }
+    margin-right: 0;
+    margin-left: 0; }
   .jumbotron h5 span {
     font-size: 19px; }
   .jumbotron h5 {
@@ -544,9 +544,9 @@ footer p {
   #media {
     width: 100%; }
   .grid-box.l {
-    margin-left: 0; }
+    margin-left: -15px; }
   .grid-box.r {
-    margin-right: 0; }
+    margin-right: -15px; }
   .link.col-sm-2 {
     padding: 0;
     margin-right: 0;
