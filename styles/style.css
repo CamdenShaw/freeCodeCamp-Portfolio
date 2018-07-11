@@ -1,6 +1,5 @@
 body {
     position: relative;
-    padding-top: 70px;
     background-color: navy;
     font-family: Abel;
     font-size: 14px;
@@ -10,32 +9,30 @@ body {
     outline: none;
 }
 
-.main-site.container {
-    height: calc(100vh - 40px);
-    overflow-y: scroll;
-    overflow-x: visible;
-    margin: -20px 20px 0;
+.main-site {
+    margin: 0 1px 0;
     padding: 0;
+    padding-top: 51px;
     width: auto;
     background-image: url("../../assets/images/background2@0.5x.png");
     background-position: 0 -100px;
     background-size: 100% auto;
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar {
-    display: none;
-}
+    display: none; 
+} 
 
-.main-site > div:not(:last-of-type) {
+.main-site > div:not(:nth-last-of-type(2)):not(:last-of-type) {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.container {
-    padding-left: 1vw;
-    padding-right: 1vw;
+    margin-left: -1px;
+    margin-right: -1px;
 }
 
 .row {
@@ -43,8 +40,8 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
 }
 
 .jumbotron {
-    border: 1px solid rgba(255, 185, 106, 0.8);
-    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 185, 106, 0.5);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .jumbotron h1 {
@@ -112,6 +109,8 @@ i.fa.fa-info-circle:hover {
 
 .jumbotron h4 {
     font-size: 19px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
 }
 
 .jumbotron h5 span {
@@ -128,17 +127,52 @@ i.fa.fa-info-circle:hover {
     margin-top: 10px;
 }
 
-.jumbotron ul {
+#about .jumbotron ul {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     list-style-type: circle;
+    max-width: 0;
+    overflow: hidden;
+    transition: .5s;
+    padding: 0;
 }
 
+#about h4:hover + ul {
+    max-width:  61rem;
+    transition: .5s;
+    padding-left: 40px;
+}
+
+#about ul:hover {
+    padding-left: 40px;
+    max-width:  61rem;
+    transition: .6s;
+}
 
 #about .jumbotron ul li {
     min-width: 19rem;
+    max-height: 0;
     margin: 0;
+    transition: 2s;
+    overflow: hidden;
+}
+
+
+#about h4:hover + ul li {
+    max-height: 2rem;
+    min-width: 19rem;
+    max-width:  20rem;
+    transition: 2s;
+    padding-left: 40px;
+}
+
+#about ul:hover li {
+    max-height:  2rem;
+    min-width: 19rem;
+    max-width:  20rem;
+    transition: .1s;
+    padding-left: 40px;
 }
 
 #about {
@@ -189,8 +223,12 @@ hr:last-of-type {
     margin-bottom: 20px;
 }
 
-img.col-xs-12 {
-    float: none;
+@media only screen and (max-width: 767px) {
+    img {
+        float: none;
+        left: 50%;
+        transform: translateX(-50%);;
+    }
 }
 
 .grid-box {
@@ -231,15 +269,6 @@ h3 {
     text-align: center;
     position: relative;
     z-index: 2;
-}
-
-.col-sm-6 {
-    padding: 0;
-}
-
-img.col-xs-12 {
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .modal-open .modal {
@@ -377,10 +406,6 @@ iframe {
     padding: 50px 1vw;
 }
 
-#contact .col-xs-12 .col-xs-12, #contact .col-lg-6 {
-    padding: 0;
-}
-
 form.message-camden {
     display: flex;
     flex-direction: column;
@@ -475,7 +500,7 @@ form.message-camden {
     height: 100%;
 }
 
-div.around-web {
+.around-web {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(7, 3, 3, 0.5)),
         url("../../assets/images/drop-blueb.png");
     background-position: center;
@@ -485,6 +510,7 @@ div.around-web {
     margin: 0;
     padding: 0;
     color: white;
+    height: 140px;
 }
 
 .around-web .row {
@@ -510,19 +536,21 @@ div.around-web {
 .social {
     text-align: center;
     font-size: 0;
+    margin-top: 25px;
 }
 
-.social.col-xs-12 {
-    margin-top: 29px;
-    padding: 0;
-    margin-bottom: 40px;
-}
-
-.link.col-xs-1 {
-    min-width: 30px;
-    padding: 0;
-    margin-right: 1px;
-    margin-left: 1px;
+@media only screen and (max-width: 767px) {
+    .social {
+        margin-top: 29px;
+        padding: 0;
+        margin-bottom: 40px;
+    }
+    .link{
+        min-width: 30px;
+        padding: 0;
+        margin-right: 1px;
+        margin-left: 1px;
+    }
 }
 
 .social div:first-child {
@@ -564,6 +592,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    margin: 0 -1px;
 }
 
 footer p {
@@ -591,7 +620,7 @@ footer p {
 }
 
 @media screen and (min-width: 768px) {
-    .main-site.container {
+    .main-site {
         background-image: url("../../assets/images/background2.png");
     }
     #about,
@@ -608,7 +637,7 @@ footer p {
         margin-right: -15px;
     }
 
-    .link.col-sm-2 {
+    .link.col {
         padding: 0;
         margin-right: 0;
         margin-left: 0;
@@ -636,7 +665,7 @@ footer p {
         margin-left: calc(16.7%);
     }
 
-    .social .link.col-sm-2 {
+    .social .link {
         padding: 10px;
     }
 
@@ -658,7 +687,7 @@ footer p {
         margin: 15px 0 30px;
     }
 
-    .main-site.container {
+    .main-site {
         background-image: url("../../assets/images/background2@2x.png");
     }
 }
@@ -668,7 +697,7 @@ footer p {
         margin-right: 30px;
     }
 
-    .main-site.container {
+    .main-site {
         background-image: url("../../assets/images/background2@3x.png");
     }
 

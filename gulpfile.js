@@ -27,8 +27,8 @@ gulp.task("lint", () => {
         .pipe(lintCheck.failAfterError())
 })
 
-gulp.task("scripts", ["lint"], () => {
-    gulp
+gulp.task("scripts", gulp.series("lint", () => {
+    return gulp
         .src(input)
         .pipe(
             babel({
@@ -45,19 +45,19 @@ gulp.task("scripts", ["lint"], () => {
             })
         )
         .pipe(gulp.dest("./build/js"))
-})
+}))
 
 gulp.task("hi", () => {
     console.log("Hello World!")
 })
 
 gulp.task("watch", () => {
-    gulp.watch("./js/src/*.js", ["scripts"])
-    gulp.watch("./styles/*.css", ["sass"])
+    gulp.watch("./js/src/*.js", gulp.parallel("scripts"))
+    gulp.watch("./styles/*.css", gulp.parallel("sass"))
 })
 
 gulp.task("sass", () => {
-    gulp
+    return gulp
         .src("./styles/style.css")
         .pipe(prettyError())
         .pipe(sass())
@@ -78,10 +78,10 @@ gulp.task("browser-sync", () => {
             baseDir: "./"
         }
     })
-    gulp
+    return gulp
         .watch(["build/js/*.js", "build/css/*.min.css", "index.html"])
         .on("change", browserSync.reload)
     //gulp.watch('./styles/*.css').on('change', browserSync.reload)
 })
 
-gulp.task("default", ["watch", "browser-sync"])
+gulp.task("default", gulp.parallel("watch", "browser-sync"))
