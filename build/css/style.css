@@ -7,10 +7,16 @@ body {
 *:focus {
   outline: none; }
 
+hr:nth-of-type(odd) {
+  margin-top: 80px; }
+
+hr:nth-of-type(even) {
+  margin-bottom: 80px; }
+
 .main-site {
   margin: 0 1px 0;
   padding: 0;
-  padding-top: 51px;
+  padding-top: 52px;
   width: auto;
   background-image: url("../../assets/images/background2@0.5x.png");
   background-position: 0 -100px;
@@ -92,7 +98,7 @@ i.fa.fa-info-circle:hover {
   color: white; }
 
 .show-info {
-  background-color: rgba(10, 10, 200, 0.95);
+  background-color: rgba(10, 10, 200, 0.94);
   width: 100%;
   height: 200px;
   border-radius: 0 0 0 0;
@@ -136,44 +142,44 @@ i.fa.fa-info-circle:hover {
   list-style-type: circle;
   max-width: 0;
   overflow: hidden;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 1s;
+  transition: 1s;
   padding: 0; }
 
 #about h4:hover + ul {
   max-width: 61rem;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: .2s;
+  transition: .2s;
   padding-left: 40px; }
 
 #about ul:hover {
   padding-left: 40px;
   max-width: 61rem;
-  -webkit-transition: .6s;
-  transition: .6s; }
+  -webkit-transition: .2s;
+  transition: .2s; }
 
 #about .jumbotron ul li {
   min-width: 19rem;
   max-height: 0;
   margin: 0;
-  -webkit-transition: 2s;
-  transition: 2s;
+  -webkit-transition: .1s;
+  transition: .1s;
   overflow: hidden; }
 
 #about h4:hover + ul li {
   max-height: 2rem;
   min-width: 19rem;
-  max-width: 20rem;
-  -webkit-transition: 2s;
-  transition: 2s;
+  max-width: 21rem;
+  -webkit-transition: 1s;
+  transition: 1s;
   padding-left: 40px; }
 
 #about ul:hover li {
   max-height: 2rem;
   min-width: 19rem;
-  max-width: 20rem;
-  -webkit-transition: .1s;
-  transition: .1s;
+  max-width: 21rem;
+  -webkit-transition: 1s;
+  transition: 1s;
   padding-left: 40px; }
 
 #about {
@@ -211,15 +217,11 @@ a:hover h3 {
   background-color: #c8ffff;
   padding: 50px 1vw; }
 
-hr:last-of-type {
-  margin-bottom: 20px; }
-
-@media only screen and (max-width: 767px) {
-  img {
-    float: none;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%); } }
+.coming-soon-wrapper img {
+  float: none;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); }
 
 .grid-box {
   border: 2px solid whitesmoke;

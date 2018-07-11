@@ -93,7 +93,7 @@ $(document).ready(() => {
                 return
             }
             if (!$(car.children[0]).is("a")) {
-                $(car).addClass(`${i}`)
+                $(car).addClass(`${i} coming-soon-wrapper`)
                 const comingSoon = "<div class='coming-soon'><h3>Coming Soon</h3></div>"
                 car.innerHTML = `${car.innerHTML}${comingSoon}`
             }
