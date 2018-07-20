@@ -1,8 +1,17 @@
 body {
   position: relative;
   background-color: navy;
-  font-family: Abel;
-  font-size: 14px; }
+  font-family: "Oxygen", sans-serif;
+  font-size: 14px;
+  font-weight: 400; }
+
+h1, h2, h3, h4 {
+  font-family: "Exo", sans-serif;
+  font-weight: 400; }
+
+h5, h6, p {
+  font-family: "Oxygen", sans-serif;
+  font-weight: 400; }
 
 *:focus {
   outline: none; }
@@ -51,13 +60,18 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar 
   background-color: rgba(255, 255, 255, 0.95); }
 
 .jumbotron h1 {
-  font-size: 51px; }
+  font-size: 39px; }
+
+.jumbotron h2 {
+  font-size: 20px; }
 
 i.fa.fa-info-circle {
   color: grey;
   cursor: pointer; }
 
 i.fa.fa-info-circle:hover {
+  -webkit-transition: .2s;
+  transition: .2s;
   color: inherit; }
 
 .android-download {
@@ -114,23 +128,38 @@ i.fa.fa-info-circle:hover {
 .jumbotron h3 {
   text-align: left; }
 
-.jumbotron h4 {
-  font-size: 19px;
+#about .jumbotron h4 {
+  font-size: 14px;
   margin-bottom: 0;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  display: inline-block;
+  margin-left: 0; }
 
 .jumbotron h5 span {
-  font-size: 11px;
-  line-height: 0; }
+  font-size: 12px;
+  line-height: 0;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  max-height: 8px; }
 
 .jumbotron h5 {
-  font-size: 12px; }
+  font-size: 16px;
+  text-align: center; }
 
 .jumbotron p {
   font-size: 16px;
   margin-top: 10px; }
 
+.relative-to-ul {
+  position: relative; }
+
 #about .jumbotron ul {
+  position: absolute;
+  right: 0;
+  left: 26%;
+  text-align: right;
+  top: -20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,19 +173,27 @@ i.fa.fa-info-circle:hover {
   overflow: hidden;
   -webkit-transition: 1s;
   transition: 1s;
-  padding: 0; }
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
 
-#about h4:hover + ul {
+#about h4:hover {
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-weight: 500; }
+
+#about h4:hover + .relative-to-ul ul {
   max-width: 61rem;
   -webkit-transition: .2s;
   transition: .2s;
-  padding-left: 40px; }
+  cursor: pointer; }
 
 #about ul:hover {
-  padding-left: 40px;
   max-width: 61rem;
   -webkit-transition: .2s;
-  transition: .2s; }
+  transition: .2s;
+  cursor: alias; }
 
 #about .jumbotron ul li {
   min-width: 19rem;
@@ -166,21 +203,20 @@ i.fa.fa-info-circle:hover {
   transition: .1s;
   overflow: hidden; }
 
-#about h4:hover + ul li {
+#about h4:hover + .relative-to-ul ul li {
   max-height: 2rem;
   min-width: 19rem;
   max-width: 21rem;
   -webkit-transition: 1s;
   transition: 1s;
-  padding-left: 40px; }
+  font-size: 12px; }
 
 #about ul:hover li {
   max-height: 2rem;
   min-width: 19rem;
   max-width: 21rem;
   -webkit-transition: 1s;
-  transition: 1s;
-  padding-left: 40px; }
+  transition: 1s; }
 
 #about {
   padding-top: 20px; }
@@ -201,16 +237,20 @@ a {
   color: #222; }
 
 a:hover {
+  -webkit-transition: .2s;
+  transition: .2s;
   color: black;
-  font-family: Abel;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+  font-weight: 300; }
 
 a:focus {
   color: #010101;
   text-decoration: none; }
 
 a:hover h3 {
+  -webkit-transition: .2s;
+  transition: .2s;
   font-weight: 900; }
 
 #portfolio {
@@ -226,7 +266,6 @@ a:hover h3 {
 .grid-box {
   border: 2px solid whitesmoke;
   padding: 10px;
-  margin: 16px;
   height: 100%;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -433,11 +472,14 @@ form.message-camden {
   height: 40px;
   padding: 0;
   position: relative;
-  width: 50%;
+  width: 100%;
   margin-bottom: 30px;
-  left: 25%; }
+  margin-left: auto;
+  margin-right: auto; }
 
 .message-camden button:hover {
+  -webkit-transition: .2s;
+  transition: .2s;
   background-color: #c8c8fa;
   -webkit-box-shadow: 2px 2px 2px white;
           box-shadow: 2px 2px 2px white; }
@@ -496,6 +538,8 @@ form.message-camden {
   color: orangered; }
 
 .around-web a:hover {
+  -webkit-transition: .2s;
+  transition: .2s;
   color: crimson; }
 
 .social {
@@ -564,11 +608,34 @@ footer p {
     margin-right: 0;
     margin-left: 0; }
   .jumbotron h5 span {
+    font-size: 12px; }
+  .jumbotron h1 {
+    font-size: 51px; }
+  .jumbotron h2 {
+    font-size: 28px; }
+  #about .jumbotron h4 {
     font-size: 19px; }
+  .jumbotron h5 span {
+    font-size: 11px;
+    text-align: left;
+    display: inline; }
   .jumbotron h5 {
-    font-size: 14px; }
+    font-size: 13px;
+    text-align: left; }
   .jumbotron p {
-    font-size: 16px; } }
+    font-size: 16px; }
+  #about .jumbotron ul {
+    left: 46%; }
+  #about h4:hover + .relative-to-ul ul li {
+    font-size: 14px; }
+  .grid-box {
+    margin: 16px; }
+  .message-camden button {
+    width: 50%; } }
+
+@media screen and (min-width: 672px) {
+  #about .jumbotron h4 {
+    margin-left: calc(50% - 30.5rem); } }
 
 @media screen and (min-width: 768px) {
   .main-site {
@@ -578,6 +645,12 @@ footer p {
   #contact,
   #media {
     width: 100%; }
+  #about .jumbotron ul {
+    right: -130px;
+    left: 19%;
+    text-align: center; }
+  #about h4:hover + .relative-to-ul ul {
+    max-width: 40rem; }
   .grid-box.l {
     margin-left: -15px; }
   .grid-box.r {
@@ -610,10 +683,18 @@ footer p {
     font-size: 2.5rem; } }
 
 @media screen and (min-width: 1010px) {
+  .main-site {
+    background-image: url("../../assets/images/background2@2x.png"); }
+  #about h4:hover + .relative-to-ul ul {
+    max-width: 61rem; }
+  #about .jumbotron ul {
+    right: -170px;
+    left: 34%; }
   .message-camden input, .message-camden textarea, .message-camden button {
     margin: 15px 0 30px; }
-  .main-site {
-    background-image: url("../../assets/images/background2@2x.png"); } }
+  .message-camden button {
+    margin-left: auto;
+    margin-right: auto; } }
 
 @media screen and (min-width: 1200px) {
   form.message-camden {
