@@ -131,6 +131,11 @@ i.fa.fa-info-circle:hover {
     text-align: left;
 }
 
+#about .jumbotron h1, #about .jumbotron h2 {
+    text-align: center;
+}
+
+
 #about .jumbotron h4 {
     font-size: 14px;
     margin-bottom: 0;
@@ -653,6 +658,11 @@ footer p {
     .row {
         margin-right: 0;
         margin-left: 0;
+    }
+
+
+    #about .jumbotron h1, #about .jumbotron h2 {
+        text-align: left;
     }
 
     .jumbotron h5 span {
