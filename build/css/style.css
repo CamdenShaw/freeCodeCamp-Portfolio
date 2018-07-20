@@ -422,6 +422,10 @@ iframe {
   background-color: crimson;
   padding: 50px 1vw; }
 
+#contact .jumbotron > h2 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
 form.message-camden {
   display: -webkit-box;
   display: -ms-flexbox;

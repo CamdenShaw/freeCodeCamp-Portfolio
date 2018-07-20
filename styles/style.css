@@ -447,6 +447,11 @@ iframe {
     padding: 50px 1vw;
 }
 
+#contact .jumbotron > h2 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 form.message-camden {
     display: flex;
     flex-direction: column;
