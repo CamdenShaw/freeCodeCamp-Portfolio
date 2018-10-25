@@ -52,6 +52,7 @@ $(document).ready(() => {
             clearTimeout(noResponse)
             toggleTheClass("sending")
             toggleTheClass(data)
+            console.log(data)
             data==="sent" && $(".status").empty().html(`Email has been sent.`)
             data==="error" && $(".status").empty().html(`An error has occurred, please try again later. <i class="mail fa fa-info-circle></i></p><p class="mail-error">${err}`)
             toggleData = setTimeout(() => toggleTheClass(data), 50000)
