@@ -65,7 +65,7 @@ i.fa.fa-info-circle:hover {
 .item-info {
   width: 0;
   height: 0;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -278,12 +278,12 @@ a.carousel-control {
   top: 50%; }
 
 a.carousel-control.left {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.5) 0, transparent 60%);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 60%);
   -webkit-transform: translate(-45%, -50%) rotate(45deg);
           transform: translate(-45%, -50%) rotate(45deg); }
 
 a.carousel-control.right {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.5) 0, transparent 60%);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 60%);
   -webkit-transform: translate(45%, -50%) rotate(-45deg);
           transform: translate(45%, -50%) rotate(-45deg); }
 
