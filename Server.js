@@ -7,7 +7,7 @@ const smtpTransport = nodemailer.createTransport({
     host: "smtp.gmail.com",
     auth: {
         user: "cjsportfolio8@gmail.com",
-        pass: "ygbuzpfgbshtazzd"
+        pass: "mgxnommmlmtcyccz"
     }
 })
 
@@ -17,7 +17,12 @@ app.get("/", (req, res) => {
 
 app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
+    /* Website you wish to allow to connect
+     *
+     *  TEST http://localhost:3000
+     * 
+     *  LIVE http://camdenshaw.ca
+     */
     res.setHeader('Access-Control-Allow-Origin', 'http://camdenshaw.ca');
 
     // Request methods you wish to allow
