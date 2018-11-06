@@ -38,24 +38,18 @@ hr:nth-of-type(even) {
   max-height: 100vh;
   overflow: scroll; }
 
+/* 
 html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar {
-  display: none; }
-
-.main-site > div:not(:nth-last-of-type(2)):not(:last-of-type) {
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-left: -1px;
-  margin-right: -1px; }
-
+    display: none; 
+}  */
+/* .main-site > div:not(:nth-last-of-type(2)):not(:last-of-type) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -1px;
+    margin-right: -1px; 
+} */
 .row {
   margin: 0; }
 

@@ -45,19 +45,19 @@ hr:nth-of-type(even) {
     max-height: 100vh;
     overflow: scroll;
 }
-
+/* 
 html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar {
     display: none; 
-} 
+}  */
 
-.main-site > div:not(:nth-last-of-type(2)):not(:last-of-type) {
+/* .main-site > div:not(:nth-last-of-type(2)):not(:last-of-type) {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: -1px;
-    margin-right: -1px;
-}
+    margin-right: -1px; 
+} */
 
 .row {
     margin: 0;
