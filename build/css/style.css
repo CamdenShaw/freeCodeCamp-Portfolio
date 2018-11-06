@@ -34,6 +34,10 @@ hr:nth-of-type(even) {
   overflow-y: scroll;
   overflow-x: hidden; }
 
+#welcome-section {
+  max-height: 100vh;
+  overflow: scroll; }
+
 html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar {
   display: none; }
 
@@ -256,7 +260,7 @@ a:hover h3 {
   transition: .2s;
   font-weight: 900; }
 
-#portfolio {
+#projects {
   background-color: #c8ffff;
   padding: 50px 1vw; }
 
@@ -650,7 +654,7 @@ footer p {
   .main-site {
     background-image: url("../../assets/images/background2.png"); }
   #about,
-  #portfolio,
+  #projects,
   #contact,
   #media {
     width: 100%; }

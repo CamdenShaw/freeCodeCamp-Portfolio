@@ -41,6 +41,11 @@ hr:nth-of-type(even) {
     overflow-x: hidden;
 }
 
+#welcome-section {
+    max-height: 100vh;
+    overflow: scroll;
+}
+
 html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar {
     display: none; 
 } 
@@ -267,7 +272,7 @@ a:hover h3 {
     font-weight: 900;
 }
 
-#portfolio {
+#projects {
     background-color: rgb(200, 290, 255);
     padding: 50px 1vw;
 }
@@ -725,7 +730,7 @@ footer p {
     }
 
     #about,
-    #portfolio,
+    #projects,
     #contact,
     #media {
         width: 100%;

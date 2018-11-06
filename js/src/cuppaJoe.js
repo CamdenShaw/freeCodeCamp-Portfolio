@@ -60,7 +60,7 @@ $(document).ready(() => {
 
         view = $(this.hash)[0].offsetTop
 
-        $(".main-site").animate(
+        $("html, body, .main-site").animate(
             {
                 scrollTop: view
             },
@@ -100,9 +100,9 @@ $(document).ready(() => {
             i++
         })
         inProgress()
-        $(".main-site").scrollSpy({
+        $(".main-site").scrollspy({
             spy: "scroll",
-            target: "#myNavbar",
+            target: "#navbar",
             offset: 140
         })
     })
