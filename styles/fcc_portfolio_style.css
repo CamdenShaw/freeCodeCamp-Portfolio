@@ -9,7 +9,7 @@ body {
 h1, h2, h3, h4 {
     font-family: "Exo", sans-serif;
     font-weight: 300;
-} 
+}
 
 h5, h6, p {
     font-family: "Oxygen", sans-serif;
@@ -29,7 +29,7 @@ hr:nth-of-type(even) {
 }
 
 .main-site {
-    margin: 0;
+    margin: 0 1px 0;
     padding: 0;
     padding-top: 52px;
     width: auto;
@@ -42,6 +42,7 @@ hr:nth-of-type(even) {
 }
 
 #welcome-section {
+    max-height: 100vh;
     overflow: scroll;
 }
 /* 
@@ -80,7 +81,7 @@ i.fa.fa-info-circle {
     cursor: pointer;
 }
 
-i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
+i.fa.fa-info-circle:hover {
     transition: .2s;
     color: inherit;
 }
@@ -188,19 +189,19 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
     transform: translateY(-50%);
 }
 
-#about h4:hover, #about h4:focus {
+#about h4:hover {
     cursor: pointer;
     transition: .2s;
     font-weight: 500;
 }
 
-#about h4:hover + .relative-to-ul ul, #about h4:focus + .relative-to-ul ul {
+#about h4:hover + .relative-to-ul ul {
     max-width:  61rem;
     transition: .2s;
     cursor: pointer;
 }
 
-#about ul:hover, #about ul:focus {
+#about ul:hover {
     max-width:  61rem;
     transition: .2s;
     cursor: alias;
@@ -215,7 +216,7 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
 }
 
 
-#about h4:hover + .relative-to-ul ul li, #about h4:focus + .relative-to-ul ul li {
+#about h4:hover + .relative-to-ul ul li {
     max-height: 2rem;
     min-width: 19rem;
     max-width:  21rem;
@@ -223,7 +224,7 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
     font-size: 12px;
 }
 
-#about ul:hover li, #about ul:focus li {
+#about ul:hover li {
     max-height:  2rem;
     min-width: 19rem;
     max-width:  21rem;
@@ -266,7 +267,7 @@ a:focus {
     text-decoration: none;
 }
 
-a:hover h3, a:focus h3 {
+a:hover h3 {
     transition: .2s;
     font-weight: 900;
 }
@@ -518,7 +519,7 @@ form.message-camden {
     margin-right: auto;
 }
 
-.message-camden button:hover, .message-camden button:focus {
+.message-camden button:hover {
     transition: .2s;
     background-color: rgb(200, 200, 250);
     box-shadow: 2px 2px 2px white;
@@ -586,7 +587,7 @@ form.message-camden {
     color: orangered;
 }
 
-.around-web a:hover, .around-web a:focus {
+.around-web a:hover {
     transition: .2s;
     color: crimson;
 }
@@ -626,7 +627,7 @@ form.message-camden {
     transition: .5s;
 }
 
-.social a:hover, .social a:focus {
+.social a:hover {
     background-color: #c1e1f1;
     color: darkorange;
     border: 1px white solid;
@@ -704,7 +705,7 @@ footer p {
         left: 46%;
     }
 
-    #about h4:hover + .relative-to-ul ul li, #about h4:focus + .relative-to-ul ul li {
+    #about h4:hover + .relative-to-ul ul li {
         font-size: 14px;
     }
 
@@ -741,7 +742,7 @@ footer p {
         text-align: center;
     }
     
-    #about h4:hover+.relative-to-ul ul, #about h4:hover+.relative-to-ul ul {
+    #about h4:hover+.relative-to-ul ul {
         max-width: 40rem;
     }
 
@@ -802,7 +803,7 @@ footer p {
     .main-site {
         background-image: url("../../assets/images/background2@2x.png");
     }
-    #about h4:hover+.relative-to-ul ul, #about h4:focus+.relative-to-ul ul {
+    #about h4:hover+.relative-to-ul ul {
         max-width: 61rem;
     }
 

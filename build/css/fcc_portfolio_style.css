@@ -23,7 +23,7 @@ hr:nth-of-type(even) {
   margin-bottom: 80px; }
 
 .main-site {
-  margin: 0;
+  margin: 0 1px 0;
   padding: 0;
   padding-top: 52px;
   width: auto;
@@ -35,6 +35,7 @@ hr:nth-of-type(even) {
   overflow-x: hidden; }
 
 #welcome-section {
+  max-height: 100vh;
   overflow: scroll; }
 
 /* 
@@ -66,7 +67,7 @@ i.fa.fa-info-circle {
   color: grey;
   cursor: pointer; }
 
-i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
+i.fa.fa-info-circle:hover {
   -webkit-transition: .2s;
   transition: .2s;
   color: inherit; }
@@ -177,19 +178,19 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
 
-#about h4:hover, #about h4:focus {
+#about h4:hover {
   cursor: pointer;
   -webkit-transition: .2s;
   transition: .2s;
   font-weight: 500; }
 
-#about h4:hover + .relative-to-ul ul, #about h4:focus + .relative-to-ul ul {
+#about h4:hover + .relative-to-ul ul {
   max-width: 61rem;
   -webkit-transition: .2s;
   transition: .2s;
   cursor: pointer; }
 
-#about ul:hover, #about ul:focus {
+#about ul:hover {
   max-width: 61rem;
   -webkit-transition: .2s;
   transition: .2s;
@@ -203,7 +204,7 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   transition: .1s;
   overflow: hidden; }
 
-#about h4:hover + .relative-to-ul ul li, #about h4:focus + .relative-to-ul ul li {
+#about h4:hover + .relative-to-ul ul li {
   max-height: 2rem;
   min-width: 19rem;
   max-width: 21rem;
@@ -211,7 +212,7 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   transition: 1s;
   font-size: 12px; }
 
-#about ul:hover li, #about ul:focus li {
+#about ul:hover li {
   max-height: 2rem;
   min-width: 19rem;
   max-width: 21rem;
@@ -248,7 +249,7 @@ a:focus {
   color: #010101;
   text-decoration: none; }
 
-a:hover h3, a:focus h3 {
+a:hover h3 {
   -webkit-transition: .2s;
   transition: .2s;
   font-weight: 900; }
@@ -481,7 +482,7 @@ form.message-camden {
   margin-left: auto;
   margin-right: auto; }
 
-.message-camden button:hover, .message-camden button:focus {
+.message-camden button:hover {
   -webkit-transition: .2s;
   transition: .2s;
   background-color: #c8c8fa;
@@ -541,7 +542,7 @@ form.message-camden {
 .around-web a {
   color: orangered; }
 
-.around-web a:hover, .around-web a:focus {
+.around-web a:hover {
   -webkit-transition: .2s;
   transition: .2s;
   color: crimson; }
@@ -577,7 +578,7 @@ form.message-camden {
   -webkit-transition: .5s;
   transition: .5s; }
 
-.social a:hover, .social a:focus {
+.social a:hover {
   background-color: #c1e1f1;
   color: darkorange;
   border: 1px white solid;
@@ -632,7 +633,7 @@ footer p {
     font-size: 16px; }
   #about .jumbotron ul {
     left: 46%; }
-  #about h4:hover + .relative-to-ul ul li, #about h4:focus + .relative-to-ul ul li {
+  #about h4:hover + .relative-to-ul ul li {
     font-size: 14px; }
   .grid-box {
     margin: 16px; }
@@ -655,7 +656,7 @@ footer p {
     right: -130px;
     left: 19%;
     text-align: center; }
-  #about h4:hover + .relative-to-ul ul, #about h4:hover + .relative-to-ul ul {
+  #about h4:hover + .relative-to-ul ul {
     max-width: 40rem; }
   .grid-box.l {
     margin-left: -15px; }
@@ -691,7 +692,7 @@ footer p {
 @media screen and (min-width: 1010px) {
   .main-site {
     background-image: url("../../assets/images/background2@2x.png"); }
-  #about h4:hover + .relative-to-ul ul, #about h4:focus + .relative-to-ul ul {
+  #about h4:hover + .relative-to-ul ul {
     max-width: 61rem; }
   #about .jumbotron ul {
     right: -170px;

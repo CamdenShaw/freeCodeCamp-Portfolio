@@ -10,7 +10,9 @@ const gulp = require("gulp"),
     cssnano = require("gulp-cssnano")
 
 const input = "./js/src/*.js",
-    output = "./build/js"
+    output = "./build/js",
+    css_input = "./css/*.css",
+    css_output = "./build/css"
 
 gulp.task("babel", () => {
     return gulp
@@ -58,7 +60,7 @@ gulp.task("watch", () => {
 
 gulp.task("sass", () => {
     return gulp
-        .src("./styles/style.css")
+        .src('./styles/*.css')
         .pipe(prettyError())
         .pipe(sass())
         .pipe(
@@ -66,9 +68,32 @@ gulp.task("sass", () => {
                 browsers: ["last 2 versions"]
             })
         )
-        .pipe(gulp.dest("./build/css"))
+        .pipe(gulp.dest('./build/css'))
         .pipe(cssnano())
-        .pipe(rename("style.min.css"))
+        .pipe(rename({
+                extname: ".min.css"
+            })
+        )
+        .pipe(gulp.dest('./build/css'))
+})
+
+gulp.task("sass_test", () => {
+    return gulp
+        .src(css_input)
+        .pipe(
+            autoprefixer({
+                browsers: ["last 2 versions"]
+            })
+        )
+        .pipe(sass())
+        .on("error", err => {
+            console.log(err)
+        })
+        .pipe(
+            rename({
+                extname: ".min.css"
+            })
+        )
         .pipe(gulp.dest("./build/css"))
 })
 
