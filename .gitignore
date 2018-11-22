@@ -19,3 +19,4 @@
 .apdisk
 .vscode
 node_modules/
+animation_module/*
