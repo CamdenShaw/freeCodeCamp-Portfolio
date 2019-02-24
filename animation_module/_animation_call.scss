@@ -1,0 +1,336 @@
+.fade {
+	@include opacity(0);
+	-webkit-animation: fade 2s forwards;
+	-moz-animation: fade 2s forwards;
+	-o-animation: fade 2s forwards;
+	animation-name: fade;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_fade();
+}
+
+.rotate {
+	@include opacity(0);
+	-webkit-animation: rotate 2s forwards;
+	-moz-animation: rotate 2s forwards;
+	-o-animation: rotate 2s forwards;
+	animation-name: rotate;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_rotate();
+}
+
+.wipe_left {
+	@include opacity(0);
+	overflow: hidden;
+	white-space: nowrap;
+	-webkit-animation: wipe_left 2s forwards;
+	-moz-animation: wipe_left 2s forwards;
+	-o-animation: wipe_left 2s forwards;
+	animation-name: wipe_left;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_wipe_left();
+}
+
+.wipe_right {
+	@include opacity(0);
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: wipe_right 2s forwards;
+	-moz-animation: wipe_right 2s forwards;
+	-o-animation: wipe_right 2s forwards;
+	animation-name: wipe_right;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_wipe_right();
+}
+
+.wipe_left_half {
+	@include opacity(0);
+	overflow: hidden;
+	white-space: nowrap;
+	-webkit-animation: wipe_lef_halft 2s forwards;
+	-moz-animation: wipe_lef_halft 2s forwards;
+	-o-animation: wipe_lef_halft 2s forwards;
+	animation-name: wipe_lef_halft;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_wipe_left_half();
+}
+
+.wipe_right_half {
+	@include opacity(0);
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: wipe_right_half 2s forwards;
+	-moz-animation: wipe_right_half 2s forwards;
+	-o-animation: wipe_right_half 2s forwards;
+	animation-name: wipe_right_half;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_wipe_right_half();
+}
+
+//not working proper
+.wipe_up {
+	@include opacity(0);
+	position: relative;
+	overflow: hidden;
+	-webkit-animation: wipe_up 2s forwards;
+	-moz-animation: wipe_up 2s forwards;
+	-o-animation: wipe_up 2s forwards;
+	animation-name: wipe_up;
+	animation-duration: 4s;
+	animation-fill-mode: forwards;
+	@include animation_wipe_up();
+}
+
+.wipe_down {
+	@include opacity(0);
+	overflow: hidden;
+	-webkit-animation: wipe_down 2s forwards;
+	-moz-animation: wipe_down 2s forwards;
+	-o-animation: wipe_down 2s forwards;
+	animation-name: wipe_down;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_wipe_down();
+}
+
+//not working properly
+.wipe_up_half {
+	@include opacity(0);
+	overflow: hidden;
+	-webkit-animation: wipe_up_half 2s forwards;
+	-moz-animation: wipe_up_half 2s forwards;
+	-o-animation: wipe_up_half 2s forwards;
+	animation-name: wipe_up_half;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_wipe_up_half();
+}
+
+.wipe_down_half {
+	@include opacity(0);
+	overflow: hidden;
+	-webkit-animation: wipe_down_half 2s forwards;
+	-moz-animation: wipe_down_half 2s forwards;
+	-o-animation: wipe_down_half 2s forwards;
+	animation-name: wipe_down_half;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_wipe_down_half();
+}
+
+.slide_up_half {
+	@include opacity(0);
+	-webkit-animation: slide_up_half 2s forwards;
+	-moz-animation: slide_up_half 2s forwards;
+	-o-animation: slide_up_half 2s forwards;
+	animation-name: slide_up_half;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_up_half();
+}
+
+.slide_down_half {
+	@include opacity(0);
+	-webkit-animation: slide_down_half 2s forwards;
+	-moz-animation: slide_down_half 2s forwards;
+	-o-animation: slide_down_half 2s forwards;
+	animation-name: slide_down_half;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_down_half();
+}
+
+.slide_up {
+	@include opacity(0);
+	-webkit-animation: slide_up 2s forwards;
+	-moz-animation: slide_up 2s forwards;
+	-o-animation: slide_up 2s forwards;
+	animation-name: slide_up;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_up();
+}
+
+.slide_left {
+	@include opacity(0);
+	-webkit-animation: slide_left 2s forwards;
+	-moz-animation: slide_left 2s forwards;
+	-o-animation: slide_left 2s forwards;
+	animation-name: slide_left;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_left();
+}
+
+.slide_right {
+	@include opacity(0);
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: slide_right 2s forwards;
+	-moz-animation: slide_right 2s forwards;
+	-o-animation: slide_right 2s forwards;
+	animation-name: slide_right;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_right();
+	
+	* {
+		white-space: normal;
+	}
+}
+
+.slide_right.wrap {
+	white-space: normal;
+}
+
+.slide_left_half {
+	@include opacity(0);
+	-webkit-animation: slide_left_half 2s forwards;
+	-moz-animation: slide_left_half 2s forwards;
+	-o-animation: slide_left_half 2s forwards;
+	animation-name: slide_left_half;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_left_half();
+}
+
+.slide_left_down {
+	@include opacity(0);
+	-webkit-animation: slide_left_down 2s forwards;
+	-moz-animation: slide_left_down 2s forwards;
+	-o-animation: slide_left_down 2s forwards;
+	animation-name: slide_left_down;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_left_down();
+}
+
+.slide_right_down {
+	@include opacity(0);
+	-webkit-animation: slide_right_down 2s forwards;
+	-moz-animation: slide_right_down 2s forwards;
+	-o-animation: slide_right_down 2s forwards;
+	animation-name: slide_right_down;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_right_down();
+}
+
+.slide_right_half {
+	@include opacity(0);
+	overflow: hidden;
+	-webkit-animation: slide_right_half 2s forwards;
+	-moz-animation: slide_right_half 2s forwards;
+	-o-animation: slide_right_half 2s forwards;
+	animation-name: slide_right_half;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_right_half();
+}
+
+.slide_down {
+	@include opacity(0);
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: slide_down 2s forwards;
+	-moz-animation: slide_down 2s forwards;
+	-o-animation: slide_down 2s forwards;
+	animation-name: slide_down;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_down();
+}
+
+.slide_down_out {
+	@include opacity(1);
+	max-height: 1000px;
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: slide_down_out 2s forwards;
+	-moz-animation: slide_down_out 2s forwards;
+	-o-animation: slide_down_out 2s forwards;
+	animation-name: slide_down_out;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_down_out();
+}
+
+.slide_up_in {
+	@include opacity(1);
+	max-height: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: slide_up_in 2s forwards;
+	-moz-animation: slide_up_in 2s forwards;
+	-o-animation: slide_up_in 2s forwards;
+	animation-name: slide_up_in;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_slide_up_in();
+}
+
+.grow_up {
+	@include opacity(0);
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: grow_up 2s forwards;
+	-moz-animation: grow_up 2s forwards;
+	-o-animation: grow_up 2s forwards;
+	animation-name: grow_up;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_grow_up();
+}
+
+.grow_up.show_overflow {
+	@include opacity(0);
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: grow_up 2s forwards;
+	-moz-animation: grow_up 2s forwards;
+	-o-animation: grow_up 2s forwards;
+	animation-name: grow_up;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_grow_up($overflow: visible);
+}
+
+.top_0 {
+	@include opacity(0);
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: top_0 2s forwards;
+	-moz-animation: top_0 2s forwards;
+	-o-animation: top_0 2s forwards;
+	animation-name: top_0;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_top_0();
+}
+
+.zoom {
+	@include opacity(0);
+	-webkit-animation: zoom 2s forwards;
+	-moz-animation: zoom 2s forwards;
+	-o-animation: zoom 2s forwards;
+	animation-name: zoom;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_zoom();
+}
+
+.zoom_half {
+	@include opacity(0);
+	-webkit-animation: zoom_half 2s forwards;
+	-moz-animation: zoom_half 2s forwards;
+	-o-animation: zoom_half 2s forwards;
+	animation-name: zoom_half;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	@include animation_zoom_half();
+}

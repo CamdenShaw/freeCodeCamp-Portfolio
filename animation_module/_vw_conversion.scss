@@ -1,0 +1,119 @@
+/*
+ *  Automates the conversion of pixels to vw measurements for all screen break points.
+ *
+ *  After importing Bootstrap, create a list of screen sizes you want to use:
+ *  $screen-sizes: $screen-xxs, $screen-xs-min, $screen-sm-min, $screen-md-min, $screen-lg-min, $screen-xlg-min, $screen-xxlg-min;
+ *
+ *  Ideally your list would be smaller than this; if you're converting pixels at every break point you may as well just use pixels
+ *
+ *  The last screen size in the list will be the size your screen will max out to.
+ *
+ */
+
+ @function get-vw($screen_width, $pixels) {
+	@return ($pixels/$screen_width)*100*1vw;
+}
+
+ @mixin all-vw($prop: prop, $pixels1: number, $pixels2: null) {
+    @each $size in $screen-sizes {
+	    $font_size: null;
+	    $pix1: null;
+	    $pix2: null;
+    
+        @if $prop == font-size or $prop == font-size-fine {
+	        $pix: if($size < $screen-sm-min, $pixels1 * 0.8, $pixels1);
+	        $min-pix: if($size < $screen-sm-min, 16px, 14px);
+	        $font_size: if($pix < $min-pix, $min-pix, get-vw($size, $pix));
+	    } @else if $prop == padding {
+	        $pix1: if(get-vw($size, $pixels1) > 33.33333333vw, 33.33333333vw, get-vw($size, $pixels1));
+	      
+	        @if $pixels2 != null {
+	            $pix2: if(get-vw($size, $pixels2) > 33.33333333vw, 33.33333333vw, get-vw($size, $pixels2));
+	        }
+	    } @else if $prop == margin {
+	        $pix1: if(get-vw($size, $pixels1) > 33.33333333vw, 33.33333333vw, get-vw($size, $pixels1));
+	      
+	        @if $pixels2 != null {
+	            $pix2: if(get-vw($size, $pixels2) > 33.33333333vw, 33.33333333vw, get-vw($size, $pixels2));
+	        }
+	    } @else {
+	        $pix1: if(get-vw($size, $pixels1) > 100vw, 100vw, get-vw($size, $pixels1));
+	    }
+        @media only screen and (min-width: $size) {
+            #{$prop}: if($font_size != null, $font_size, $pix1) if($pixels2 != null, $pix2, null);
+        }
+    }
+  
+
+    @media only screen and (min-width: nth($screen-sizes, length($screen-sizes))+200) {
+		#{$prop}: $pixels1 if($pixels2 != null, $pixels2, null);
+    }
+}
+
+@mixin all-vw-max($prop: prop, $pixels1: number, $pixels2: null, $small_scale: 0.8) {
+	@each $size in $screen-sizes-max {
+	    $font_size: null;
+	    $pix1: null;
+	    $pix2: null;
+    
+		@if $prop == font-size or $prop == font-size-fine {
+            $pix: if($size < $screen-sm-min, $pixels1 * 0.8, $pixels1);
+      
+            @if index($screen-sizes-max, $size)+1 <= length($screen-sizes-max) {
+                $min_pix: get-vw(nth($screen-sizes-max, (index($screen-sizes-max, $size)+1)), if($size < $screen-sm-min, 16px, 14px));
+  
+                @if $prop == font-size-fine {
+                    $min_pix: get-vw(nth($screen-sizes-max, (index($screen-sizes-max, $size)+1)), if($size < $screen-sm-min, 12px, 10px));
+                }
+        
+	            $font_size: if(get-vw($size, $pix) <= $min_pix, $min_pix, get-vw($size, $pix));
+            } @else {
+                $font_size: get-vw($size, $pix);
+            }
+        } @else if $prop == padding {
+			@if $pixels1 == 0 or $pixels1 == 0px {
+				$pix1: 0;
+			} @else {
+                $pix_scale1: if($size < $screen-sm-min, $pixels1 * $small_scale, $pixels1);
+				
+                $pix1: if(get-vw($size, $pix_scale1) > 33.33333333vw, 33.33333333vw, get-vw($size, $pix_scale1));
+			}
+      
+            @if $pixels2 == 0 or $pixels2 == 0px {
+	            $pix2: 0;
+            } @else if $pixels2 != null {
+	            $pix_scale2: if($size < $screen-sm-min, $pixels2 * $small_scale, $pixels2);
+	            $pix2: if(get-vw($size, $pix_scale2) > 33.33333333vw, 33.33333333vw, get-vw($size, $pix_scale2));
+            }
+		} @else if $prop == margin {
+			@if $pixels1 == 0 or $pixels1 == 0px {
+				$pix1: 0;
+			} @else {
+	            $pix_scale1: if($size < $screen-sm-min, $pixels1 * $small_scale, $pixels1);
+	      
+	            $pix1: if(get-vw($size, $pix_scale1) > 33.33333333vw, 33.33333333vw, get-vw($size, $pix_scale1));
+			}
+	    
+	        @if $pixels2 == 0 or $pixels2 == 0px {
+		        $pix2: 0;
+	        } @else if $pixels2 != null and $pixels2 != auto {
+                $pix_scale2: if($size < $screen-sm-min, $pixels2 * $small_scale, $pixels2);
+                $pix2: if(get-vw($size, $pix_scale2) > 33.33333333vw, 33.33333333vw, get-vw($size, $pix_scale2));
+			} @else if $pixels2 == auto {
+				$pix2: $pixels2;
+			}
+		} @else {
+			$pix_scale1: if($size < $screen-sm-min, $pixels1 * $small_scale, $pixels1);
+			
+			$pix1: if(get-vw($size, $pix_scale1) > 100vw, 100vw, get-vw($size, $pix_scale1));
+		}
+  
+		@media only screen and (max-width: $size) {
+			#{if($prop == font-size-fine, font-size, $prop)}: if($font_size != null, $font_size, $pix1) if($pixels2 != null, $pix2, null);
+		}
+	}
+
+	@media only screen and (min-width: nth($screen-sizes-max, 1)+1) {
+		#{if($prop == font-size-fine, font-size, $prop)}: $pixels1 if($pixels2 != null, $pixels2, null);
+	}
+}

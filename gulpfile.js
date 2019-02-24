@@ -10,7 +10,9 @@ const gulp = require("gulp"),
     cssnano = require("gulp-cssnano")
 
 const input = "./js/src/*.js",
-    output = "./build/js"
+    output = "./build/js",
+    css_input = "./css/*.css",
+    css_output = "./build/css"
 
 gulp.task("babel", () => {
     return gulp
@@ -27,8 +29,8 @@ gulp.task("lint", () => {
         .pipe(lintCheck.failAfterError())
 })
 
-gulp.task("scripts", ["lint"], () => {
-    gulp
+gulp.task("scripts", gulp.series("lint", () => {
+    return gulp
         .src(input)
         .pipe(
             babel({
@@ -45,20 +47,20 @@ gulp.task("scripts", ["lint"], () => {
             })
         )
         .pipe(gulp.dest("./build/js"))
-})
+}))
 
 gulp.task("hi", () => {
     console.log("Hello World!")
 })
 
 gulp.task("watch", () => {
-    gulp.watch("./js/src/*.js", ["scripts"])
-    gulp.watch("./styles/*.css", ["sass"])
+    gulp.watch("./js/src/*.js", gulp.parallel("scripts"))
+    gulp.watch("./styles/*.css", gulp.parallel("sass"))
 })
 
 gulp.task("sass", () => {
-    gulp
-        .src("./styles/style.css")
+    return gulp
+        .src('./styles/*.css')
         .pipe(prettyError())
         .pipe(sass())
         .pipe(
@@ -66,9 +68,32 @@ gulp.task("sass", () => {
                 browsers: ["last 2 versions"]
             })
         )
-        .pipe(gulp.dest("./build/css"))
+        .pipe(gulp.dest('./build/css'))
         .pipe(cssnano())
-        .pipe(rename("style.min.css"))
+        .pipe(rename({
+                extname: ".min.css"
+            })
+        )
+        .pipe(gulp.dest('./build/css'))
+})
+
+gulp.task("sass_test", () => {
+    return gulp
+        .src(css_input)
+        .pipe(
+            autoprefixer({
+                browsers: ["last 2 versions"]
+            })
+        )
+        .pipe(sass())
+        .on("error", err => {
+            console.log(err)
+        })
+        .pipe(
+            rename({
+                extname: ".min.css"
+            })
+        )
         .pipe(gulp.dest("./build/css"))
 })
 
@@ -78,10 +103,10 @@ gulp.task("browser-sync", () => {
             baseDir: "./"
         }
     })
-    gulp
+    return gulp
         .watch(["build/js/*.js", "build/css/*.min.css", "index.html"])
         .on("change", browserSync.reload)
     //gulp.watch('./styles/*.css').on('change', browserSync.reload)
 })
 
-gulp.task("default", ["watch", "browser-sync"])
+gulp.task("default", gulp.parallel("watch", "browser-sync"))

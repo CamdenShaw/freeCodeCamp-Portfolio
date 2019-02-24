@@ -1,0 +1,1303 @@
+@mixin animation_rotate($deg: 180deg, $ramp: true) {
+	@-webkit-keyframes rotate {
+		0% {
+			--rotate: $deg;
+		}
+		
+		@if $ramp {
+			11% {
+				--rotate: calc(#{$deg} + (#{$deg} * .1));
+			}
+		}
+		
+		100% {
+		
+		}
+	}
+	@-moz-keyframes rotate {
+		0% {
+			--rotate: $deg;
+		}
+		
+		@if $ramp {
+			11% {
+				--rotate: calc(#{$deg} + (#{$deg} * .1));
+			}
+		}
+		
+		100% {
+		
+		}
+	}
+	@-o-keyframes rotate {
+		0% {
+			--rotate: $deg;
+		}
+		
+		@if $ramp {
+			11% {
+				--rotate: calc(#{$deg} + (#{$deg} * .1));
+			}
+		}
+		
+		100% {
+		
+		}
+	}
+	@keyframes rotate {
+		0% {
+			--rotate: $deg;
+		}
+		
+		@if $ramp {
+			11% {
+				--rotate: calc(#{$deg} + (#{$deg} * .1));
+			}
+		}
+		
+		100% {
+		
+		}
+	}
+}
+
+@mixin animation_slide_up($fade: true) {
+	@-webkit-keyframes slide_up {
+		0% {
+			@include opacity(0);
+			--translateY: 100%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-moz-keyframes slide_up {
+		0% {
+			@include opacity(0);
+			--translateY: 100%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-o-keyframes slide_up {
+		0% {
+			@include opacity(0);
+			--translateY: 100%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@keyframes slide_up {
+		0% {
+			@include opacity(0);
+			--translateY: 100%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+}
+
+@mixin animation_slide_up_in($fade: true) {
+	@-webkit-keyframes slide_up_in {
+		0% {
+			@include opacity(0);
+			max-height: 0;
+			--translateY: 100%;
+		}
+		
+		100% {
+			@include opacity(1);
+			max-height: 500px;
+		}
+	}
+	@-moz-keyframes slide_up_in {
+		0% {
+			@include opacity(0);
+			max-height: 0;
+			--translateY: 100%;
+		}
+		
+		100% {
+			@include opacity(1);
+			max-height: 500px;
+		}
+	}
+	@-o-keyframes slide_up_in {
+		0% {
+			@include opacity(0);
+			max-height: 0;
+			--translateY: 100%;
+		}
+		
+		100% {
+			@include opacity(1);
+			max-height: 500px;
+		}
+	}
+	@keyframes slide_up_in {
+		0% {
+			@include opacity(0);
+			max-height: 0;
+			--translateY: 100%;
+		}
+		
+		100% {
+			@include opacity(1);
+			max-height: 500px;
+		}
+	}
+}
+
+@mixin animation_slide_down($fade: true) {
+	@-webkit-keyframes slide_down {
+		0% {
+			@include opacity(0);
+			--translateY: -100%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-moz-keyframes slide_down {
+		0% {
+			@include opacity(0);
+			--translateY: -100%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-o-keyframes slide_down {
+		0% {
+			@include opacity(0);
+			--translateY: -100%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@keyframes slide_down {
+		0% {
+			@include opacity(0);
+			--translateY: -100%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+}
+
+@mixin animation_slide_down_out($fade: true) {
+	@-webkit-keyframes slide_down_out {
+		0% {
+			@include opacity(1);
+			max-height: 500px;
+		}
+		
+		100% {
+			@include opacity(0);
+			max-height: 0;
+			--translateY: 100%;
+		}
+	}
+	@-moz-keyframes slide_down_out {
+		0% {
+			@include opacity(1);
+			max-height: 500px;
+		}
+		
+		100% {
+			@include opacity(0);
+			max-height: 0;
+			--translateY: 100%;
+		}
+	}
+	@-o-keyframes slide_down_out {
+		0% {
+			@include opacity(1);
+			max-height: 500px;
+		}
+		
+		100% {
+			@include opacity(0);
+			max-height: 0;
+			--translateY: 100%;
+		}
+	}
+	@keyframes slide_down_out {
+		0% {
+			@include opacity(1);
+			max-height: 500px;
+		}
+		
+		100% {
+			@include opacity(0);
+			max-height: 0;
+			--translateY: 100%;
+		}
+	}
+}
+
+//not working properly
+//@mixin animation_wipe_up($fade: true) {
+//		@keyframes wipe_up {
+//		0% {
+//			//@include opacity(0);
+//			transform: translateY(100%);
+//			padding-bottom: 100%;
+//			height: 0;
+//		}
+//		100% {
+//			//@include opacity(1);
+//			transform: translateY(0);
+//			padding-bottom: 0;
+//			height: 100%;
+//		}
+//	}
+//}
+
+@mixin animation_wipe_up($fade: true) {
+	@-webkit-keyframes wipe_up {
+		0% {
+			@include opacity(0);
+			--translateX: -50%;
+			--translateY: 100px;
+			padding-bottom: 100px;
+			max-height: 0;
+		}
+		100% {
+			@include opacity(1);
+			padding-bottom: 0;
+			max-height: 100px;
+		}
+	}
+	@-moz-keyframes wipe_up {
+		0% {
+			@include opacity(0);
+			--translateX: -50%;
+			--translateY: 100px;
+			padding-bottom: 100px;
+			max-height: 0;
+		}
+		100% {
+			@include opacity(1);
+			padding-bottom: 0;
+			max-height: 100px;
+		}
+	}
+	@-o-keyframes wipe_up {
+		0% {
+			@include opacity(0);
+			--translateX: -50%;
+			--translateY: 100px;
+			padding-bottom: 100px;
+			max-height: 0;
+		}
+		100% {
+			@include opacity(1);
+			padding-bottom: 0;
+			max-height: 100px;
+		}
+	}
+		@keyframes wipe_up {
+		0% {
+			@include opacity(0);
+			--translateX: -50%;
+			--translateY: 100px;
+			padding-bottom: 100px;
+			max-height: 0;
+		}
+		100% {
+			@include opacity(1);
+			padding-bottom: 0;
+			max-height: 100px;
+		}
+	}
+}
+
+@mixin animation_wipe_down($fade: true) {
+	@-webkit-keyframes wipe_down {
+		0% {
+			@include opacity(0);
+			max-height: 0;
+			margin-bottom: 100%;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		100% {
+			@include opacity(1);
+			max-height: 100px;
+			margin-bottom: 0;
+		}
+	}
+	@-moz-keyframes wipe_down {
+		0% {
+			@include opacity(0);
+			max-height: 0;
+			margin-bottom: 100%;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		100% {
+			@include opacity(1);
+			max-height: 100px;
+			margin-bottom: 0;
+		}
+	}
+	@-o-keyframes wipe_down {
+		0% {
+			@include opacity(0);
+			max-height: 0;
+			margin-bottom: 100%;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		100% {
+			@include opacity(1);
+			max-height: 100px;
+			margin-bottom: 0;
+		}
+	}
+	@keyframes wipe_down {
+		0% {
+			@include opacity(0);
+			max-height: 0;
+			margin-bottom: 100%;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		100% {
+			@include opacity(1);
+			max-height: 100px;
+			margin-bottom: 0;
+		}
+	}
+}
+
+//not working properly
+@mixin animation_wipe_up_half($fade: true) {
+	@-webkit-keyframes wipe_up_half {
+		0% {
+			@include opacity(0);
+			height: 50%;
+			margin-top: 50%;
+			
+		}
+		100% {
+			@include opacity(1);
+			height: 100%;
+			margin-top: 0;
+		}
+	}
+	@-moz-keyframes wipe_up_half {
+		0% {
+			@include opacity(0);
+			height: 50%;
+			margin-top: 50%;
+			
+		}
+		100% {
+			@include opacity(1);
+			height: 100%;
+			margin-top: 0;
+		}
+	}
+	@-o-keyframes wipe_up_half {
+		0% {
+			@include opacity(0);
+			height: 50%;
+			margin-top: 50%;
+			
+		}
+		100% {
+			@include opacity(1);
+			height: 100%;
+			margin-top: 0;
+		}
+	}
+	@keyframes wipe_up_half {
+		0% {
+			@include opacity(0);
+			height: 50%;
+			margin-top: 50%;
+			
+		}
+		100% {
+			@include opacity(1);
+			height: 100%;
+			margin-top: 0;
+		}
+	}
+}
+
+@mixin animation_slide_down_half($fade: true) {
+	@-webkit-keyframes slide_down_half {
+		0% {
+			@include opacity(0);
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-moz-keyframes slide_down_half {
+		0% {
+			@include opacity(0);
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-o-keyframes slide_down_half {
+		0% {
+			@include opacity(0);
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@keyframes slide_down_half {
+		0% {
+			@include opacity(0);
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+}
+
+@mixin animation_wipe_down_half($fade: true) {
+	@-webkit-keyframes wipe_down_half {
+		0% {
+			@include opacity(0);
+			height: 50%;
+			margin-bottom: 50%;
+		}
+		100% {
+			@include opacity(1);
+			height: 100%;
+			margin-bottom: 0;
+		}
+	}
+	@-moz-keyframes wipe_down_half {
+		0% {
+			@include opacity(0);
+			height: 50%;
+			margin-bottom: 50%;
+		}
+		100% {
+			@include opacity(1);
+			height: 100%;
+			margin-bottom: 0;
+		}
+	}
+	@-o-keyframes wipe_down_half {
+		0% {
+			@include opacity(0);
+			height: 50%;
+			margin-bottom: 50%;
+		}
+		100% {
+			@include opacity(1);
+			height: 100%;
+			margin-bottom: 0;
+		}
+	}
+	@keyframes wipe_down_half {
+		0% {
+			@include opacity(0);
+			height: 50%;
+			margin-bottom: 50%;
+		}
+		100% {
+			@include opacity(1);
+			height: 100%;
+			margin-bottom: 0;
+		}
+	}
+}
+
+@mixin animation_slide_up_half($fade: true) {
+	@-webkit-keyframes slide_up_half {
+		0% {
+			@include opacity(0);
+			--translateY: 50%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-moz-keyframes slide_up_half {
+		0% {
+			@include opacity(0);
+			--translateY: 50%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-o-keyframes slide_up_half {
+		0% {
+			@include opacity(0);
+			--translateY: 50%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+	@keyframes slide_up_half {
+		0% {
+			@include opacity(0);
+			--translateY: 50%;
+		}
+		
+		100% {
+			@include opacity(1);
+		}
+	}
+}
+
+@mixin animation_slide_left($fade: true) {
+	@-webkit-keyframes slide_left {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: 100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@-moz-keyframes slide_left {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: 100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@-o-keyframes slide_left {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: 100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@keyframes slide_left {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: 100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+}
+
+@mixin animation_slide_right($fade: true) {
+	@-webkit-keyframes slide_right {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX:-100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@-moz-keyframes slide_right {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: -100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@-o-keyframes slide_right {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: -100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@keyframes slide_right {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: -100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+}
+
+@mixin animation_slide_left_half($overflow: hidden, $fade: true, $rotate: 0) {
+	@-webkit-keyframes slide_left_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: 50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			overflow: $overflow;
+		}
+	}
+	@-moz-keyframes slide_left_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: 50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			overflow: $overflow;
+		}
+	}
+	@-o-keyframes slide_left_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: 50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			overflow: $overflow;
+		}
+	}
+	@keyframes slide_left_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: 50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			overflow: $overflow;
+		}
+	}
+}
+
+@mixin animation_slide_right_down($fade: true) {
+	@-webkit-keyframes slide_right_down {
+		0% {
+			@include opacity(0);
+			--translateX: -50%;
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-moz-keyframes slide_right_down {
+		0% {
+			@include opacity(0);
+			--translateX: -50%;
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-o-keyframes slide_right_down {
+		0% {
+			@include opacity(0);
+			--translateX: -50%;
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@keyframes slide_right_down {
+		0% {
+			@include opacity(0);
+			--translateX: -50%;
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+}
+
+@mixin animation_slide_left_down($fade: true) {
+	@-webkit-keyframes slide_left_down {
+		0% {
+			@include opacity(0);
+			--translateX: 50%;
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-moz-keyframes slide_left_down {
+		0% {
+			@include opacity(0);
+			--translateX: 50%;
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@-o-keyframes slide_left_down {
+		0% {
+			@include opacity(0);
+			--translateX: 50%;
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+	@keyframes slide_left_down {
+		0% {
+			@include opacity(0);
+			--translateX: 50%;
+			--translateY: -50%;
+		}
+		100% {
+			@include opacity(1);
+		}
+	}
+}
+
+@mixin animation_slide_right_half( $overflow: hidden, $fade: true, $rotate: 0) {
+	@-webkit-keyframes slide_right_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: -50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			overflow: $overflow;
+		}
+	}
+	@-moz-keyframes slide_right_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: -50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			overflow: $overflow;
+		}
+	}
+	@-o-keyframes slide_right_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: -50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			overflow: $overflow;
+		}
+	}
+	@keyframes slide_right_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--translateX: -50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			overflow: $overflow;
+		}
+	}
+}
+
+@mixin animation_wipe_left($fade: true, $rotate: 0deg) {
+	@-webkit-keyframes wipe_left {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-left: 100%;
+			--translateX: -100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-left: 0;
+		}
+	}
+	@-moz-keyframes wipe_left {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-left: 100%;
+			--translateX: -100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-left: 0;
+		}
+	}
+	@-o-keyframes wipe_left {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-left: 100%;
+			--translateX: -100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-left: 0;
+		}
+	}
+	@keyframes wipe_left {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-left: 100%;
+			--translateX: -100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-left: 0;
+		}
+	}
+}
+
+@mixin animation_wipe_right($fade: true, $rotate: 0deg) {
+	@-webkit-keyframes wipe_right {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-right: 100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-right: 0;
+		}
+	}
+	@-moz-keyframes wipe_right {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-right: 100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-right: 0;
+		}
+	}
+	@-o-keyframes wipe_right {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-right: 100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-right: 0;
+		}
+	}
+	@keyframes wipe_right {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-right: 100%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-right: 0;
+		}
+	}
+}
+
+@mixin animation_wipe_left_half($fade: true, $rotate: 0deg, $overflow: hidden) {
+	@-webkit-keyframes wipe_left_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-left: 50%;
+			--translateX: -100%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-left: 0;
+			overflow: $overflow;
+		}
+	}
+	@-moz-keyframes wipe_left_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-left: 50%;
+			--translateX: -100%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-left: 0;
+			overflow: $overflow;
+		}
+	}
+	@-o-keyframes wipe_left_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-left: 50%;
+			--translateX: -100%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-left: 0;
+			overflow: $overflow;
+		}
+	}
+	@keyframes wipe_left_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-left: 50%;
+			--translateX: -100%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-left: 0;
+			overflow: $overflow;
+		}
+	}
+}
+
+@mixin animation_wipe_right_half($fade: true, $overflow: hidden) {
+	@-webkit-keyframes wipe_right_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-right: 50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-right: 0;
+			overflow: $overflow;
+		}
+	}
+	@-moz-keyframes wipe_right_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-right: 50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-right: 0;
+			overflow: $overflow;
+		}
+	}
+	@-o-keyframes wipe_right_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-right: 50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-right: 0;
+			overflow: $overflow;
+		}
+	}
+	@keyframes wipe_right_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			margin-right: 50%;
+			overflow: $overflow;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			margin-right: 0;
+			overflow: $overflow;
+		}
+	}
+}
+
+@mixin animation_grow_up($fade: true, $overflow: hidden) {
+	@-webkit-keyframes grow_up {
+		0% {
+			@if $fade { @include opacity(0); }
+			height: 1%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			height: revert;
+			overflow: $overflow
+		}
+	}
+	@-moz-keyframes grow_up {
+		0% {
+			@if $fade { @include opacity(0); }
+			height: 1%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			height: revert;
+			overflow: $overflow
+		}
+	}
+	@-o-keyframes grow_up {
+		0% {
+			@if $fade { @include opacity(0); }
+			height: 1%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			height: revert;
+			overflow: $overflow
+		}
+	}
+	@keyframes grow_up {
+		0% {
+			@if $fade { @include opacity(0); }
+			height: 1%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			height: revert;
+			overflow: $overflow
+		}
+	}
+}
+
+@mixin animation_top_0($fade: true) {
+	@-webkit-keyframes top_0 {
+		0% {
+			@if $fade { @include opacity(0); }
+			height: 1%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			height: revert;
+		}
+	}
+	@-moz-keyframes top_0 {
+		0% {
+			@if $fade { @include opacity(0); }
+			height: 1%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			height: revert;
+		}
+	}
+	@-o-keyframes top_0 {
+		0% {
+			@if $fade { @include opacity(0); }
+			height: 1%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			height: revert;
+		}
+	}
+	@keyframes top_0 {
+		0% {
+			@if $fade { @include opacity(0); }
+			height: 1%;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+			height: revert;
+		}
+	}
+}
+
+@mixin animation_fade($from: 0, $to: 1) {
+	@-webkit-keyframes fade {
+		0% {
+			@include opacity($from);
+		}
+		
+		100% {
+			@include opacity($to);
+		}
+	}
+	@-moz-keyframes fade {
+		0% {
+			@include opacity($from);
+		}
+		
+		100% {
+			@include opacity($to);
+		}
+	}
+	@-o-keyframes fade {
+		0% {
+			@include opacity($from);
+		}
+		
+		100% {
+			@include opacity($to);
+		}
+	}
+	@keyframes fade {
+		0% {
+			@include opacity($from);
+		}
+		
+		100% {
+			@include opacity($to);
+		}
+	}
+}
+
+@mixin animation_zoom($fade: true, $zoom: 0) {
+	@-webkit-keyframes zoom {
+		0% {
+			@if $fade { @include opacity(0); }
+			--scaleX: $zoom;
+			--scaleY: $zoom;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@-moz-keyframes zoom {
+		0% {
+			@if $fade { @include opacity(0); }
+			--scaleX: $zoom;
+			--scaleY: $zoom;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@-o-keyframes zoom {
+		0% {
+			@if $fade { @include opacity(0); }
+			--scaleX: $zoom;
+			--scaleY: $zoom;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@keyframes zoom {
+		0% {
+			@if $fade { @include opacity(0); }
+			--scaleX: $zoom;
+			--scaleY: $zoom;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+}
+
+@mixin animation_zoom_half($fade: true) {
+	@-webkit-keyframes zoom_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--scaleX: 0.5;
+			--scaleY: 0.5;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@-moz-keyframes zoom_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--scaleX: 0.5;
+			--scaleY: 0.5;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@-o-keyframes zoom_half {
+		0% {
+			@if $fade { @include opacity(0); }
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+	@keyframes zoom_half {
+		0% {
+			@if $fade { @include opacity(0); }
+			--scaleX: 0.5;
+			--scaleY: 0.5;
+		}
+		
+		100% {
+			@if $fade { @include opacity(1); }
+		}
+	}
+}
+
+@mixin cascade_child_delay($max_children: 10) {
+	@for $i from 1 through $max_children {
+		$delay: $i * 0.2s;
+		
+		> *:nth-child(#{$i}) {
+			-webkit-animation-delay: $delay;
+			-moz-animation-delay: $delay;
+			-o-animation-delay: $delay;
+			animation-delay: $delay;
+		}
+	}
+}
