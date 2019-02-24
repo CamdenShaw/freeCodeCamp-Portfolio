@@ -23,7 +23,7 @@ hr:nth-of-type(even) {
   margin-bottom: 80px; }
 
 .main-site {
-  margin: 0;
+  margin: 0 1px 0;
   padding: 0;
   padding-top: 52px;
   width: auto;
@@ -34,8 +34,18 @@ hr:nth-of-type(even) {
   overflow-y: scroll;
   overflow-x: hidden; }
 
-#welcome-section {
-  overflow: scroll; }
+#title.site, #description.site {
+  display: none; }
+
+.map-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.map-wrapper #map {
+  min-height: 50vw;
+  max-width: 75vw;
+  width: 900px; }
 
 /* 
 html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar {
@@ -66,7 +76,7 @@ i.fa.fa-info-circle {
   color: grey;
   cursor: pointer; }
 
-i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
+i.fa.fa-info-circle:hover {
   -webkit-transition: .2s;
   transition: .2s;
   color: inherit; }
@@ -84,7 +94,7 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   z-index: 3;
   -webkit-transition: .6s;
   transition: .6s;
@@ -94,11 +104,11 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   overflow: hidden; }
 
 .item-info p {
@@ -164,10 +174,10 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   list-style-type: circle;
   max-width: 0;
   overflow: hidden;
@@ -175,21 +185,21 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   transition: 1s;
   padding: 0;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%); }
+  transform: translateY(-50%); }
 
-#about h4:hover, #about h4:focus {
+#about h4:hover {
   cursor: pointer;
   -webkit-transition: .2s;
   transition: .2s;
   font-weight: 500; }
 
-#about h4:hover + .relative-to-ul ul, #about h4:focus + .relative-to-ul ul {
+#about h4:hover + .relative-to-ul ul {
   max-width: 61rem;
   -webkit-transition: .2s;
   transition: .2s;
   cursor: pointer; }
 
-#about ul:hover, #about ul:focus {
+#about ul:hover {
   max-width: 61rem;
   -webkit-transition: .2s;
   transition: .2s;
@@ -203,7 +213,7 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   transition: .1s;
   overflow: hidden; }
 
-#about h4:hover + .relative-to-ul ul li, #about h4:focus + .relative-to-ul ul li {
+#about h4:hover + .relative-to-ul ul li {
   max-height: 2rem;
   min-width: 19rem;
   max-width: 21rem;
@@ -211,7 +221,7 @@ i.fa.fa-info-circle:hover, i.fa.fa-info-circle:focus {
   transition: 1s;
   font-size: 12px; }
 
-#about ul:hover li, #about ul:focus li {
+#about ul:hover li {
   max-height: 2rem;
   min-width: 19rem;
   max-width: 21rem;
@@ -248,7 +258,7 @@ a:focus {
   color: #010101;
   text-decoration: none; }
 
-a:hover h3, a:focus h3 {
+a:hover h3 {
   -webkit-transition: .2s;
   transition: .2s;
   font-weight: 900; }
@@ -261,7 +271,7 @@ a:hover h3, a:focus h3 {
   float: none;
   left: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%); }
+  transform: translateX(-50%); }
 
 .grid-box {
   border: 2px solid whitesmoke;
@@ -284,7 +294,7 @@ a:hover h3, a:focus h3 {
 .coming-soon h3 {
   position: relative;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   top: 40%;
   width: 100%;
   font-size: 4rem;
@@ -330,7 +340,7 @@ h3 {
   font-size: 14px;
   left: 50%;
   -webkit-transform: translateX(calc(-50% - 15px));
-          transform: translateX(calc(-50% - 15px)); }
+  transform: translateX(calc(-50% - 15px)); }
 
 .modal-body {
   padding: 15px 0;
@@ -354,26 +364,26 @@ a.carousel-control {
 a.carousel-control.left {
   background-image: radial-gradient(rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 60%);
   -webkit-transform: translate(-45%, -50%) rotate(45deg);
-          transform: translate(-45%, -50%) rotate(45deg); }
+  transform: translate(-45%, -50%) rotate(45deg); }
 
 a.carousel-control.right {
   background-image: radial-gradient(rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0) 60%);
   -webkit-transform: translate(45%, -50%) rotate(-45deg);
-          transform: translate(45%, -50%) rotate(-45deg); }
+  transform: translate(45%, -50%) rotate(-45deg); }
 
 a.carousel-control .glyphicon-chevron-left {
   position: relative;
   margin-right: 50%;
   margin-top: 15%;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg); }
+  transform: rotate(-45deg); }
 
 a.carousel-control .glyphicon-chevron-right {
   position: relative;
   margin-left: 50%;
   margin-top: 15%;
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg); }
+  transform: rotate(45deg); }
 
 .block {
   height: 100%; }
@@ -385,11 +395,11 @@ a.carousel-control .glyphicon-chevron-right {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 4rem;
   color: #ff3232;
   padding: 0;
@@ -432,8 +442,8 @@ form.message-camden {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin-right: 0; }
 
 .message-camden input, .message-camden textarea, .message-camden button {
@@ -481,17 +491,17 @@ form.message-camden {
   margin-left: auto;
   margin-right: auto; }
 
-.message-camden button:hover, .message-camden button:focus {
+.message-camden button:hover {
   -webkit-transition: .2s;
   transition: .2s;
   background-color: #c8c8fa;
   -webkit-box-shadow: 2px 2px 2px white;
-          box-shadow: 2px 2px 2px white; }
+  box-shadow: 2px 2px 2px white; }
 
 .message-camden button:active {
   background-color: white;
   -webkit-box-shadow: 12px 12px 12px white;
-          box-shadow: 12px 12px 12px white; }
+  box-shadow: 12px 12px 12px white; }
 
 .message-camden p.status {
   margin: 0;
@@ -541,7 +551,7 @@ form.message-camden {
 .around-web a {
   color: orangered; }
 
-.around-web a:hover, .around-web a:focus {
+.around-web a:hover {
   -webkit-transition: .2s;
   transition: .2s;
   color: crimson; }
@@ -573,17 +583,17 @@ form.message-camden {
   border: 1px whitesmoke solid;
   border-radius: 40%;
   -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   -webkit-transition: .5s;
   transition: .5s; }
 
-.social a:hover, .social a:focus {
+.social a:hover {
   background-color: #c1e1f1;
   color: darkorange;
   border: 1px white solid;
   border-radius: 43%;
   -webkit-box-shadow: 0px 1px 3px white;
-          box-shadow: 0px 1px 3px white;
+  box-shadow: 0px 1px 3px white;
   -webkit-transition: .5s;
   transition: .5s; }
 
@@ -591,7 +601,7 @@ form.message-camden {
   position: absolute;
   font-size: 2.5rem;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%); }
 
 i.fa-google-plus {
   font-size: 2rem; }
@@ -632,7 +642,7 @@ footer p {
     font-size: 16px; }
   #about .jumbotron ul {
     left: 46%; }
-  #about h4:hover + .relative-to-ul ul li, #about h4:focus + .relative-to-ul ul li {
+  #about h4:hover + .relative-to-ul ul li {
     font-size: 14px; }
   .grid-box {
     margin: 16px; }
@@ -655,7 +665,7 @@ footer p {
     right: -130px;
     left: 19%;
     text-align: center; }
-  #about h4:hover + .relative-to-ul ul, #about h4:hover + .relative-to-ul ul {
+  #about h4:hover + .relative-to-ul ul {
     max-width: 40rem; }
   .grid-box.l {
     margin-left: -15px; }
@@ -667,10 +677,10 @@ footer p {
     margin-left: 0; }
   a.carousel-control.left {
     -webkit-transform: translate(-45%, -50%) rotate(45deg);
-            transform: translate(-45%, -50%) rotate(45deg); }
+    transform: translate(-45%, -50%) rotate(45deg); }
   a.carousel-control.right {
     -webkit-transform: translate(45%, -50%) rotate(-45deg);
-            transform: translate(45%, -50%) rotate(-45deg); }
+    transform: translate(45%, -50%) rotate(-45deg); }
   a.carousel-control .glyphicon-chevron-left {
     margin-right: 75%;
     margin-top: 33%; }
@@ -691,7 +701,7 @@ footer p {
 @media screen and (min-width: 1010px) {
   .main-site {
     background-image: url("../../assets/images/background2@2x.png"); }
-  #about h4:hover + .relative-to-ul ul, #about h4:focus + .relative-to-ul ul {
+  #about h4:hover + .relative-to-ul ul {
     max-width: 61rem; }
   #about .jumbotron ul {
     right: -170px;

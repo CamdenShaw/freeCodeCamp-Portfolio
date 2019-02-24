@@ -16,6 +16,10 @@ const smtpTransport = nodemailer.createTransport({
     }
 })
 
+app.get("/", (req, res) => {
+    res.sendFile("/Users/camdenshaw/Documents/freeCodeCamp/Portfolio/")
+})
+
 app.use(function (req, res, next) {
 
     res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`);

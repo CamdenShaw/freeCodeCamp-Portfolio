@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Camden Shaw's Portfolio Site - Free Code Camp Survey</title>
+    <meta name="description" content="Camden Shaw Developer Portfolio - Free Code Camp Survey">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Exo:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="build/css/fcc_survey_style.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <h1 id="title">Free Code Camp Survey By Camden</h1>
+    <p id="description">A survey coded for Free Code Camp</p>
+    <form action="" id="survey-form">
+        <label for="name" id="name-label">Name</label>
+        <input type="text" id="name" placeholder="Name" required />
+        <label for="email" id="email-label">eMail</label>
+        <input type="email" id="email" placeholder="Email" required />
+        <label for="number" id="number-label">How many eggs do you have in your fridge?</label>
+        <input type="number" id="number" placeholder="eggs" min=0 max=100 required />
+        <select name="yes or no" id="dropdown">
+            <option value="">--Please Select an Option--</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <fieldset id="gender-select">
+            <label for="male" id="male-label">Male</label>
+            <input type="radio" name="gender" value="male" />
+            <label for="female" id="female-label">Female</label>
+            <input type="radio" name="gender" value="female" />
+        </fieldset>
+        <fieldset id="pets-check">
+            <label for="dog" id="dog-label">Dog</label>
+            <input type="checkbox" value="dog" name="pets" id="dog" />
+            <label for="cat" id="cat">Cat</label>
+            <input type="checkbox" value="cat" name="pets" id="cat" />
+            <label for="gerbal" id="gerbal">Gerbal</label>
+            <input type="checkbox" value="gerbal" name="pets" id="gerbal" />
+            <label for="hamster" id="hamster">Hamster</label>
+            <input type="checkbox" value="hamster" name="pets" id="hamster" />
+            <label for="pigeon" id="pigeon">Pigeon</label>
+            <input type="checkbox" value="pigeon" name="pets" id="pigeon" />
+            <label for="snake" id="snake">Snake</label>
+            <input type="checkbox" value="snake" name="pets" id="snake" />
+            <label for="elephant" id="elephant">elephant</label>
+            <input type="checkbox" value="elephant" name="pets" id="elephant" />
+            <label for="other" id="other">Other</label>
+            <input type="checkbox" value="other" name="pets" id="other" />
+            <label for="none" id="none">None</label>
+            <input type="checkbox" value="none" name="pets" id="none" />
+        </fieldset>
+        <label for="user-comments" id="user-comments-label">Please add any additional comments here:</label>
+        <textarea name="user-comments" id="user-comments" cols="50" rows="3"></textarea>
+        <label for="submit" id="submit-label">Click Here to Submit:</label>
+        <input type="submit" id="submit" />
+    </form>
+  </body>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <script src="build/js/cuppaJoe.min.js" async></script>
+</html>

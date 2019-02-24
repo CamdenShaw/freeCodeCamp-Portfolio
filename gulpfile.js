@@ -7,12 +7,15 @@ const gulp = require("gulp"),
     sass = require("gulp-sass"),
     autoprefixer = require("gulp-autoprefixer"),
     prettyError = require("gulp-prettyerror"),
-    cssnano = require("gulp-cssnano")
+    cssnano = require("gulp-cssnano"),
+    changed = require("gulp-changed");
 
 const input = "./js/src/*.js",
     output = "./build/js",
-    css_input = "./css/*.css",
-    css_output = "./build/css"
+    css_input = "./styles/*.css",
+    sass_input = "./styles/sass/*.scss",
+    css_output = "./build/css",
+    sass_output = "./styles"
 
 gulp.task("babel", () => {
     return gulp
@@ -32,6 +35,7 @@ gulp.task("lint", () => {
 gulp.task("scripts", gulp.series("lint", () => {
     return gulp
         .src(input)
+        .pipe(changed(output))
         .pipe(
             babel({
                 presets: ["es2017"]
@@ -46,7 +50,7 @@ gulp.task("scripts", gulp.series("lint", () => {
                 extname: ".min.js"
             })
         )
-        .pipe(gulp.dest("./build/js"))
+        .pipe(gulp.dest(output))
 }))
 
 gulp.task("hi", () => {
@@ -55,12 +59,14 @@ gulp.task("hi", () => {
 
 gulp.task("watch", () => {
     gulp.watch("./js/src/*.js", gulp.parallel("scripts"))
-    gulp.watch("./styles/*.css", gulp.parallel("sass"))
+    gulp.watch("./styles/sass/*.scss", gulp.parallel("sass"))
+    gulp.watch("./styles/*.css", gulp.parallel("css"))
 })
 
-gulp.task("sass", () => {
+gulp.task("css", () => {
     return gulp
-        .src('./styles/*.css')
+        .src(css_input)
+        .pipe(changed(css_output))
         .pipe(prettyError())
         .pipe(sass())
         .pipe(
@@ -68,13 +74,27 @@ gulp.task("sass", () => {
                 browsers: ["last 2 versions"]
             })
         )
-        .pipe(gulp.dest('./build/css'))
+        .pipe(gulp.dest(css_output))
         .pipe(cssnano())
         .pipe(rename({
                 extname: ".min.css"
             })
         )
-        .pipe(gulp.dest('./build/css'))
+        .pipe(gulp.dest(css_output))
+})
+
+gulp.task("sass", () => {
+    return gulp
+        .src(sass_input)
+        .pipe(changed(sass_output))
+        .pipe(prettyError())
+        .pipe(sass())
+        .pipe(
+            autoprefixer({
+                browsers: ["last 2 versions"]
+            })
+        )
+        .pipe(gulp.dest(sass_output))
 })
 
 gulp.task("sass_test", () => {
@@ -104,7 +124,7 @@ gulp.task("browser-sync", () => {
         }
     })
     return gulp
-        .watch(["build/js/*.js", "build/css/*.min.css", "index.html"])
+        .watch(["build/js/*.js", "build/css/*.min.css", "*.html"])
         .on("change", browserSync.reload)
     //gulp.watch('./styles/*.css').on('change', browserSync.reload)
 })
