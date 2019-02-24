@@ -1,4 +1,12 @@
-@mixin transform($scale: (1, 1), $translate: (0, 0), $skew: (0, 0), $rotate: 0, $perspective: 0, $unset: false) {
+@mixin transform(
+		$scale: (x: 1, y: 1), 
+		$translate: (x: 0, y: 0, z: 0), 
+		$skew: (x: 0, y: 0, z: 0), 
+		$rotate: (angle: 0, x: 0, y: 0, z: 0), 
+		$perspective: 0, 
+		$matrix: (a: 0, b: 0, 0, 0, c: 0, d: 0, 0, 0, 0, 0, 1, 0, tx: 0, ty: 0, 0, 1),
+		$initial: true
+	) {
 	@if $unset {
 		-ms-transform: unset; /* IE 9 */
 		-webkit-transform: unset; /* Chrome, Safari, Opera */
@@ -14,10 +22,29 @@
 		--rotate: #{$rotate};
 		--perspective: #{$perspective};
 		
-		-ms-transform: scale(var(--scaleX), var(--scaleY)) translate(var(--translateX), var(--translateY)) skew(var(--skewX), var(--skewY)) rotate(var(--rotate)) perspective(var(--perspective)); /* IE 9 */
-		-webkit-transform: scale(var(--scaleX), var(--scaleY)) translate(var(--translateX), var(--translateY)) skew(var(--skewX), var(--skewY)) rotate(var(--rotate)) perspective(var(--perspective)); /* Chrome, Safari, Opera */
-		-moz-transform: scale(var(--scaleX), var(--scaleY)) translate(var(--translateX), var(--translateY)) skew(var(--skewX), var(--skewY)) rotate(var(--rotate)) perspective(var(--perspective)); /* Chrome, Safari, Opera */
-		transform: scale(var(--scaleX), var(--scaleY)) translate(var(--translateX), var(--translateY)) skew(var(--skewX), var(--skewY)) rotate(var(--rotate)) perspective(var(--perspective));
+		-ms-transform: 
+			scale(var(--scaleX), var(--scaleY)) 
+			translate(var(--translateX), var(--translateY)) 
+			skew(var(--skewX), var(--skewY)) 
+			rotate(var(--rotate)) 
+			perspective(var(--perspective)); /* IE 9 */
+		-webkit-transform: 
+			scale(var(--scaleX), var(--scaleY)) 
+			translate(var(--translateX), var(--translateY)) 
+			skew(var(--skewX), var(--skewY)) rotate(var(--rotate)) 
+			perspective(var(--perspective)); /* Chrome, Safari, Opera */
+		-moz-transform: 
+			scale(var(--scaleX), var(--scaleY)) 
+			translate(var(--translateX), var(--translateY)) 
+			skew(var(--skewX), var(--skewY)) 
+			rotate(var(--rotate)) 
+			perspective(var(--perspective)); /* Chrome, Safari, Opera */
+		transform: 
+			scale(var(--scaleX), var(--scaleY)) 
+			translate(var(--translateX), var(--translateY)) 
+			skew(var(--skewX), var(--skewY)) 
+			rotate(var(--rotate)) 
+			perspective(var(--perspective));
 	}
 }
 
