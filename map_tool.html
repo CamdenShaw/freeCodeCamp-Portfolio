@@ -7,7 +7,7 @@
     <meta name="description" content="Camden Shaw's experimental map tool - using Google Maps">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Exo:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="build/css/polygon_drawer_style.min.css">
@@ -15,7 +15,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjoDadvTPSG7rcyB-3aCE3RpYUxhoOjiI&sensor=false&libraries=drawing"></script>
   </head>
   <body>
     <h1 id="title" class="site">Google Maps Polygon Tool By Camden</h1>
@@ -28,10 +27,18 @@
       <div id="map"></div>
       <div class="coordinates-display">
         <h3 class="title">Copy These Coordinates</h4>
+        <div class="map_form">
+            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+            <div class="buttons-wrapper">
+              <button disabled class="turn-on-polygon">Draw Polygon</button>
+              <button disabled class="turn-off-polygon">Close Polygon</button>
+            </h3>
+        </div>
         <h5 class="subtitle">Here is a print out of your coordinates:</h6>
         <div id="coordinates-box"></div>
       </div>
     </div>
   </body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjoDadvTPSG7rcyB-3aCE3RpYUxhoOjiI&sensor=false&libraries=drawing,places"></script>
   <script src="js/src/cuppaJoeMap.js" async></script>
 </html>

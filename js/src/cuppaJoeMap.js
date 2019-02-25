@@ -15,17 +15,92 @@ $(document).ready(() => {
                 {lat: 49.257946402467, lng: -123.13326358795}
             ]
         ],
-        polygonArray = []
-    
+        polygonArray = [],
+        styles = [
+            {
+              "featureType": "administrative",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "labels.icon",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            },
+            {
+              "featureType": "transit",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            }
+          ]
+        
     function initMap() {
         const map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 49.256994090673, lng: -123.13892841339},
-            zoom: 14
+            zoom: 14,
+            styles: styles,
+            disableDefaultUI: true,
+            zoomControl: true
         })
+        
         return map
+        
     }
-    
+
     const map = initMap()
+
+    let input = document.getElementById('pac-input')
+    const searchBox = new google.maps.places.SearchBox(input)
+    
+    map.addListener('bounds_changed', function() {
+        searchBox.setBounds(map.getBounds());
+    });
+
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener('places_changed', function() {
+        let places = searchBox.getPlaces();
+
+        if (places.length === 0) {
+            return;
+        }
+
+        // For each place, get the icon, name and location.
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry")
+                return;
+            }
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport)
+            } else {
+                bounds.extend(place.geometry.location)
+            }
+        })
+        map.fitBounds(bounds)
+    })
     
     function polygonBuilder(polygon = []) {
         if(polygon.length === 0) {
@@ -45,28 +120,31 @@ $(document).ready(() => {
                     })
                 )
             })
-        } else {
-            console.log(polygonArray[polygonArray.length - 1])
-            polygonArray[polygonArray.length - 1].setMap(null)
-            polygonArray.pop()
-            polygonArray.push(
-                new google.maps.Polygon({
-                    map: map,
-                    paths: coordinateArrays[coordinateArrays.length - 1],
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: '#FF0000',
-                    fillOpacity: 0.35,
-                    draggable: true,
-                    geodesic: true,
-                    editable: true
+
+            polygonArray.forEach((mapPolygon, key) => {
+                mapPolygon.addListener('dragend', () => {
+                    let googleArray = mapPolygon.getPath(),
+                        stagingArray = [],
+                        len = googleArray.getLength()
+
+                    for (var i = 0; i < len; i++) {
+                        let tempArray = googleArray.getAt(i).toUrlValue(11).split(',')
+                        stagingArray.push({lat: tempArray[0], lng: tempArray[1]})
+                    }
+                    console.log(stagingArray, 'drag end success')
+                    coordinateArrays[key] = stagingArray;
+                    console.log(key, coordinateArrays)
+                    writeCoordinates(true)
                 })
-            )
+            })
+        } else {
+            polygonArray[polygonArray.length - 1].setPaths(coordinateArrays[coordinateArrays.length - 1])
         }
     }
     
-    function coordinatesBuilder(newCoords = {}) {  
+    console.log(coordinateArrays)
+
+    function coordinatesBuilder(newCoords = {}) {
         coordinateArrays[coordinateArrays.length - 1].push(newCoords)
     }
     
@@ -76,26 +154,30 @@ $(document).ready(() => {
         polygonBuilder()
     }
     
-    function writeCoordinates() {
-        let count = 0
+    function writeCoordinates(overwrite = false) {
+        let coordCount = 0
+
+        if(overwrite) document.getElementById('coordinates-box').innerHTML = ''
             
         coordinateArrays.forEach((coordArray) => {
-            count++;
+            coordCount++;
             let coordHTML = ''
 
-            if(document.getElementById('coordinates-box').childElementCount < coordinateArrays.length) {
-                    coordArray.forEach(coordSet => {
-                        coordHTML += `<p>${coordSet['lat']}, ${coordSet['lng']}</p>`
-                    })
+            if(document.getElementById('coordinates-box').childElementCount < coordinateArrays.length || overwrite) {
+
+                coordArray.forEach(coordSet => {
+                    coordHTML += `<p>${coordSet['lat']}, ${coordSet['lng']}</p>`
+                })
+
                 document.getElementById('coordinates-box').innerHTML += `
-                    <div class="polygon-${count}-coordinates">
-                        <h6 class="title coordinates">Polygon ${count}</h6>
+                    <div class="polygon-${coordCount}-coordinates">
+                        <h6 class="title coordinates">Polygon ${coordCount}</h6>
                         `+ coordHTML +`
                     </div>`
-            } else if(count == coordinateArrays.length) {
+            } else if(coordCount === coordinateArrays.length) {
                 let coordLat = coordArray[coordArray.length - 1]['lat'],
                     coordLong = coordArray[coordArray.length - 1]['lng']
-                document.querySelector(`#coordinates-box .polygon-${count}-coordinates`).innerHTML += `<p>${coordLat}, ${coordLong}</p>`
+                document.querySelector(`#coordinates-box .polygon-${coordCount}-coordinates`).innerHTML += `<p>${coordLat}, ${coordLong}</p>`
             }
         }) 
     }
@@ -110,29 +192,4 @@ $(document).ready(() => {
         polygonBuilder([coordinateArrays])
         writeCoordinates()
     })
-
-    //   var blueCoords = [
-    //     {lat: 25.774, lng: -60.190},
-    //     {lat: 18.466, lng: -46.118},
-    //     {lat: 32.321, lng: -44.757}
-    //   ];
-    
-    //   var redCoords = [
-    //     {lat: 25.774, lng: -80.190},
-    //     {lat: 18.466, lng: -66.118},
-    //     {lat: 32.321, lng: -64.757}
-    //   ];
-    
-    //   // Construct a draggable blue triangle with geodesic set to false.
-    //   new google.maps.Polygon({
-    //     map: map,
-    //     paths: blueCoords,
-    //     strokeColor: '#0000FF',
-    //     strokeOpacity: 0.8,
-    //     strokeWeight: 2,
-    //     fillColor: '#0000FF',
-    //     fillOpacity: 0.35,
-    //     draggable: true,
-    //     geodesic: false,
-    //   });
 })
