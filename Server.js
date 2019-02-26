@@ -22,7 +22,13 @@ app.get("/", (req, res) => {
 
 app.use(function (req, res, next) {
 
-    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`);
+    /* Website you wish to allow to connect
+     *
+     *  TEST http://localhost:3000
+     * 
+     *  LIVE http://camdenshaw.ca
+     */
+    res.setHeader('Access-Control-Allow-Origin', 'http://camdenshaw.ca');
 
     res.setHeader('Access-Control-Allow-Methods', 'GET');
 
