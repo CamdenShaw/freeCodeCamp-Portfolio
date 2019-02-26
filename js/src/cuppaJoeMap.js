@@ -3,18 +3,7 @@
 const google = window.google
 
 $(document).ready(() => {
-    let coordinateArrays = [
-            [
-                {lat: 49.257162147031, lng: -123.14618110657},
-                {lat: 49.266320353131, lng: -123.14570903778},
-                {lat: 49.265900289126, lng: -123.11493873596}
-            ],
-            [
-                {lat: 49.257022100106, lng: -123.13158988953},
-                {lat: 49.256882052783, lng: -123.11511039734},
-                {lat: 49.257946402467, lng: -123.13326358795}
-            ]
-        ],
+    let coordinateArrays = [],
         polygonArray = [],
         styles = [
             {
@@ -63,7 +52,6 @@ $(document).ready(() => {
         })
         
         return map
-        
     }
 
     const map = initMap()
@@ -105,6 +93,8 @@ $(document).ready(() => {
     function polygonBuilder(polygon = []) {
         if(polygon.length === 0) {
             coordinateArrays.forEach((coordinatesArray) => {
+            
+                if(coordinatesArray.length !== 0) return
                 polygonArray.push(
                     new google.maps.Polygon({
                         map: map,
@@ -119,6 +109,8 @@ $(document).ready(() => {
                         editable: true
                     })
                 )
+                writeCoordinates(true)
+                console.log("created new polygon in polygon array")
             })
 
             polygonArray.forEach((mapPolygon, key) => {
@@ -128,17 +120,39 @@ $(document).ready(() => {
                         len = googleArray.getLength()
 
                     for (var i = 0; i < len; i++) {
-                        let tempArray = googleArray.getAt(i).toUrlValue(11).split(',')
-                        stagingArray.push({lat: tempArray[0], lng: tempArray[1]})
+                        let tempArray = googleArray.getAt(i).toUrlValue(15).split(',')
+                        stagingArray.push({lat: parseFloat(tempArray[0]), lng: parseFloat(tempArray[1])})
                     }
-                    console.log(stagingArray, 'drag end success')
+
                     coordinateArrays[key] = stagingArray;
-                    console.log(key, coordinateArrays)
                     writeCoordinates(true)
                 })
             })
         } else {
-            polygonArray[polygonArray.length - 1].setPaths(coordinateArrays[coordinateArrays.length - 1])
+            let selectedPolygon = polygonArray[polygonArray.length - 1],
+                relevantCoordinates = coordinateArrays[coordinateArrays.length - 1]
+            
+            console.log(relevantCoordinates, 'relevant coordinates')
+            selectedPolygon.setPaths(relevantCoordinates)
+            selectedPolygon.getPaths().forEach((path, key) => {
+                path.addListener("set_at", () => {
+                    polygonArray.forEach((mapPolygon, key) => {
+                        let googleArray = mapPolygon.getPath(),
+                            stagingArray = [],
+                            len = googleArray.getLength()
+
+                        for (var i = 0; i < len; i++) {
+                            let tempArray = googleArray.getAt(i).toUrlValue(15).split(',')
+                            stagingArray.push({lat: parseFloat(tempArray[0]), lng: parseFloat(tempArray[1])})
+                        }
+
+                        coordinateArrays[key] = stagingArray;
+                        writeCoordinates(true)
+                    })
+                })
+                
+            })
+
         }
     }
     
@@ -146,12 +160,6 @@ $(document).ready(() => {
 
     function coordinatesBuilder(newCoords = {}) {
         coordinateArrays[coordinateArrays.length - 1].push(newCoords)
-    }
-    
-    
-    function drawPolygons() {
-        coordinatesBuilder({lat: 49.25797441136, lng: -123.13682556152})
-        polygonBuilder()
     }
     
     function writeCoordinates(overwrite = false) {
@@ -182,14 +190,53 @@ $(document).ready(() => {
         }) 
     }
 
-    drawPolygons()
+    
+    let turnOnPolygon = true,
+    drawPolygonsListener = '',
+    newPolygon = true
+    
+    $(".turn-on-polygon").click(() => {
+        if(turnOnPolygon) {
+            console.log("turn on polygon")
+            
+            if(newPolygon) coordinateArrays.push([])
+            polygonBuilder(coordinateArrays[coordinateArrays.length - 1])
+            newPolygon = false
 
-    writeCoordinates()
+            drawPolygonsListener = map.addListener('click', (e) => {
+                let latLngCoordinates = {lat: e.latLng.lat(), lng: e.latLng.lng()}
+                console.log(latLngCoordinates)
+                coordinatesBuilder(latLngCoordinates)
+                console.log(coordinateArrays)
+                polygonBuilder(coordinateArrays)
+                writeCoordinates()
 
-    map.addListener('click', (e) => {
-        let latLngCoordinates = {lat: e.latLng.lat(), lng: e.latLng.lng()}
-        coordinatesBuilder(latLngCoordinates)
-        polygonBuilder([coordinateArrays])
-        writeCoordinates()
+                if(coordinateArrays[coordinateArrays.length - 1].length > 2) {
+                    $(".turn-off-polygon").prop("disabled", false)
+                }
+            })
+
+            $(".turn-on-polygon").text("Stop Drawing")
+
+            turnOnPolygon = false
+        } else {
+            google.maps.event.removeListener(drawPolygonsListener)
+
+            if(coordinateArrays[coordinateArrays.length - 1].length === 0) {
+                $(".turn-on-polygon").text("Draw Polygon")
+            } else {
+                $(".turn-on-polygon").text("Edit Polygon")
+            }
+            
+            turnOnPolygon = true
+        }
+    })
+
+    $(".turn-off-polygon").click(() => {
+        $(".turn-off-polygon").prop("disabled", true)
+        $(".turn-on-polygon").text("Draw Polygon")
+        google.maps.event.removeListener(drawPolygonsListener)
+        newPolygon = true
+        turnOnPolygon = true
     })
 })
