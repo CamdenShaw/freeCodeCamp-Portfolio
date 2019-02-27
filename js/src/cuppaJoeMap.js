@@ -195,6 +195,12 @@ $(document).ready(() => {
                     })
                 })
                 
+                path.addListener("insert_at", function(key) {
+                    let tempArray = this.getAt(key).toUrlValue(15).split(',')
+                    console.log('insert at', key, this, tempArray)
+                    coordinateArrays[coordinateArrays.length - 1].splice(key, 0, {lat: parseFloat(tempArray[0]), lng: parseFloat(tempArray[1])})
+                    writeCoordinates(true)
+                })
             })
 
         }
