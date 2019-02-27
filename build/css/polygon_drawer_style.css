@@ -47,6 +47,18 @@ hr:nth-of-type(even) {
   max-width: 75vw;
   width: 900px; }
 
+.map-wrapper .coordinates-display {
+  width: 25vw;
+  min-width: calc(100vw - 900px); }
+
+.map-wrapper .coordinates-display .map-form .buttons-wrapper {
+  font-size: 0; }
+
+.map-wrapper .coordinates-display .map-form .buttons-wrapper .btn {
+  display: inline-block;
+  min-width: calc(50% - 10px);
+  margin: 5px; }
+
 /* 
 html::-webkit-scrollbar, body::-webkit-scrollbar, .main-site::-webkit-scrollbar {
     display: none; 
