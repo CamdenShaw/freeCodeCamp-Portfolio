@@ -54,7 +54,52 @@ $(document).ready(() => {
         return map
     }
 
+    
     const map = initMap()
+    
+    const clearAll = () => {
+        coordinateArrays = []
+        polygonArray.forEach((polygon) => {
+            polygon.setMap(null);
+        })
+        $(".map-form .btn").each((key, btn) => {
+            if($(btn).hasClass("turn-on-polygon")) return
+            $(btn).prop("disabled", true);
+        })
+
+        google.maps.event.removeListener(drawPolygonsListener)
+        turnOnPolygon = true
+        newPolygon = true
+        $(".turn-on-polygon")
+            .text("Draw Polygon")
+            .removeClass("btn-dark")
+            .removeClass("btn-info")
+            .addClass("btn-success")
+        polygonArray = []
+        document.querySelector("#coordinates-box").innerHTML = ''
+    }
+
+    const clearLast = () => {
+        let selectedArray = polygonArray.pop()
+        selectedArray.setMap(null)
+        coordinateArrays.pop()
+        writeCoordinates(true)
+        google.maps.event.removeListener(drawPolygonsListener)
+        turnOnPolygon = true
+        newPolygon = true
+        $(".turn-on-polygon")
+            .text("Draw Polygon")
+            .removeClass("btn-dark")
+            .removeClass("btn-info")
+            .addClass("btn-success")
+
+        if(polygonArray.length === 0) {
+            $(".map-form .btn").each((key, btn) => {
+                if($(btn).hasClass("turn-on-polygon")) return
+                $(btn).prop("disabled", true);
+            })
+        }
+    }
 
     let input = document.getElementById('pac-input')
     const searchBox = new google.maps.places.SearchBox(input)
@@ -132,7 +177,6 @@ $(document).ready(() => {
             let selectedPolygon = polygonArray[polygonArray.length - 1],
                 relevantCoordinates = coordinateArrays[coordinateArrays.length - 1]
             
-            console.log(relevantCoordinates, 'relevant coordinates')
             selectedPolygon.setPaths(relevantCoordinates)
             selectedPolygon.getPaths().forEach((path, key) => {
                 path.addListener("set_at", () => {
@@ -155,8 +199,6 @@ $(document).ready(() => {
 
         }
     }
-    
-    console.log(coordinateArrays)
 
     function coordinatesBuilder(newCoords = {}) {
         coordinateArrays[coordinateArrays.length - 1].push(newCoords)
@@ -174,7 +216,7 @@ $(document).ready(() => {
             if(document.getElementById('coordinates-box').childElementCount < coordinateArrays.length || overwrite) {
 
                 coordArray.forEach(coordSet => {
-                    coordHTML += `<p>${coordSet['lat']}, ${coordSet['lng']}</p>`
+                    coordHTML += `<div>${coordSet['lat']}, ${coordSet['lng']}</div>`
                 })
 
                 document.getElementById('coordinates-box').innerHTML += `
@@ -185,7 +227,7 @@ $(document).ready(() => {
             } else if(coordCount === coordinateArrays.length) {
                 let coordLat = coordArray[coordArray.length - 1]['lat'],
                     coordLong = coordArray[coordArray.length - 1]['lng']
-                document.querySelector(`#coordinates-box .polygon-${coordCount}-coordinates`).innerHTML += `<p>${coordLat}, ${coordLong}</p>`
+                document.querySelector(`#coordinates-box .polygon-${coordCount}-coordinates`).innerHTML += `<div class="lat-lng">${coordLat}, ${coordLong}</div>`
             }
         }) 
     }
@@ -199,33 +241,43 @@ $(document).ready(() => {
         if(turnOnPolygon) {
             console.log("turn on polygon")
             
+            console.log(coordinateArrays)
             if(newPolygon) coordinateArrays.push([])
             polygonBuilder(coordinateArrays[coordinateArrays.length - 1])
             newPolygon = false
 
             drawPolygonsListener = map.addListener('click', (e) => {
                 let latLngCoordinates = {lat: e.latLng.lat(), lng: e.latLng.lng()}
-                console.log(latLngCoordinates)
                 coordinatesBuilder(latLngCoordinates)
-                console.log(coordinateArrays)
                 polygonBuilder(coordinateArrays)
                 writeCoordinates()
 
                 if(coordinateArrays[coordinateArrays.length - 1].length > 2) {
                     $(".turn-off-polygon").prop("disabled", false)
+                    $(".clear-last").prop("disabled", false)
+                    $(".clear-all").prop("disabled", false)
                 }
             })
 
-            $(".turn-on-polygon").text("Stop Drawing")
+            $(".turn-on-polygon")
+                .text("Stop Drawing")
+                .removeClass("btn-success")
+                .addClass("btn-dark")
 
             turnOnPolygon = false
         } else {
             google.maps.event.removeListener(drawPolygonsListener)
 
             if(coordinateArrays[coordinateArrays.length - 1].length === 0) {
-                $(".turn-on-polygon").text("Draw Polygon")
+                $(".turn-on-polygon")
+                    .text("Draw Polygon")
+                    .removeClass("btn-success")
+                    .addClass("btn-dark")
             } else {
-                $(".turn-on-polygon").text("Edit Polygon")
+                $(".turn-on-polygon")
+                    .text("Edit Polygon")
+                    .removeClass("btn-dark")
+                    .addClass("btn-info")
             }
             
             turnOnPolygon = true
@@ -234,9 +286,17 @@ $(document).ready(() => {
 
     $(".turn-off-polygon").click(() => {
         $(".turn-off-polygon").prop("disabled", true)
-        $(".turn-on-polygon").text("Draw Polygon")
+        $(".turn-on-polygon")
+            .text("Draw Polygon")
+            .removeClass("btn-dark")
+            .removeClass("btn-info")
+            .addClass("btn-success")
         google.maps.event.removeListener(drawPolygonsListener)
         newPolygon = true
         turnOnPolygon = true
     })
+
+    $(".clear-last").click(() => clearLast())
+
+    $(".clear-all").click(() => clearAll())
 })
