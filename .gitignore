@@ -20,6 +20,3 @@
 .vscode
 node_modules/
 animation_module/*
-
-map_tool/*
-!map_tool/build/*
