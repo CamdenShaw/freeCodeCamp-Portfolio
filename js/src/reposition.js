@@ -23,23 +23,26 @@ $(document).ready(() => {
             offsetPath: `path('${d}')`,
             motionPosition: "100%",
             offsetPosition: "100%",
-            padding: 10,
         })
     })
 })
 
 $(window).on('resize', () => {
-    let d = $(".experiment path")[0].getAttribute('d')
-    
-    d = calcPath(d)
+    let d
+    setTimeout(() => {
+        d = $(".experiment path")[0].getAttribute('d')
 
-    $(".circle").css({
-        motionPath: `path('${d}')`,
-        offsetPath: `path('${d}')`,
-        motionPosition: "100%",
-        offsetPosition: "100%",
-        padding: 10,
-    })
+        d = calcPath(d)
+    }, 1)
+
+    setTimeout(()=>{
+        $(".circle").css({
+            motionPath: `path('${d}')`,
+            offsetPath: `path('${d}')`,
+            motionPosition: "100%",
+            offsetPosition: "100%",
+        })
+    }, 2)
 })
 
 function calcPath(d) {

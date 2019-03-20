@@ -18,14 +18,15 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 30px;
-  height: 30px;
+  width: 2.5vw;
+  height: 2.5vw;
   border-radius: 50%;
   background-color: pink;
   motion-offset: 0%;
   offset-distance: 0%;
-  -webkit-animation: weeeee linear 10s;
-          animation: weeeee linear 10s; }
+  -webkit-animation: weeeee linear 60s;
+          animation: weeeee linear 60s;
+  /* transform: translate(-50%, -50%); */ }
 
 @-webkit-keyframes weeeee {
   from {
