@@ -5,6 +5,44 @@ body {
   font-size: 14px;
   font-weight: 400; }
 
+.experiment_wrapper {
+  margin-top: 100px;
+  width: 100vw;
+  height: 100%;
+  position: relative; }
+
+.experiment {
+  min-width: 100%; }
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: pink;
+  motion-offset: 0%;
+  offset-distance: 0%;
+  -webkit-animation: weeeee linear 10s;
+          animation: weeeee linear 10s; }
+
+@-webkit-keyframes weeeee {
+  from {
+    motion-offset: 100%;
+    offset-distance: 100%; }
+  to {
+    motion-offset: 0%;
+    offset-distance: 0%; } }
+
+@keyframes weeeee {
+  from {
+    motion-offset: 100%;
+    offset-distance: 100%; }
+  to {
+    motion-offset: 0%;
+    offset-distance: 0%; } }
+
 h1, h2, h3, h4 {
   font-family: "Exo", sans-serif;
   font-weight: 300; }

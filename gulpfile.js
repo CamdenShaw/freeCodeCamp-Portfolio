@@ -43,7 +43,7 @@ gulp.task("scripts", gulp.series("lint", async () => {
         .pipe(changed(output))
         .pipe(
             babel({
-                presets: ["es2017"]
+                presets: ["es2015"]
             })
         )
         .on("error", function(err) {
