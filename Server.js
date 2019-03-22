@@ -26,9 +26,9 @@ app.use(function (req, res, next) {
      *
      *  TEST http://localhost:3000
      * 
-     *  LIVE https://camdenshaw.ca
+     *  LIVE http://camdenshaw.ca
      */
-    res.setHeader('Access-Control-Allow-Origin', 'https://camdenshaw.ca');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 
     res.setHeader('Access-Control-Allow-Methods', 'GET');
 
