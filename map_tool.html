@@ -35,7 +35,19 @@
             <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box" aria-label="Search" />
           </div>
           <div class="buttons-wrapper">
-            <button type="button" class="btn btn-success turn-on-polygon">Draw Polygon</button>
+            <div class="draw-wrapper">
+              <button type="button" class="btn btn-success turn-on-polygon">Draw Polygon</button>
+              <!-- <button type="button" class="btn btn-success turn-on-polyline">Draw Polyline</button> -->
+              <div class="vertical-switch">
+                <input disabled checked="checked" type="radio" id="radio-gon" name="poly switch">
+                <label for="radio-gon">polygon</label>
+                <input disabled type="radio" id="radio-line" name="poly switch">
+                <label for="radio-line">polyline</label>
+                <span class="toggle-outer">
+                  <span class="toggle-inner"></span>
+                </span>
+              </div>
+            </div>
             <button disabled type="button" class="btn btn-primary turn-off-polygon">Close Polygon</button>
           </div>
           <div class="buttons-wrapper">
