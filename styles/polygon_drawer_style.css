@@ -28,30 +28,44 @@ hr:nth-of-type(even) {
 .map-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  min-height: calc(100vh - 90px); }
   .map-wrapper #map {
-    min-height: calc(100vh - 95px);
-    max-width: calc(100vw - 400px);
-    width: 75vw;
-    min-width: 900px; }
-    @media only screen and (min-width: 1200px) {
-      .map-wrapper #map {
-        width: calc(100vw - 400px); } }
+    width: 100%;
+    -webkit-box-flex: 2;
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+    -ms-flex-negative: 2;
+        flex-shrink: 2;
+    -ms-flex-preferred-size: 900px;
+        flex-basis: 900px; }
   .map-wrapper .coordinates-display {
-    min-width: 400px;
-    max-width: 25vw;
-    width: calc(100vw - 900px);
+    -webkit-box-flex: 0.5;
+        -ms-flex-positive: 0.5;
+            flex-grow: 0.5;
+    -ms-flex-negative: 0.5;
+        flex-shrink: 0.5;
+    -ms-flex-preferred-size: 380px;
+        flex-basis: 380px;
+    width: 100%;
     background-color: #000125;
     padding: 5px 15px;
     max-height: 100vh;
     overflow-y: scroll; }
-    @media only screen and (min-width: 1200px) {
-      .map-wrapper .coordinates-display {
-        max-width: 400px; } }
     .map-wrapper .coordinates-display * {
       color: #FFF; }
     .map-wrapper .coordinates-display .map-form .buttons-wrapper {
-      font-size: 0; }
+      font-size: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      .map-wrapper .coordinates-display .map-form .buttons-wrapper .btn {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center; }
       .map-wrapper .coordinates-display .map-form .buttons-wrapper .btn, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper, .map-wrapper .coordinates-display .map-form .buttons-wrapper .vertical-switch {
         min-height: 29.19px;
         display: -webkit-inline-box;
@@ -65,77 +79,88 @@ hr:nth-of-type(even) {
           margin-right: 5px; }
         .map-wrapper .coordinates-display .map-form .buttons-wrapper .btn:last-child, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper:last-child, .map-wrapper .coordinates-display .map-form .buttons-wrapper .vertical-switch:last-child {
           margin-left: 5px; }
-      .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .btn, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch {
-        font-size: 0.7rem;
-        padding-left: .1875rem;
-        padding-right: .1875rem;
-        min-width: calc(50% - 2.5px); }
-        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .btn:first-child, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch:first-child {
-          margin-right: 2.5px; }
-        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .btn:last-child, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch:last-child {
-          margin-left: 2.5px; }
-      .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch {
-        position: relative;
-        font-size: 0;
-        width: 1rem;
-        height: 1rem;
-        display: inline-block; }
-        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch * {
-          font-size: 0; }
-        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input {
-          position: absolute;
-          top: 0;
-          opacity: 0;
-          cursor: pointer;
-          height: 100%;
-          width: 1rem;
-          right: 1.5rem;
-          margin: 0;
-          font-size: 100%;
-          line-height: 1.15;
-          z-index: 2; }
-          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:checked {
-            z-index: 1; }
-            .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:checked + label {
-              opacity: 1;
-              cursor: default; }
-            .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:checked ~ .toggle-outer .toggle-inner {
-              top: .125rem; }
-          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input ~ input:checked ~ .toggle-outer .toggle-inner {
-            top: 1rem; }
-          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:disabled + label, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:disabled + label ~ .toggle-outer, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:disabled + label ~ .toggle-inner {
-            opacity: .2; }
-        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch label {
-          font-size: .4rem;
-          line-height: .8rem;
-          -webkit-transition: opacity .25s;
-          transition: opacity .25s;
-          display: block;
-          width: 2rem;
-          height: 50%;
-          margin: 0;
-          text-align: center;
-          opacity: .5;
-          cursor: pointer; }
-        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch .toggle-outer {
-          border-radius: .75rem;
-          padding: .125rem;
-          overflow: hidden;
-          -webkit-transition: .25s ease all;
-          transition: .25s ease all;
-          background-color: #FFF;
-          position: absolute;
-          width: 1rem;
-          height: 100%;
-          right: 1.5rem;
-          top: 0; }
-          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch .toggle-outer .toggle-inner {
-            border-radius: .75rem;
-            background: #000125;
+      .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper {
+        padding-top: 0;
+        padding-bottom: 0;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between; }
+        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper * {
+          margin-top: 0;
+          margin-bottom: 0; }
+        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .btn, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch {
+          font-size: 0.7rem;
+          padding-left: .1875rem;
+          padding-right: .1875rem; }
+          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .btn:first-child, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch:first-child {
+            margin-right: 2.5px; }
+          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .btn:last-child, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch:last-child {
+            margin-left: 2.5px; }
+        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .btn {
+          min-width: calc(100% - 56.5px); }
+        .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch {
+          position: relative;
+          font-size: 0;
+          height: 1.8rem;
+          display: inline-block;
+          min-width: 0;
+          margin-right: 1rem; }
+          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch * {
+            font-size: 0; }
+          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input {
             position: absolute;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            height: 100%;
+            width: 1rem;
+            left: 100%;
+            margin: 0;
+            font-size: 100%;
+            line-height: 1.15;
+            z-index: 2; }
+            .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:checked {
+              z-index: 1; }
+              .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:checked + label {
+                opacity: 1;
+                cursor: default; }
+              .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:checked ~ .toggle-outer .toggle-inner {
+                top: .125rem; }
+            .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input ~ input:checked ~ .toggle-outer .toggle-inner {
+              top: 1rem; }
+            .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:disabled + label, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:disabled + label ~ .toggle-outer, .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch input:disabled + label ~ .toggle-inner {
+              opacity: .2; }
+          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch label {
+            font-size: .4rem;
+            line-height: .7rem;
+            -webkit-transition: opacity .25s;
+            transition: opacity .25s;
+            display: block;
+            width: 2rem;
+            height: 50%;
+            margin: 0;
+            text-align: center;
+            opacity: .5;
+            cursor: pointer; }
+          .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch .toggle-outer {
+            border-radius: .75rem;
+            padding: .125rem;
+            overflow: hidden;
             -webkit-transition: .25s ease all;
             transition: .25s ease all;
-            height: .725rem;
-            width: .725rem;
-            top: .125rem;
-            left: .125rem; }
+            background-color: #FFF;
+            position: absolute;
+            width: 1rem;
+            height: 100%;
+            left: 100%;
+            top: 0; }
+            .map-wrapper .coordinates-display .map-form .buttons-wrapper .draw-wrapper .vertical-switch .toggle-outer .toggle-inner {
+              border-radius: .75rem;
+              background: #000125;
+              position: absolute;
+              -webkit-transition: .25s ease all;
+              transition: .25s ease all;
+              height: .725rem;
+              width: .725rem;
+              top: .125rem;
+              left: .1425rem; }
