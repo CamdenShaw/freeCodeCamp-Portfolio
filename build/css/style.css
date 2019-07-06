@@ -1,16 +1,16 @@
 body {
   position: relative;
   background-color: navy;
-  font-family: "Oxygen", sans-serif;
+  font-family: "Source Code Pro", sans-serif;
   font-size: 14px;
   font-weight: 400; }
 
 h1, h2, h3, h4 {
-  font-family: "Exo", sans-serif;
+  font-family: "Heebo", sans-serif;
   font-weight: 300; }
 
 h5, h6, p {
-  font-family: "Oxygen", sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   font-weight: 400; }
 
 *:focus {
