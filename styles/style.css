@@ -28,17 +28,57 @@ hr:nth-of-type(even) {
     margin-bottom: 80px;
 }
 
+section {
+    min-height: 100vh;
+}
+
 .main-site {
     margin: 0;
     padding: 0;
-    padding-top: 52px;
+    padding-top: 51px;
     width: auto;
     background-image: url("../../assets/images/background2@0.5x.png");
-    background-position: 0 -100px;
+    background-position: center;
     background-size: 100% auto;
     max-height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    transition: .05s;
+}
+
+.navbar-right li {
+    text-transform: uppercase;
+}
+
+#intro {
+    background-image: url(../../assets/images/red-circle-oil.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    transition: .05s;
+}
+
+#about .contact-links a {
+    position: relative;
+    transition: .3s;
+}
+
+#about .contact-links a .underline {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 1px;
+    width: 0;
+    background-color: rgba(navy, 0);
+    transition: .3s ease-out;
+    transform: translateX(-50%);
+}
+
+#about .contact-links a:hover .underline {
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
 }
 
 #welcome-section {
