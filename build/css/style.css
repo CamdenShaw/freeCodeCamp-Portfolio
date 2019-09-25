@@ -23,10 +23,10 @@ hr:nth-of-type(even) {
   margin-bottom: 80px; }
 
 section {
-  height: 100vh;
-  min-height: -webkit-fit-content;
-  min-height: -moz-fit-content;
-  min-height: fit-content; }
+  min-height: 100vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content; }
 
 .main-site {
   margin: 0;

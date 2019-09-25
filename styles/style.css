@@ -29,8 +29,8 @@ hr:nth-of-type(even) {
 }
 
 section {
-    height: 100vh;
-    min-height: fit-content;
+    min-height: 100vh;
+    height: fit-content;
 }
 
 .main-site {
