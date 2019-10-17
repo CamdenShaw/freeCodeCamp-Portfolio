@@ -9,7 +9,7 @@ body {
 h1, h2, h3, h4 {
     font-family: "Heebo", sans-serif;
     font-weight: 300;
-} 
+}
 
 h5, h6, p {
     font-family: "Chakra Petch", sans-serif;
@@ -536,6 +536,11 @@ iframe {
 #contact .jumbotron > h2 {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+#contact #email {
+    position: absolute;
+    left: -20000px;
 }
 
 form.message-camden {

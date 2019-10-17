@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    let from, subject, text, toggleData;
+    let fake, from, email, subject, formContent, messageContent, toggleData;
     const to = "camden.shaw@gmail.com",
         submitMessageStart = parseFloat($(".submit-message").css("marginBottom"))
 
@@ -20,9 +20,30 @@ $(document).ready(() => {
     
     $("form.message-camden").on("submit", (e) => {
         e.preventDefault()
+        email = $("[name='realsies']").val()
+        fake = $("[name='email']").val()
         from = $("[name='from']").val()
         subject = `Message From ${from} Via camdenshaw.ca`
-        text = `${$("[name='content']").val()}\n\n${from}\n${$("[name='phone#']").val()}\n${$("[name='email']").val()}`
+        formContent = $("[name='content']").val()
+        messageContent = `${formContent}\n\n${from}\n${$("[name='phone#']").val()}\n${email}`
+        
+        if(fake !== undefined && fake !== '') {
+            $(".status").empty().html("Go Away Bots!")
+            toggleTheClass("warning")
+
+            setTimeout(function() {
+                window.location = "https://google.com"
+            }, 100)
+            return
+        }
+
+        if(formContent === undefined || formContent === '') {
+            $(".status").empty().html("Camden wants a message - bare minimum")
+            toggleTheClass("warning")
+            return
+        } else if($(".status").hasClass("warning")) {
+            toggleTheClass("warning")
+        }
         
         $(".status").empty().html("Sending Email")
         toggleTheClass("sending")
@@ -45,14 +66,13 @@ $(document).ready(() => {
             from,
             to,
             subject,
-            text
+            messageContent
         }, (data, err) => {
             clearInterval(waitingForResponse)
             clearInterval(clearDots)
             clearTimeout(noResponse)
             toggleTheClass("sending")
             toggleTheClass(data)
-            console.log(data)
             data==="sent" && $(".status").empty().html(`Email has been sent.`)
             data==="error" && $(".status").empty().html(`An error has occurred, please try again later. <i class="mail fa fa-info-circle></i></p><p class="mail-error">${err}`)
             toggleData = setTimeout(() => toggleTheClass(data), 50000)
