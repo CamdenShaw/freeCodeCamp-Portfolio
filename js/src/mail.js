@@ -38,7 +38,7 @@ $(document).ready(() => {
         }
 
         if(formContent === undefined || formContent === '') {
-            $(".status").empty().html("Camden wants a message - bare minimum")
+            $(".status").empty().html("This form is here to initiate dialogue, so please write a message.")
             toggleTheClass("warning")
             return
         } else if($(".status").hasClass("warning")) {
