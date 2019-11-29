@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Camden Shaw's Portfolio Site - Free Code Camp Survey</title>
+    <meta name="description" content="Camden Shaw Developer Portfolio - Free Code Camp Product Landing Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Exo:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Heebo|Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="build/css/fcc_product_landing_page_style.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="nav-bar" data-offset="96">
+    <div class="hide_from_clients">
+      <h1 id="title">Free Code Camp Product Landing Page By Camden</h1>
+      <p id="description">A product landing page coded for Free Code Camp</p>
+    </div>
+    <header id="header">
+      <img src="./assets/svgs/fcc_landing_page_icon.svg" alt="Music Cloud Logo" id="header-img">
+      <nav id="nav-bar" class="navbar navbar-expand-md navbar-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks" aria-controls="navbarLinks" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarLinks">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="#sample" class="sample nav-link">Sample</a></li>
+            <li class="nav-item"><a href="#about_product" class="about-product nav-link">About</a></li>
+            <li class="nav-item"><a href="#contact" class="contact nav-link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="top-real"></div>
+    <section id="sample">
+      <div class="video-wrapper">
+        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/QYXwR9FFMVs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+    <section id="about_product">
+      <div class="info_wrapper">
+        <div class="info_row">
+          <img src="./assets/svgs/fcc_write_music.svg" alt="write music" class="info_icon" />
+          <h4>Write Music</h4>
+        </div>
+        <div class="info_row">
+          <img src="./assets/svgs/fcc_record_music.svg" alt="record music" class="info_icon" />
+          <h4>Record Music</h4>
+        </div>
+        <div class="info_row">
+          <img src="./assets/svgs/fcc_share_music.svg" alt="record music" class="info_icon" />
+          <h4>Share Music</h4>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <form action="https://www.freecodecamp.com/email-submit" id="form">
+        <h4>Create an account with us today.</h4>
+        <label for="email" class="email">email</label>
+        <input class="form-control" name="email" type="email" id="email" placeholder="enter your email to get started" />
+        <label for="submit" class="submit">submit</label>
+        <input class="btn" type="submit" id="submit" value="Submit">
+      </form>
+    </section>
+    <footer id="footer">
+        <p>© copyright 2019.  All rights reserved</p>
+    </footer>
+  </body>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <script src="build/js/cuppaJoeLandingPage.min.js" async></script>
+</html>
