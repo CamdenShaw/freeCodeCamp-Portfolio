@@ -28,7 +28,7 @@ section {
 code {
     display: block;
     background: #5e2a0e;
-    color: #ddd417;
+    color: #feefce;
     padding: 1rem;
     margin: 0.25rem;
 }
@@ -53,11 +53,15 @@ code {
 }
 
 #header a:not(:hover) {
-    color: #1c8bc1;
+    color: #acdbf1;
+}
+
+#header a:hover {
+    color: #1d8cc2;
 }
 
 #header h1 {
-    color: #FFF;
+    color: #FeF;
 }
 
 nav.navbar {
