@@ -22,4 +22,5 @@ node_modules/
 animation_module/*
 
 map_tool
+js/src/mail.js
 !map_tool/build
