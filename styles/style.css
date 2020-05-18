@@ -550,6 +550,7 @@ form.message-camden {
 }
 
 .message-camden input, .message-camden textarea, .message-camden button {
+    opacity: 0;
     background-color: rgba(220,220,250,0.6);
     border-radius: 20px;
     border: 2px solid lavender;
