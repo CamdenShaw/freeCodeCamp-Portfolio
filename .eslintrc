@@ -10,7 +10,8 @@
         "no-empty": 1,
         "no-param-reassign": 1,
         "no-unused-vars": 1,
-        "quotes": [0, "double"]
+        "quotes": [0, "double"],
+        "no-undef": 1
     },
     "globals": {
         "jQuery": false,
