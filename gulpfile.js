@@ -7,8 +7,9 @@ const gulp = require("gulp"),
     sass = require("gulp-sass")(require("sass")),
     autoprefixer = require("gulp-autoprefixer"),
     prettyError = require("gulp-prettyerror"),
-    cssnano = require("gulp-cssnano"),
-    changed = require("gulp-changed");
+    minify = require("gulp-clean-css"),
+    changed = require("gulp-changed"),
+    changedIP = require("gulp-changed-in-place");
 
 const input = "./js/src/*.js",
     output = "./build/js",
@@ -18,7 +19,7 @@ const input = "./js/src/*.js",
     sass_output = "./styles",
     fcc_styles = "./fcc/**/*",
     fcc_scripts = "./fcc/**/*.js",
-    fcc_output = "."
+    fcc_output = "./"
 
 gulp.task("babel", async () => {
     return gulp
@@ -49,7 +50,7 @@ gulp.task("lint", async () => {
 
 gulp.task("fcc_lint", async () => {
     return gulp
-        .src(fcc_scripts)
+        .src([fcc_scripts, "!fcc/**/*.min.js"])
         .pipe(lintCheck())
         .pipe(lintCheck.format())
         .pipe(lintCheck.failAfterError())
@@ -89,10 +90,8 @@ gulp.task("scripts", gulp.series("lint", async () => {
 }))
 
 gulp.task("fcc_scripts", gulp.series("fcc_lint", async () => {
-    console.log("fcc scripts is running")
     return gulp
-        .src(fcc_scripts, {base: "./"})
-        .pipe(changed(fcc_output))
+        .src([fcc_scripts, "!fcc/**/*.min.js"], {base: "./"})
         .pipe(
             babel({
                 presets: ["@babel/preset-env"]
@@ -123,11 +122,11 @@ gulp.task("hi", () => {
 
 gulp.task("watch", async () => {
     gulp.watch("./js/src/*.js", gulp.parallel("scripts"))
-    gulp.watch("./fcc/**/*.js", gulp.parallel("fcc_scripts"))
+    gulp.watch(["./fcc/**/*.js", "!./fcc/**/*.min.js"], gulp.parallel("fcc_scripts"))
     gulp.watch("./styles/sass/*.scss", gulp.parallel("sass"))
-    gulp.watch("./fcc/**/*.scss", gulp.parallel("fcc_scss"))
+    gulp.watch(["./fcc/**/*.scss", "!./fcc/**/*.min.css"], gulp.parallel("fcc_scss"))
     gulp.watch("./styles/*.css", gulp.parallel("css"))
-    gulp.watch("./fcc/**/*.css", gulp.parallel("fcc_css"))
+    gulp.watch(["./fcc/**/*.css", "!./fcc/**/*.min.css"], gulp.parallel("fcc_css"))
 })
 
 gulp.task("css", async () => {
@@ -140,7 +139,7 @@ gulp.task("css", async () => {
             autoprefixer()
         )
         .pipe(gulp.dest(css_output))
-        .pipe(cssnano())
+        .pipe(minify())
         .pipe(rename({
                 extname: ".min.css"
             })
@@ -150,15 +149,14 @@ gulp.task("css", async () => {
 
 gulp.task("fcc_css", async () => {
     return gulp
-        .src(fcc_styles + ".css", {base: "./"})
-        .pipe(changed(css_output))
+        .src([fcc_styles + ".css", `!fcc/**/styles/*.min.css`], {base: "./"})
         .pipe(prettyError())
         .pipe(sass())
         .pipe(
             autoprefixer()
         )
-        .pipe(gulp.dest(fcc_output))
-        .pipe(cssnano())
+        .pipe(minify())
+        .on("error", err=>console.log(err))
         .pipe(rename({
                 extname: ".min.css"
             })
@@ -180,8 +178,7 @@ gulp.task("sass", async () => {
 
 gulp.task("fcc_scss", async () => {
     return gulp
-        .src(fcc_styles + ".scss",{base: "./"})
-        .pipe(changed(fcc_output))
+        .src(fcc_styles + ".scss", {base: "./"})
         .pipe(prettyError())
         .pipe(sass())
         .pipe(
