@@ -1,5 +1,7 @@
 body {
     min-width: 100vw;
     min-height: 100vh;
-    background: paleturquoise;
+    background-color: var(--bg-colour, $bg_colour);
+    margin: 0;
+    padding: var(--outer-padding, $outer_padding);
 }
