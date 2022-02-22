@@ -1,0 +1,18 @@
+:root {
+  --font-size: 1rem;
+  --outer-padding: 1.5rem;
+  --padding: 1rem;
+  --title-font: Abel, sans-serif;
+  --text-font: Abel, sans-serif;
+  --default-font-size: 1rem;
+  --bg-colour: #b0EAFF;
+  --text-colour: #361809;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--bg-colour, #b0EAFF);
+  margin: 0;
+  padding: var(--outer-padding, 1.5rem);
+}

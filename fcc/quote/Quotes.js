@@ -1,14 +1,14 @@
-const isProduction = false;
+const isProduction = true;
 const e = React.createElement;
 const quotesContainer = document.createElement("script")
 const quotesContainerStyles = document.createElement("link")
 let minStr = isProduction ? ".min" : ""
 
 quotesContainer.src = `./fcc/quote/Components/QuoteContainer${minStr}.js`
-quotesContainerStyles.src = `./fcc/quote/styles/QuotesApp${minStr}.js`
+quotesContainerStyles.href = `./fcc/quote/styles/QuotesApp${minStr}.css`
 quotesContainerStyles.rel = "stylesheet"
 document.body.appendChild(quotesContainer)
-document.head.appendChild(quotesContainerStyles)
+document.head.appendChild(quotesContainerStyles) 
 
 window.addEventListener("load", () => {
     class LikeButton extends React.Component {
