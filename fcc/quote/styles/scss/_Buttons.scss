@@ -1,0 +1,16 @@
+.btn-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin: var(--default-padding, 1em);
+}
+
+.btn {
+    text-decoration: none;
+    background: var(--btn-bg-colour, #{lighten($text_colour, 10%)});
+    color: var(--btn-text-colour, #{darken($bg_colour, 5%)});
+    padding: calc(var(--default-padding, 1em)/2);
+    line-height: 1;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 0.8em;
+}

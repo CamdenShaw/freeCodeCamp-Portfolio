@@ -1,0 +1,19 @@
+:root {
+    --font-size: #{$default_fontsize};
+    --outer-padding: #{$outer_padding};
+    --padding: #{$default_padding};
+    --title-font: #{$title_font};
+    --text-font: #{$text_font};
+    --default-font-size: #{$default_fontsize};
+    --bg-colour: #{$bg_colour};
+    --text-colour: #{$text_colour};
+    --card-bg-colour: #{lighten($text_colour, 75%)};
+    --card-text-colour: #{darken($bg_colour, 75%)};
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-colour: #{$text_colour};
+        --text-colour: #{lighten($bg_colour, 10%)}
+    }
+}

@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--bg-colour, $bg_colour);
+    margin: 0;
+    padding: var(--outer-padding, $outer_padding);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+}
+
+main {
+    flex: 1 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    flex: 0 0 auto;
+}
+
+.container {
+    border: 2px solid #{lighten($bg_colour, 5%)};
+    box-shadow: .251em .251em .71em darken($bg_colour, 25%);
+    padding: var(--default-padding, #{$default_padding});
+    background-color: var(--card-bg-colour, #000);
+    color: var(--card-text-colour, #FFF);
+    width: 75vw;
+    min-width: fit-content;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+}

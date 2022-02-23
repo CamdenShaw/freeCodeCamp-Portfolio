@@ -1,7 +1,8 @@
 body, html {
   background-color: #e9fffe;
   padding: 2rem;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 form {
   border-radius: 1rem;
@@ -17,14 +18,18 @@ form {
           flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+}
 
 label, select {
-  margin-top: 1rem; }
+  margin-top: 1rem;
+}
 
 input {
   padding: 0.5em;
-  line-height: 1; }
+  line-height: 1;
+}
 
-input[type='number'] {
-  min-width: 70px; }
+input[type=number] {
+  min-width: 70px;
+}
