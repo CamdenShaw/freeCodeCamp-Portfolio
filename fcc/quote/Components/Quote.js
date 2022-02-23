@@ -1,7 +1,6 @@
 class Quote extends React.Component {
     constructor(props){
         super(props)
-        console.log(props)
     }
 
     render() {
@@ -10,7 +9,7 @@ class Quote extends React.Component {
             {
                 id: "text",
             },
-            "quote" + this.props.quoteIndex
+            this.props.text
         ))
     }
 }

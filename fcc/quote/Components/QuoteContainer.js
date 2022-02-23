@@ -12,22 +12,36 @@ class QuoteContainer extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            quoteIndex: Math.round(Math.random() * 20)
+            quoteIndex: null
         }
         this.updateIndex = this.updateIndex.bind(this)
     }
 
     updateIndex() {
         this.setState({
-            quoteIndex: Math.round(Math.random() * 20)
+            quoteIndex: Math.floor(Math.random() * this.props.quotes.length)
         })
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.quotes.length > 0 && this.state.quoteIndex === null) {
+            this.updateIndex()
+            return true
+        } else if (nextProps.quotes.length > 0 && nextState.quoteIndex !== null) {
+            return true
+        }
+        return false
+    }
+
     render() {
+        const {quotes} = this.props
+        const {quoteIndex} = this.state
+        const text = quoteIndex === null ? "loading" : quotes[quoteIndex].text
+        const author = quoteIndex === null ? "" : quotes[quoteIndex].author
         return(e(
             "div",
             {className: "container", id:"quote-box"},
-            [e(Quote, {key:"quote",quoteIndex:this.state.quoteIndex}), e(Author, {key:"author", quoteIndex:this.state.quoteIndex}), e(Buttons, {key:"buttons", updateIndex:this.updateIndex})]
+            [e(Quote, {text, key:"quote",quoteIndex:this.state.quoteIndex}), e(Author, {author,key:"author", quoteIndex:this.state.quoteIndex}), e(Buttons, {key:"buttons", updateIndex:this.updateIndex})]
         ))
     }
 }

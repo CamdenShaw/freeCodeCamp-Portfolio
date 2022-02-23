@@ -1,7 +1,6 @@
 class Author extends React.Component {
     constructor(props){
         super(props)
-        console.log(props)
     }
 
     render() {
@@ -10,7 +9,7 @@ class Author extends React.Component {
             {
                 id: "author",
             },
-            "author" + this.props.quoteIndex
+            this.props.author
         ))
     }
 }

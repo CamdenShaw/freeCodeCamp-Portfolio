@@ -14,11 +14,30 @@ window.addEventListener("load", () => {
     class LikeButton extends React.Component {
         constructor(props) {
             super(props);
+            this.state = {
+                quotes: []
+            }
+            this.updateQuotes = this.updateQuotes.bind(this)
+        }
+
+        updateQuotes() {
+            fetch("https://type.fit/api/quotes")
+                .then(res=> {
+                    let resOK = res.ok ? res.ok : (res.status >= 200 && res.status < 400)
+                    if(resOK) {
+                        return res.json()
+                    }
+                })
+                .then(data=>{
+                    this.setState({quotes:data})
+                })
+            return []
         }
 
         render() {
             return e(
-                QuoteContainer
+                QuoteContainer,
+                {quotes: this.state.quotes.length > 0 ? this.state.quotes : this.updateQuotes()}
             );
         }
     }
