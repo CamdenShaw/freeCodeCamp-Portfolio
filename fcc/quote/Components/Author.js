@@ -9,7 +9,7 @@ class Author extends React.Component {
             {
                 id: "author",
             },
-            this.props.author
+            "~ " + this.props.author
         ))
     }
 }

@@ -19,16 +19,18 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+    width: 100%;
 
-footer {
-    flex: 0 0 auto;
+    @media (min-width: 560px) {
+        width: unset;
+        width: initial;
+    }
 }
 
 .container {
-    border: 2px solid #{lighten($bg_colour, 5%)};
-    box-shadow: .251em .251em .71em darken($bg_colour, 25%);
-    padding: var(--default-padding, #{$default_padding});
+    border: 2px solid #{lighten($bg_colour, 2%)};
+    box-shadow: .3251em .3251em .71em darken($bg_colour, 25%);
+    padding: var(--padding, #{$default_padding});
     background-color: var(--card-bg-colour, #000);
     color: var(--card-text-colour, #FFF);
     width: 75vw;
@@ -36,4 +38,12 @@ footer {
     max-width: 650px;
     display: flex;
     flex-direction: column;
+}
+
+footer {
+    flex: 0 0 auto;
+
+    & p {
+        margin-bottom: -0.25em;
+    }
 }

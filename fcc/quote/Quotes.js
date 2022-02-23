@@ -1,4 +1,4 @@
-const isProduction = false;
+const isProduction = true;
 const e = React.createElement;
 const quotesContainer = document.createElement("script")
 const quotesContainerStyles = document.createElement("link")

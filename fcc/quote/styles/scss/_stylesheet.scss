@@ -7,13 +7,22 @@
     --default-font-size: #{$default_fontsize};
     --bg-colour: #{$bg_colour};
     --text-colour: #{$text_colour};
-    --card-bg-colour: #{lighten($text_colour, 75%)};
+    --card-bg-colour: #{lighten($text_colour, 80%)};
     --card-text-colour: #{darken($bg_colour, 75%)};
+    --btn-padding: #{calc($default_padding/3 + $default_padding/9)} #{calc($default_padding/1.2)} #{calc($default_padding/3)};
+    --transition-duration: #{$transition_duration};
+    --transition-properties: #{$transition_properties}
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-colour: #{$text_colour};
         --text-colour: #{lighten($bg_colour, 10%)}
+    }
+}
+
+@media (min-width: 560px) {
+    :root {
+        --padding: #{calc($default_padding * 2)};
     }
 }

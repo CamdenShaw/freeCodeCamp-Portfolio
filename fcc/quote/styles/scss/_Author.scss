@@ -1,6 +1,7 @@
 cite {
     text-align: right;
     text-transform: capitalize;
-    text-decoration: italic;
+    font-style: italic;
     width: 100%;
+    padding-right: var(--padding, 1em);
 }

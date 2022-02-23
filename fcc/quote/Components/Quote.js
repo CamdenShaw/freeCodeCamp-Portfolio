@@ -9,7 +9,7 @@ class Quote extends React.Component {
             {
                 id: "text",
             },
-            this.props.text
+            e("i", {className: "fas fa-quote-left"}, ""),this.props.text
         ))
     }
 }
