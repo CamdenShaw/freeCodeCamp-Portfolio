@@ -1,7 +1,7 @@
 :root {
   --font-size: 1rem;
-  --outer-padding: 0.75rem;
   --padding: 0.5rem;
+  --outer-padding: 1.75rem;
   --title-font: Abel, sans-serif;
   --text-font: Abel, sans-serif;
   --default-font-size: 1rem;
@@ -9,7 +9,7 @@
   --text-colour: #361809;
   --card-bg-colour: #f9e7de;
   --card-text-colour: #005964;
-  --btn-padding: 0.2222222222rem 0.4166666667rem 0.1666666667rem;
+  --btn-padding: calc(var(--padding, 1rem)/3 + var(--padding, 1rem)/9) calc(var(--padding, 1rem)/0.6) calc(var(--padding, 1rem)/3);
   --transition-duration: 0.5s;
   --transition-properties: color, background-colour, border, opacity, box-shadow ;
 }
@@ -98,7 +98,7 @@ body {
   min-height: 100vh;
   background-color: var(--bg-colour, #E3FCFF);
   margin: 0;
-  padding: var(--outer-padding, 0.75rem);
+  padding: var(--outer-padding, 1.75rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,6 +112,7 @@ body {
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
+  font-family: var(--text-font, sans-serif);
 }
 
 main {

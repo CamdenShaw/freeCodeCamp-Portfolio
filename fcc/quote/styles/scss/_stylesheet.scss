@@ -1,7 +1,7 @@
 :root {
     --font-size: #{$default_fontsize};
-    --outer-padding: #{$outer_padding};
     --padding: #{$default_padding};
+    --outer-padding: #{$outer_padding};
     --title-font: #{$title_font};
     --text-font: #{$text_font};
     --default-font-size: #{$default_fontsize};
@@ -9,7 +9,7 @@
     --text-colour: #{$text_colour};
     --card-bg-colour: #{lighten($text_colour, 80%)};
     --card-text-colour: #{darken($bg_colour, 75%)};
-    --btn-padding: #{calc($default_padding/3 + $default_padding/9)} #{calc($default_padding/1.2)} #{calc($default_padding/3)};
+    --btn-padding: calc(var(--padding, 1rem)/3 + var(--padding, 1rem)/9) calc(var(--padding, 1rem)/0.6) calc(var(--padding, 1rem)/3);
     --transition-duration: #{$transition_duration};
     --transition-properties: #{$transition_properties}
 }
