@@ -104,3 +104,7 @@ footer {
 footer p {
   margin-bottom: -0.25em;
 }
+
+.container#preview {
+  white-space: pre-line;
+}
