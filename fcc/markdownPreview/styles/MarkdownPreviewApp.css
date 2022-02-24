@@ -1,0 +1,168 @@
+:root {
+  --font-size: 1rem;
+  --padding: 0.5rem;
+  --outer-padding: 1.75rem;
+  --title-font: Abel, sans-serif;
+  --text-font: Abel, sans-serif;
+  --default-font-size: 1rem;
+  --bg-colour: #E3FCFF;
+  --text-colour: #361809;
+  --card-bg-colour: #f9e7de;
+  --card-text-colour: #005964;
+  --btn-padding: calc(var(--padding, 1rem)/3 + var(--padding, 1rem)/9) calc(var(--padding, 1rem)/0.6) calc(var(--padding, 1rem)/3);
+  --transition-duration: 0.5s;
+  --transition-properties: color, background-colour, border, opacity, box-shadow ;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-colour: #361809;
+    --text-colour: white ;
+  }
+}
+@media (min-width: 560px) {
+  :root {
+    --padding: 1rem;
+  }
+}
+cite {
+  text-align: right;
+  text-transform: capitalize;
+  font-style: italic;
+  width: 100%;
+  padding-right: var(--padding, 1em);
+}
+
+.btn-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: var(--padding, 1em);
+}
+
+.btn {
+  text-decoration: none;
+  background: var(--btn-bg-colour, #622b10);
+  color: var(--btn-text-colour, #caf9ff);
+  padding: var(--btn-padding, 0.5em);
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  -webkit-box-shadow: 0.1em 0.1em 0.5em #a3491b;
+          box-shadow: 0.1em 0.1em 0.5em #a3491b;
+  -webkit-transition-duration: var(--transition-duration, 0.5s);
+       -o-transition-duration: var(--transition-duration, 0.5s);
+          transition-duration: var(--transition-duration, 0.5s);
+  -webkit-transition-property: var(--transition-properties, color, background-colour, border, opacity, box-shadow);
+  -o-transition-property: var(--transition-properties, color, background-colour, border, opacity, box-shadow);
+  transition-property: var(--transition-properties, color, background-colour, border, opacity, box-shadow);
+}
+.btn:hover, .btn:focus {
+  --btn-bg-colour: #2d1408;
+  --btn-text-colour: white;
+}
+.btn:active, .btn.active {
+  --btn-bg-colour: #000000;
+  --btn-text-colour: #FFFFFF;
+  -webkit-transition: 0;
+  -o-transition: 0;
+  transition: 0;
+  -webkit-box-shadow: 0 0 0 #361809, inset 0.321em 0.321em 1em #8d3f18, inset -0.321em -0.321em 1em #8d3f18;
+          box-shadow: 0 0 0 #361809, inset 0.321em 0.321em 1em #8d3f18, inset -0.321em -0.321em 1em #8d3f18;
+}
+
+blockquote {
+  font-size: 1.2em;
+  margin: var(--padding, 1em);
+  line-height: 1.3;
+}
+blockquote i, blockquote span {
+  --spacing: calc(var(--padding, 1em) / 2);
+  font-size: 1.2em;
+  float: left;
+  padding: 0 var(--spacing, 0.5em) 0 0;
+  line-height: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--bg-colour, #E3FCFF);
+  margin: 0;
+  padding: var(--outer-padding, 1.75rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  font-family: var(--text-font, sans-serif);
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+@media (min-width: 560px) {
+  main {
+    width: unset;
+    width: initial;
+  }
+}
+
+.container {
+  border: 2px solid #edfdff;
+  -webkit-box-shadow: 0.3251em 0.3251em 0.71em #64eeff;
+          box-shadow: 0.3251em 0.3251em 0.71em #64eeff;
+  padding: var(--padding, 0.5rem);
+  background-color: var(--card-bg-colour, #000);
+  color: var(--card-text-colour, #FFF);
+  width: 75vw;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  max-width: 650px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+footer p {
+  margin-bottom: -0.25em;
+}
