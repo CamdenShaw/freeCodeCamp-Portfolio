@@ -1,47 +1,49 @@
-const isProduction = true;
+const isProduction = false;
 const e = React.createElement;
-const quotesContainer = document.createElement("script")
-const quotesContainerStyles = document.createElement("link")
+const markdownContainer = document.createElement("script")
+const markdownPreviewContainer = document.createElement("script")
+const markdownContainerStyles = document.createElement("link")
 let minStr = isProduction ? ".min" : ""
 
-quotesContainer.src = `./fcc/quote/Components/QuoteContainer${minStr}.js`
-quotesContainerStyles.href = `./fcc/quote/styles/QuotesApp${minStr}.css`
-quotesContainerStyles.rel = "stylesheet"
-document.body.appendChild(quotesContainer)
-document.head.appendChild(quotesContainerStyles) 
+markdownContainer.src = `./fcc/markdownPreview/Components/MarkdownContainer${minStr}.js`
+markdownPreviewContainer.src = `./fcc/markdownPreview/Components/markdownPreviewContainer${minStr}.js`
+markdownContainerStyles.href = `./fcc/markdownPreview/styles/MarkdownPreviewApp${minStr}.css`
+markdownContainerStyles.rel = "stylesheet"
+document.body.appendChild(markdownContainer)
+document.body.appendChild(markdownPreviewContainer)
+document.head.appendChild(markdownContainerStyles) 
 
 window.addEventListener("load", () => {
-    class LikeButton extends React.Component {
+    class MdPApp extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
-                quotes: []
+                inputValue: "",
             }
-            this.updateQuotes = this.updateQuotes.bind(this)
+            this.captureInput = this.captureInput.bind(this)
         }
 
-        updateQuotes() {
-            fetch("https://type.fit/api/quotes")
-                .then(res=> {
-                    let resOK = res.ok ? res.ok : (res.status >= 200 && res.status < 400)
-                    if(resOK) {
-                        return res.json()
-                    }
-                })
-                .then(data=>{
-                    this.setState({quotes:data})
-                })
-            return []
+        captureInput(e) {
+            this.setState({
+                inputValue: e.target.value
+            })
         }
 
         render() {
-            return e(
-                QuoteContainer,
-                {quotes: this.state.quotes.length > 0 ? this.state.quotes : this.updateQuotes()}
-            );
+            return (e(
+                "div",
+                {},
+                [e(
+                    MarkdownContainer,
+                    {value:this.state.inputValue, typieTypie:this.captureInput, key:"input"}
+                ), e(
+                    MarkdownPreviewContainer,
+                    {value:this.state.inputValue, key:"preview"}
+                )]
+            ));
         }
     }
     
-    const domContainer = document.querySelector('#quotes');
-    ReactDOM.render(e(LikeButton), domContainer);
+    const domContainer = document.querySelector('#markdown-preview');
+    ReactDOM.render(e(MdPApp), domContainer);
 })
