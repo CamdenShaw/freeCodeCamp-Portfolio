@@ -108,3 +108,7 @@ footer p {
 .container#preview {
   white-space: pre-line;
 }
+.container#preview ol, .container#preview ul, .container#preview blockquote {
+  margin-top: 0;
+  margin-bottom: 0;
+}
