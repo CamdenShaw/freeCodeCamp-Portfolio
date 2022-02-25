@@ -13,12 +13,17 @@ document.body.appendChild(markdownContainer)
 document.body.appendChild(markdownPreviewContainer)
 document.head.appendChild(markdownContainerStyles) 
 
+marked.setOptions({
+    gfm: true,
+    breaks: true,
+})
+
 window.addEventListener("load", () => {
     class MdPApp extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
-                inputValue: "",
+                inputValue: "# preview\n1. numbered list\n\n## some more previews\n* unordered list\n\n> blockquotes are **overdone**\n\n       document.getElementById(\"fcc\")\n`<img src=\"./assets/svgs/fcc_write_music.svg\" />`\n![Some random icon](./assets/svgs/fcc_write_music.svg)\nMy favorite search engine is [Duck Duck Go](https://duckduckgo.com \"The best search engine for privacy\").",
             }
             this.captureInput = this.captureInput.bind(this)
         }
