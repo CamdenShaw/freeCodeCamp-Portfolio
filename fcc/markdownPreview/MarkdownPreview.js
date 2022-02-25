@@ -1,4 +1,4 @@
-const isProduction = false;
+const isProduction = true;
 const e = React.createElement;
 const markdownContainer = document.createElement("script")
 const markdownPreviewContainer = document.createElement("script")
