@@ -5,14 +5,13 @@ class MarkdownPreviewContainer extends React.Component {
     }
 
     updatePreview() {
-        // TODO: mutate typed text
+        return {__html: marked.parse(this.props.value)}
     }
 
     render() {
         return(e(
             "div",
-            {className: "container", id:"preview"},
-            this.props.value
+            {className: "container", id:"preview", dangerouslySetInnerHTML:this.updatePreview()}
         ))
     }
 }
