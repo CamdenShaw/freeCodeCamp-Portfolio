@@ -6,7 +6,7 @@ const markdownContainerStyles = document.createElement("link")
 let minStr = isProduction ? ".min" : ""
 
 markdownContainer.src = `./fcc/markdownPreview/Components/MarkdownContainer${minStr}.js`
-markdownPreviewContainer.src = `./fcc/markdownPreview/Components/markdownPreviewContainer${minStr}.js`
+markdownPreviewContainer.src = `./fcc/markdownPreview/Components/MarkdownPreviewContainer${minStr}.js`
 markdownContainerStyles.href = `./fcc/markdownPreview/styles/MarkdownPreviewApp${minStr}.css`
 markdownContainerStyles.rel = "stylesheet"
 document.body.appendChild(markdownContainer)
