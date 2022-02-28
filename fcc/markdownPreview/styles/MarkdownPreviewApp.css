@@ -5,10 +5,10 @@
   --title-font: Montserrat, sans-serif;
   --text-font: Montserrat, sans-serif;
   --default-font-size: 1rem;
-  --bg-colour: #E3FCFF;
-  --text-colour: #361809;
-  --card-bg-colour: #f9e7de;
-  --card-text-colour: #005964;
+  --bg-colour: #fdead7;
+  --text-colour: #0b0b42;
+  --card-bg-colour: #eaeafb;
+  --card-text-colour: #512b04;
   --btn-padding: calc(var(--padding, 1rem)/3 + var(--padding, 1rem)/9) calc(var(--padding, 1rem)/0.6) calc(var(--padding, 1rem)/3);
   --transition-duration: 0.5s;
   --transition-properties: color, background-colour, border, opacity, box-shadow ;
@@ -16,7 +16,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-colour: #361809;
+    --bg-colour: #0b0b42;
     --text-colour: white ;
   }
 }
@@ -33,7 +33,7 @@
 body {
   min-width: 100vw;
   min-height: 100vh;
-  background-color: var(--bg-colour, #E3FCFF);
+  background-color: var(--bg-colour, #fdead7);
   margin: 0;
   padding: var(--outer-padding, 1.75rem);
   display: -webkit-box;
@@ -75,9 +75,9 @@ main {
 }
 
 .container {
-  border: 2px solid #edfdff;
-  -webkit-box-shadow: 0.3251em 0.3251em 0.71em #64eeff;
-          box-shadow: 0.3251em 0.3251em 0.71em #64eeff;
+  border: 2px solid #fdefe1;
+  -webkit-box-shadow: 0.3251em 0.3251em 0.71em #f7aa5e;
+          box-shadow: 0.3251em 0.3251em 0.71em #f7aa5e;
   padding: var(--padding, 0.5rem);
   margin: var(--padding, 0.5rem);
   background-color: var(--card-bg-colour, #000);
