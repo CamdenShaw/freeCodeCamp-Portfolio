@@ -1,4 +1,4 @@
-class MarkdownContainer extends React.Component {
+class DrumContainer extends React.Component {
     constructor(props){
         super(props)
     }
@@ -6,7 +6,8 @@ class MarkdownContainer extends React.Component {
     render() {
         return(e(
             "div",
-            {},
+            {className:"container"},
+            "test"
         ))
     }
 }
