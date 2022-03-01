@@ -1,4 +1,4 @@
-const isProduction = true;
+const isProduction = false;
 const e = React.createElement;
 const drumMachineContainer = document.createElement("script")
 const drumMachineStyles = document.createElement("link")
