@@ -6,7 +6,7 @@ class Pad extends React.Component {
     render() {
         return(e(
             "div",
-            {className:"pad"},
+            {className:"pad", ...this.props},
             [
                 e(
                     React.Fragment,
