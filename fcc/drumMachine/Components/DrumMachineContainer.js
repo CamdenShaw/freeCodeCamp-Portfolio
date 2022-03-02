@@ -5,17 +5,20 @@ document.body.appendChild(pad)
 class DrumContainer extends React.Component {
     constructor(props){
         super(props)
-        const kit = !this.props.kit ? ["q", "w", "e", "a", "s", "d", "z", "x", "c"] : this.props.kit
         this.state = {
-            kit: kit.map(pad=>e(Pad, {trigger:pad, key:pad}))
+            kit: this.props.kit.map(pad=>e(Pad, {
+                trigger:pad, 
+                key:pad,
+                sample: this.props.audio[pad],
+                onClick: this.props.getActive
+            }))
         }
-        console.log(this.state.kit)
     }
 
     render() {
         return(e(
             "div",
-            {},
+            {className:"kit"},
             this.state.kit
         ))
     }
