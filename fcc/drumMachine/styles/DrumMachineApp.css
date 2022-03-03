@@ -142,7 +142,7 @@ footer p {
   height: 6rem;
   border-radius: 1rem;
   border: 2px solid grey;
-  background-color: #fefdff;
+  background-color: #fbf7ff;
   margin: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -155,10 +155,13 @@ footer p {
           align-items: center;
 }
 .pad:hover, .pad:focus {
-  cursor: pointer;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
   background-color: #f2e3ff;
 }
 .pad:active, .pad.active {
+  cursor: -webkit-grab;
+  cursor: grab;
   background-color: #FFFFFF;
 }
 

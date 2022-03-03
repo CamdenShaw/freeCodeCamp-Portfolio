@@ -3,18 +3,19 @@
     height: 6rem;
     border-radius: 1rem;
     border: 2px solid grey;
-    background-color: #{lighten($bg_colour, 5%)};
+    background-color: #{lighten($bg_colour, 4%)};
     margin: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
 
     &:hover, &:focus {
-        cursor: pointer;
+        cursor: grabbing;
         background-color: #{$bg_colour};
     }
 
     &:active, &.active {
+        cursor: grab;
         background-color: #FFFFFF;
     }
 }
