@@ -136,3 +136,25 @@ footer p {
   border: 2px solid #9ea497;
   font-weight: var(--font-weight-medium, 500);
 }
+
+.pad {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+  border: 2px solid grey;
+  background-color: white;
+  margin: 0.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.pad:hover, .pad:focus {
+  cursor: pointer;
+  background-color: #f2e3ff;
+}
