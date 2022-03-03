@@ -138,12 +138,12 @@ footer p {
 }
 
 .pad {
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 1rem;
   border: 2px solid grey;
-  background-color: white;
-  margin: 0.25rem;
+  background-color: #fefdff;
+  margin: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,4 +157,21 @@ footer p {
 .pad:hover, .pad:focus {
   cursor: pointer;
   background-color: #f2e3ff;
+}
+.pad:active, .pad.active {
+  background-color: #FFFFFF;
+}
+
+.kit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }

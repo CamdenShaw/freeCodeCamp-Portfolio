@@ -1,10 +1,10 @@
 .pad {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     border-radius: 1rem;
     border: 2px solid grey;
-    background-color: #{lighten($bg_colour, 10%)};
-    margin: 0.25rem;
+    background-color: #{lighten($bg_colour, 5%)};
+    margin: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,5 +12,9 @@
     &:hover, &:focus {
         cursor: pointer;
         background-color: #{$bg_colour};
+    }
+
+    &:active, &.active {
+        background-color: #FFFFFF;
     }
 }
