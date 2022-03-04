@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
                     w: "./assets/audio/drum_samples/CowBell.m4a",
                     e: "./assets/audio/drum_samples/HighHat_tt.m4a",
                     a: "./assets/audio/drum_samples/Snare.m4a",
-                    s: "./assets/audio/drum_samples/Cowbell.m4a",
+                    s: "./assets/audio/drum_samples/Symbol_clang.m4a",
                     d: "./assets/audio/drum_samples/Tom.m4a",
                     z: "./assets/audio/drum_samples/Bass.m4a",
                     x: "./assets/audio/drum_samples/Bells.m4a",
@@ -36,9 +36,11 @@ window.addEventListener("load", () => {
         }
 
         getActive(event) {
+            const audioElement = event.target.querySelector("audio")
             this.setState({
                 lastActive: event.target.innerText
             })
+            audioElement.play()
         }
 
         render() {
