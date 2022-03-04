@@ -1,12 +1,16 @@
 class Pad extends React.Component {
     constructor(props){
         super(props)
+        const pathArr = this.props.sample.split("/")
+        this.state = {
+            uniqueID: pathArr[pathArr.length - 1].split(".")[0]
+        }
     }
 
     render() {
         return(e(
             "div",
-            {className:"pad", ...this.props},
+            {className:"drum-pad", id:this.state.uniqueID, ...this.props},
             [
                 e(
                     React.Fragment,
@@ -14,7 +18,7 @@ class Pad extends React.Component {
                     this.props.trigger
                 ), e(
                     "audio",
-                    {key: "sound"},
+                    {key: "sound", className:"clip", id:this.props.trigger, src: this.props.sample},
                     "Your browser does not support the <audio> element"
                 )
             ]
