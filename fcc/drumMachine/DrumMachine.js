@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
                 lastActive: "",
                 audioSources: {
                     q: "./assets/audio/drum_samples/HighHat_tst.m4a",
-                    w: "./assets/audio/drum_samples/CowBell.m4a",
+                    w: "./assets/audio/drum_samples/Cowbell.m4a",
                     e: "./assets/audio/drum_samples/HighHat_tt.m4a",
                     a: "./assets/audio/drum_samples/Snare.m4a",
                     s: "./assets/audio/drum_samples/Symbol_clang.m4a",
