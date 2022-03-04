@@ -7,7 +7,7 @@ class DrumContainer extends React.Component {
         super(props)
         this.state = {
             kit: this.props.kit.map(pad=>e(Pad, {
-                trigger:pad, 
+                trigger:pad.toUpperCase(), 
                 key:pad,
                 sample: this.props.audio[pad],
                 onClick: this.props.getActive
