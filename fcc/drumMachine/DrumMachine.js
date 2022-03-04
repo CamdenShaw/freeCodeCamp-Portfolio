@@ -33,6 +33,7 @@ window.addEventListener("load", () => {
                 }
             }
             this.getActive = this.getActive.bind(this)
+            this.musicalTyping = this.musicalTyping.bind(this)
         }
 
         getActive(event) {
@@ -43,10 +44,15 @@ window.addEventListener("load", () => {
             audioElement.play()
         }
 
+        musicalTyping(event) {
+            const target = document.querySelector(`[trigger=${event.key.toUpperCase()}]`)
+            if(target) this.getActive({target})
+        }
+
         render() {
             return (e(
                 "div",
-                {className:"container"},
+                {className:"container", tabIndex: 0, onKeyDown:this.musicalTyping},
                 [e(
                     ControlContainer,
                     {key: "control", active:this.state.lastActive}
