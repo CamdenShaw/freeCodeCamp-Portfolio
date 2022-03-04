@@ -108,7 +108,7 @@ footer p {
 .controls {
   height: 2rem;
   padding: 0.25rem 20%;
-  background: #17002b;
+  background: #220040;
   color: #e3e4e1;
   text-align: center;
   position: relative;
@@ -137,12 +137,12 @@ footer p {
   font-weight: var(--font-weight-medium, 500);
 }
 
-.pad {
+.drum-pad {
   width: 6rem;
   height: 6rem;
   border-radius: 1rem;
   border: 2px solid grey;
-  background-color: #fbf7ff;
+  background-color: #fdfaff;
   margin: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -154,12 +154,12 @@ footer p {
       -ms-flex-align: center;
           align-items: center;
 }
-.pad:hover, .pad:focus {
+.drum-pad:hover, .drum-pad:focus {
   cursor: -webkit-grabbing;
   cursor: grabbing;
-  background-color: #f2e3ff;
+  background-color: #f7edff;
 }
-.pad:active, .pad.active {
+.drum-pad:active, .drum-pad.active {
   cursor: -webkit-grab;
   cursor: grab;
   background-color: #FFFFFF;

@@ -1,9 +1,9 @@
-.pad {
+.drum-pad {
     width: 6rem;
     height: 6rem;
     border-radius: 1rem;
     border: 2px solid grey;
-    background-color: #{lighten($bg_colour, 4%)};
+    background-color: #{lighten($bg_colour, 4.5%)};
     margin: 1.5rem;
     display: flex;
     justify-content: center;
@@ -11,7 +11,7 @@
 
     &:hover, &:focus {
         cursor: grabbing;
-        background-color: #{$bg_colour};
+        background-color: #{lighten($bg_colour, 2%)};
     }
 
     &:active, &.active {
