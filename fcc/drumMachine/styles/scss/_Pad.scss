@@ -1,10 +1,10 @@
 .drum-pad {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 1rem;
+    width: 6em;
+    height: 6em;
+    border-radius: 1em;
     border: 2px solid grey;
     background-color: #{lighten($bg_colour, 4.5%)};
-    margin: 1.5rem;
+    margin: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;

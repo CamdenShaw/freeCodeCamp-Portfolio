@@ -138,12 +138,12 @@ footer p {
 }
 
 .drum-pad {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 1rem;
+  width: 6em;
+  height: 6em;
+  border-radius: 1em;
   border: 2px solid grey;
   background-color: #fdfaff;
-  margin: 1.5rem;
+  margin: 1.5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -177,4 +177,5 @@ footer p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 2vw;
 }
