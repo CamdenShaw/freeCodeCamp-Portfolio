@@ -1,0 +1,30 @@
+.btn {
+    background-color: #FFF;
+    color: #000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: var(--transition-duration, #{$transition_duration});
+    transition-property: background-color;
+
+    &#zero, &#clear {
+        grid-column-end: span 2;
+    }
+
+    &:hover, &:focus {
+        background-color: lightcyan;
+        cursor:pointer;
+    }
+
+    &:active, .active {
+        background-color: lightblue;
+    }
+}
+
+.func-wrapper.nums .btn {
+    &:not(:hover):not(:focus):not(:active):not(.active) {
+        background-color: #e9fcee;
+    }
+}
