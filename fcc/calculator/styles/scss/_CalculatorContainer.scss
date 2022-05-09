@@ -42,6 +42,45 @@ main {
     flex-direction: column;
 }
 
+.calc-container {
+    display: grid;
+    grid-template-columns: 4rem 4rem 4rem 4rem;
+    grid-template-rows: 4rem 4rem 4rem 4rem 4rem;
+    gap: 0;
+}
+
+.func-wrapper {
+    display: grid;
+    place-items: center;
+    gap: 2px;
+    margin: 1px;
+
+    &.top {
+        grid-column-start: 1;
+        grid-column-end: span 4;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    &.nums {
+        grid-column-start: 1;
+        grid-column-end: span 3;
+        grid-row-start: 2;
+        grid-row-end: span 4;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        direction: rtl;
+    }
+
+    &.right {
+        grid-column-start: 4;
+        grid-column-end: span 1;
+        grid-row-start: 2;
+        grid-row-end: span 4;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+}
+
 footer {
     flex: 0 0 auto;
 

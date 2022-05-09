@@ -1,6 +1,6 @@
-const calcContainer = document.createElement("script")
-// calcContainer.src = `./fcc/calculator/Components/Calc${minStr}.js`
-document.body.appendChild(calcContainer)
+const button = document.createElement("script")
+button.src = `./fcc/calculator/Components/Button${minStr}.js`
+document.body.appendChild(button)
 
 class CalculatorContainer extends React.Component {
     constructor(props){
@@ -9,12 +9,19 @@ class CalculatorContainer extends React.Component {
             calculator: "calculator"
         }
     }
-
+    
     render() {
-        return(e(
-            "div",
-            {className:"calculator"},
-            this.state.calculator
-        ))
+        const btns = []
+        Object.keys(this.props.btns).forEach(btn => btns.push(e(
+            Button,
+            {key: `btn-${btn}`,id:btn, text: this.props.btns[btn]}
+        )))
+        return(
+            e(
+                "div", 
+                {className:`func-wrapper ${this.props.className}`},
+                btns
+            )
+        )
     }
 }
