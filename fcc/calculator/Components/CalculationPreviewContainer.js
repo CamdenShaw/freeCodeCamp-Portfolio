@@ -1,16 +1,24 @@
 class PreviewContainer extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            calculator: "0123456789"
-        }
     }
 
     render() {
         return(e(
             "div",
             {className:"preview"},
-            this.state.calculator
+            [
+                e(
+                    "div",
+                    {key: "history", className:"history"},
+                    this.props.history ? this.props.history : "0"
+                ),
+                e(
+                    "div",
+                    {key:"lastTyped", className:"last-typed"},
+                    this.props.active ? this.props.active : "0"
+                )
+            ]
         ))
     }
 }

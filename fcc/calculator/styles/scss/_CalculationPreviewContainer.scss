@@ -2,7 +2,12 @@
     text-align: right;
     font-family: #{$title_font};
     font-weight: #{$title_weight};
-    font-size: 2em;
-    letter-spacing: 0.2em;
+    font-size: 1.75em;
+    letter-spacing: 0.15em;
     line-height: 1.3;
+
+    & .history {
+        font-size: 0.5em;
+        letter-spacing: 0;
+    }
 }
