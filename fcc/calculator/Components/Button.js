@@ -5,16 +5,12 @@ document.body.appendChild(calcContainer)
 class Button extends React.Component {
     constructor(props){
         super(props)
-        this.state = {
-            calculator: "calculator"
-        }
     }
 
     render() {
         return(e(
             "div",
-            {className:"btn", id: this.props.id},
-            this.props.text
+            {className: "btn", id: this.props.id, onClick: this.props.getActive, dangerouslySetInnerHTML: {__html: this.props.text}}
         ))
     }
 }
