@@ -14,7 +14,7 @@ class CalculatorContainer extends React.Component {
         const btns = []
         Object.keys(this.props.btns).forEach(btn => btns.push(e(
             Button,
-            {key: `btn-${btn}`,id:btn, text: this.props.btns[btn]}
+            {key: `btn-${btn}`,id:btn, text: this.props.btns[btn], getActive:this.props.getActive}
         )))
         return(
             e(

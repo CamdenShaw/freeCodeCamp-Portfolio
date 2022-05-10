@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
                 "zero": 0, 
             }
             const basicFuncBtns = {
-                "multiply": "X",
+                "multiply": "&times;",
                 "subtract": "-",
                 "add": "+",
                 "equals": "=",
@@ -39,23 +39,82 @@ window.addEventListener("load", () => {
             const lessBasicFuncBtns = {
                 "clear": "AC",
                 "percentage": "%",
-                "divide": "/",
+                "divide": "&#247;",
             }
             this.state = {
                 numBtns,
                 basicFuncBtns,
                 lessBasicFuncBtns,
+                isLastNum: false,
+                shouldClearHistory: false,
                 lastActive: "",
+                calcHistory: "",
             }
             this.getActive = this.getActive.bind(this)
+            this.runCalc = this.runCalc.bind(this)
+            this.getPercentage = this.getPercentage.bind(this)
         }
 
         getActive(event) {
-            // const audioElement = event.target.querySelector("audio")
-            // this.setState({
-            //     lastActive: event.target.innerText
-            // })
-            // audioElement.play()
+            const clickedEl = event.target
+            const clickedID = clickedEl.id
+            const numRegEx = /^[-]?[0-9.]+$/
+            const {lastActive, calcHistory, isLastNum, shouldClearHistory} = this.state
+            const currentDisplay = document.querySelector(".last-typed").innerText
+            let isNum = false, clearHistory = false
+            let newDisplay = "", newCalc = "", lastStr = "", newHistory = ""
+
+            if (clickedEl.parentElement.classList.contains("nums")) {
+                const nextVal = (lastActive && lastActive.includes(".") && clickedID === "decimal") ? "" : event.target.innerText
+                const shouldConcatenate = (numRegEx.test(lastActive) || (currentDisplay === "-" && isLastNum))
+                newDisplay = (shouldConcatenate ? lastActive : "") + nextVal
+                newDisplay = newDisplay[newDisplay.length - 1] !== "." && parseFloat(newDisplay) === 0 ? "0" : newDisplay
+                newCalc = shouldClearHistory ? "" : this.state.calcHistory
+                isNum = true
+            } else {
+                switch(clickedID) {
+                    case "clear":
+                        break;
+                    case "equals":
+                        newDisplay = this.runCalc()
+                        lastStr  = isLastNum ? currentDisplay : ""
+                        newHistory = calcHistory
+                        clearHistory = true;
+                        break
+                    case "percentage":
+                        this.getPercentage()
+                        newDisplay = event.target.innerText
+                        lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
+                        newHistory = shouldClearHistory ? "" : calcHistory
+                        break
+                    case "subtract":
+                        newDisplay = event.target.innerText
+                        lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
+                        newHistory = shouldClearHistory ? "" : calcHistory
+                        isNum = !numRegEx.test(lastActive)
+                        break
+                    default:
+                        newDisplay = event.target.innerText
+                        lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
+                        newHistory = shouldClearHistory ? "" : calcHistory
+                        break
+                }
+                newCalc = newHistory + lastStr
+            }
+            this.setState({
+                lastActive: newDisplay,
+                calcHistory: newCalc,
+                isLastNum: isNum,
+                shouldClearHistory: clearHistory,
+            })
+        }
+
+        runCalc() {
+            console.log("calculating...")
+        }
+
+        getPercentage() {
+            console.log("getting percentage...")
         }
 
         render() {
@@ -64,7 +123,7 @@ window.addEventListener("load", () => {
                 {className:"container", tabIndex: 0, onKeyDown:this.musicalTyping},
                 [e(
                     PreviewContainer,
-                    {key: "preview", active:this.state.lastActive}
+                    {key: "preview", active:this.state.lastActive, history:this.state.calcHistory}
                 ), e(
                     "div",
                     {key: "button-container", className: "calc-container"},
