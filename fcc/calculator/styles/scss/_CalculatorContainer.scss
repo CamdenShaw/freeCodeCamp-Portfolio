@@ -29,7 +29,7 @@ main {
 }
 
 .container {
-    border: 4px solid #{darken($bg_colour, 74%)};
+    border: 0.3em solid #{darken($bg_colour, 74%)};
     box-shadow: .25em .25em .25em darken($bg_colour, 16%);
     padding: var(--padding, #{$default_padding});
     margin: var(--padding, #{$default_padding});
@@ -37,7 +37,7 @@ main {
     color: var(--card-text-colour, #FFF);
     width: 75vw;
     min-width: fit-content;
-    max-width: 650px;
+    max-width: 17em;
     display: flex;
     flex-direction: column;
 }
@@ -52,8 +52,8 @@ main {
 .func-wrapper {
     display: grid;
     place-items: center;
-    gap: 2px;
-    margin: 1px;
+    gap: 0.2em;
+    margin: 0.1em;
 
     &.top {
         grid-column-start: 1;

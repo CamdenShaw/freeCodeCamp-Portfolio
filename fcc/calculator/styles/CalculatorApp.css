@@ -81,7 +81,7 @@ main {
 }
 
 .container {
-  border: 4px solid #685900;
+  border: 0.3em solid #685900;
   -webkit-box-shadow: 0.25em 0.25em 0.25em #fff090;
           box-shadow: 0.25em 0.25em 0.25em #fff090;
   padding: var(--padding, 0.1rem);
@@ -92,7 +92,7 @@ main {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  max-width: 650px;
+  max-width: 17em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,8 +112,8 @@ main {
 .func-wrapper {
   display: grid;
   place-items: center;
-  gap: 2px;
-  margin: 1px;
+  gap: 0.2em;
+  margin: 0.1em;
 }
 .func-wrapper.top {
   grid-column-start: 1;
@@ -152,8 +152,8 @@ footer p {
   font-family: Changa, sans-serif;
   font-weight: 900;
   font-size: 2em;
-  letter-spacing: 3px;
-  line-height: 1.1;
+  letter-spacing: 0.2em;
+  line-height: 1.3;
 }
 
 .btn {
@@ -185,7 +185,25 @@ footer p {
   cursor: pointer;
 }
 .btn:active, .btn .active {
-  background-color: lightblue;
+  background-color: #a6d4e4;
+}
+.btn#equals {
+  background-color: #1bbbae;
+}
+.btn#equals:hover, .btn#equals:focus {
+  background-color: #1ea2ca;
+}
+.btn#equals:active, .btn#equals.active {
+  background-color: #21d1ab;
+}
+.btn#clear {
+  background-color: #f8576c;
+}
+.btn#clear:hover, .btn#clear:focus {
+  background-color: #f56085;
+}
+.btn#clear:active, .btn#clear .active {
+  background-color: #fd5246;
 }
 
 .func-wrapper.nums .btn:not(:hover):not(:focus):not(:active):not(.active) {
