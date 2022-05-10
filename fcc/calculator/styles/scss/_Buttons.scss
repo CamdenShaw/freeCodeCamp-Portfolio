@@ -19,7 +19,31 @@
     }
 
     &:active, .active {
-        background-color: lightblue;
+        background-color: #a6d4e4;
+    }
+
+    &#equals {
+        background-color: #1bbbae;
+
+        &:hover, &:focus {
+            background-color: #1ea2ca;
+        }
+
+        &:active, &.active {
+            background-color: #21d1ab;
+        }
+    }
+
+    &#clear {
+        background-color: #f8576c;
+
+        &:hover, &:focus {
+            background-color: #f56085;
+        }
+
+        &:active, .active {
+            background-color: #fd5246;
+        }
     }
 }
 
