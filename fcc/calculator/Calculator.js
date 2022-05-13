@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
                 "zero": 0, 
             }
             const basicFuncBtns = {
-                "multiply": "&times;",
+                "multiply": "×",
                 "subtract": "-",
                 "add": "+",
                 "equals": "=",
@@ -39,7 +39,14 @@ window.addEventListener("load", () => {
             const lessBasicFuncBtns = {
                 "clear": "AC",
                 "percentage": "%",
-                "divide": "&#247;",
+                "divide": "÷",
+            }
+            const funcValues = {
+                "×": (x,y) => parseFloat(x * y),
+                "-": (x,y) => parseFloat(x - y),
+                "+": (x,y) => parseFloat(x + y),
+                "%": (x) => parseFloat(x * 0.01),
+                "÷": (x,y) => parseFloat(x / y),
             }
             this.state = {
                 numBtns,
@@ -49,6 +56,8 @@ window.addEventListener("load", () => {
                 shouldClearHistory: false,
                 lastActive: "",
                 calcHistory: "",
+                funcValues,
+                flExpression: false,
             }
             this.getActive = this.getActive.bind(this)
             this.runCalc = this.runCalc.bind(this)
@@ -76,9 +85,9 @@ window.addEventListener("load", () => {
                     case "clear":
                         break;
                     case "equals":
-                        newDisplay = this.runCalc()
                         lastStr  = isLastNum ? currentDisplay : ""
                         newHistory = calcHistory
+                        newDisplay = this.runCalc(newHistory+lastStr)
                         clearHistory = true;
                         break
                     case "percentage":
@@ -109,8 +118,25 @@ window.addEventListener("load", () => {
             })
         }
 
-        runCalc() {
-            console.log("calculating...")
+        runCalc(calcHistory) {
+            const operatorArray = calcHistory.split(/[\d.]/).filter(Boolean)
+            const numsArray = calcHistory.split(/[%÷×\-+]/).filter(Boolean)
+            const {flExpression} = this.state
+            let total
+
+            if (flExpression) {
+                console.log("executing PEMDAS...")
+            } else {
+                total = parseFloat(numsArray[0])
+                for (let i = 0;i < operatorArray.length; i++) {
+                    let operator = operatorArray[i]
+                    let operation = this.state.funcValues[operator]
+                    let nextVal = parseFloat(numsArray[i+1])
+                    total = operation(total, nextVal)
+                }
+            }
+
+            return total
         }
 
         getPercentage() {

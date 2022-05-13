@@ -10,7 +10,8 @@ class Button extends React.Component {
     render() {
         return(e(
             "div",
-            {className: "btn", id: this.props.id, onClick: this.props.getActive, dangerouslySetInnerHTML: {__html: this.props.text}}
+            {className: "btn", id: this.props.id, onClick: this.props.getActive},
+            this.props.text
         ))
     }
 }
