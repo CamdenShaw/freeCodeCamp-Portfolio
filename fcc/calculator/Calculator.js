@@ -57,11 +57,10 @@ window.addEventListener("load", () => {
                 lastActive: "",
                 calcHistory: "",
                 funcValues,
-                flExpression: false,
+                flExpression: true,
             }
             this.getActive = this.getActive.bind(this)
             this.runCalc = this.runCalc.bind(this)
-            this.getPercentage = this.getPercentage.bind(this)
         }
 
         getActive(event) {
@@ -91,7 +90,6 @@ window.addEventListener("load", () => {
                         clearHistory = true;
                         break
                     case "percentage":
-                        this.getPercentage()
                         newDisplay = event.target.innerText
                         lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
                         newHistory = shouldClearHistory ? "" : calcHistory
@@ -125,7 +123,38 @@ window.addEventListener("load", () => {
             let total
 
             if (flExpression) {
-                console.log("executing PEMDAS...")
+                total = [...numsArray]
+                let i = 0;
+                let loopCnt = 1
+                while (total.length > 1) {
+                    if (i > total.length - 2) {
+                        i = 0
+                        loopCnt++
+                    }
+                    let operator = operatorArray[i]
+                    let operation = this.state.funcValues[operator]
+                    let curVal = parseFloat(total[i])
+                    let nextVal = parseFloat(total[i + 1])
+                    console.log(curVal, nextVal, total[i])
+                    if ("÷×".includes(operator) && loopCnt === 1) {
+                        total[i] = operation(curVal, nextVal)
+                        console.log(total[i])
+                        total.splice(i + 1, 1)
+                        operatorArray.splice(i, 1)
+                    } else if (loopCnt > 1) {
+                        total[i] = operation(curVal, nextVal)
+                        console.log(total[i])
+                        total.splice(i + 1, 1)
+                        operatorArray.splice(i, 1)
+                    } else if (loopCnt > 2) {
+                        console.log("well... that shouldn't be.")
+                        break;
+                    } else {
+                        console.log("hello there")
+                    }
+                    i++
+                }
+                total = total[0]
             } else {
                 total = parseFloat(numsArray[0])
                 for (let i = 0;i < operatorArray.length; i++) {
@@ -137,10 +166,6 @@ window.addEventListener("load", () => {
             }
 
             return total
-        }
-
-        getPercentage() {
-            console.log("getting percentage...")
         }
 
         render() {
