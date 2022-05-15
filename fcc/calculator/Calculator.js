@@ -98,17 +98,22 @@ window.addEventListener("load", () => {
                         break
                     case "subtract":
                         newDisplay = event.target.innerText
-                        lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
-                        newHistory = shouldClearHistory ? mainDisplay + newDisplay : calcHistory
-                        isNum = !numRegEx.test(mainDisplay)
+                        lastStr = isLastNum ? ((currentDisplay.slice(-1) === "-" ? "" : currentDisplay) + newDisplay) : ""
+                        newHistory = shouldClearHistory ? (mainDisplay.slice(-1) === "-" ? "" : mainDisplay) + newDisplay : calcHistory
+                        isNum = !numRegEx.test(mainDisplay) && !numRegEx.test(newHistory.slice(-1))
                         break
                     default:
                         newDisplay = event.target.innerText
-                        lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
-                        newHistory = shouldClearHistory ? mainDisplay + newDisplay : calcHistory
+                        lastStr = isLastNum ? ((currentDisplay.slice(-1) === "-" ? "" : currentDisplay) + newDisplay) : ""
+                        newHistory = shouldClearHistory ? (mainDisplay.slice(-1) === "-" ? "" : mainDisplay) + newDisplay : calcHistory
+
+                        
                         if (mainDisplay.length === 1 && !isLastNum) {
                             lastCharIdx = newHistory.length - 1
                             newHistory = newHistory.substring(0, lastCharIdx) + newDisplay
+                        } else if (isLastNum && lastActive === "-") {
+                            lastCharIdx = newHistory.length - 1
+                            newHistory = newHistory.substring(0, lastCharIdx)
                         }
                         break
                 }
@@ -128,7 +133,7 @@ window.addEventListener("load", () => {
         }
 
         runCalc(calcHistory) {
-            const operatorArray = calcHistory.split(/[\d.]/).filter(Boolean)
+            const operatorArray = calcHistory.split(/(-?<=![%÷×\-+])?[\d.]/).filter(Boolean)
             const numsArray = calcHistory.split(/[%÷×\-+]/).filter(Boolean)
             const {flExpression} = this.state
             let total
@@ -170,8 +175,15 @@ window.addEventListener("load", () => {
                 total = parseFloat(numsArray[0])
                 for (let i = 0;i < operatorArray.length; i++) {
                     let operator = operatorArray[i]
+                    let timesInt = 1
+                    if (operator.length === 2) {
+                        timesInt = -1
+                        operator = operator[0]
+                    } else if (operator.length > 2) {
+                        throw new Error(`operator cannot have more than one operation: ${operator}`)
+                    }
                     let operation = this.state.funcValues[operator]
-                    let nextVal = parseFloat(numsArray[i+1])
+                    let nextVal = parseFloat(numsArray[i+1]*timesInt)
                     total = operation(total, nextVal)
                 }
             }
