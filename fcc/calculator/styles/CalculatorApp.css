@@ -107,6 +107,7 @@ main {
   grid-template-columns: 4rem 4rem 4rem 4rem;
   grid-template-rows: 4rem 4rem 4rem 4rem 4rem;
   gap: 0;
+  background-color: rgba(211, 211, 211, 0.5);
 }
 
 .func-wrapper {
@@ -212,4 +213,58 @@ footer p {
 
 .func-wrapper.nums .btn:not(:hover):not(:focus):not(:active):not(.active) {
   background-color: #e9fcee;
+}
+
+.toggle-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  font-size: 0.5em;
+  font-weight: var(--font-weight-light, 300);
+  line-height: 1.5em;
+  padding: 0.25em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(211, 211, 211, 0.333333333);
+  border: rgba(211, 211, 211, 0.125) 0.2em solid;
+  letter-spacing: 0.1em;
+}
+.toggle-wrapper .toggle-gutter {
+  width: 3.5em;
+  height: 1.75em;
+  margin: auto 0;
+  border-radius: 1em;
+  background-color: #FFF;
+  margin: 0.25em;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.125em;
+}
+.toggle-wrapper .toggle-gutter:hover, .toggle-wrapper .toggle-gutter:focus {
+  cursor: pointer;
+}
+.toggle-wrapper .toggle-gutter:active, .toggle-wrapper .toggle-gutter.active {
+  background-color: pink;
+}
+.toggle-wrapper .toggle-gutter .toggle-switch {
+  display: inline-block;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #000;
+  -webkit-transition: var(--transition-duration, 0.5s) margin;
+  -o-transition: var(--transition-duration, 0.5s) margin;
+  transition: var(--transition-duration, 0.5s) margin;
+  margin: 0;
+}
+.toggle-wrapper.on .toggle-switch {
+  margin-left: 1.75em;
 }

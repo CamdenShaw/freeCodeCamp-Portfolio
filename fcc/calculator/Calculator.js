@@ -2,15 +2,18 @@ const isProduction = false;
 const e = React.createElement;
 const previewContainer = document.createElement("script")
 const calculatorContainer = document.createElement("script")
+const toggleSwitch = document.createElement("script")
 const calculatorStyles = document.createElement("link")
 let minStr = isProduction ? ".min" : ""
 
 previewContainer.src = `./fcc/calculator/Components/CalculationPreviewContainer${minStr}.js`
 calculatorContainer.src = `./fcc/calculator/Components/CalculatorContainer${minStr}.js`
+toggleSwitch.src = `./fcc/calculator/Components/ToggleSwitch${minStr}.js`
 calculatorStyles.href = `./fcc/calculator/styles/CalculatorApp${minStr}.css`
 calculatorStyles.rel = "stylesheet"
 document.body.appendChild(previewContainer)
 document.body.appendChild(calculatorContainer)
+document.body.appendChild(toggleSwitch)
 document.head.appendChild(calculatorStyles) 
 
 window.addEventListener("load", () => {
@@ -58,10 +61,11 @@ window.addEventListener("load", () => {
                 mainDisplay: "0",
                 calcHistory: "",
                 funcValues,
-                flExpression: true,
+                isExpression: true,
             }
             this.getActive = this.getActive.bind(this)
             this.runCalc = this.runCalc.bind(this)
+            this.toggleAction = this.toggleAction.bind(this)
         }
 
         getActive(event) {
@@ -135,10 +139,10 @@ window.addEventListener("load", () => {
         runCalc(calcHistory) {
             const operatorArray = calcHistory.split(/(-?<=![%÷×\-+])?[\d.]/).filter(Boolean)
             const numsArray = calcHistory.split(/[%÷×\-+]/).filter(Boolean)
-            const {flExpression} = this.state
+            const {isExpression} = this.state
             let total
 
-            if (flExpression) {
+            if (isExpression) {
                 total = [...numsArray]
                 let i = 0;
                 let loopCnt = 1
@@ -195,6 +199,13 @@ window.addEventListener("load", () => {
             return total.toString()
         }
 
+        toggleAction(event) {
+            console.log(event, "clickity")
+            this.setState({
+                isExpression: !this.state.isExpression
+            })
+        }
+
         render() {
             return (e(
                 "div",
@@ -202,6 +213,9 @@ window.addEventListener("load", () => {
                 [e(
                     PreviewContainer,
                     {key: "preview", active:this.state.mainDisplay, history:this.state.calcHistory}
+                ), e(
+                    Toggle,
+                    {key: "toogle", isExpression: this.state.isExpression, toggleExpression: this.toggleAction}
                 ), e(
                     "div",
                     {key: "button-container", className: "calc-container"},
