@@ -58,7 +58,7 @@ window.addEventListener("load", () => {
                 mainDisplay: "0",
                 calcHistory: "",
                 funcValues,
-                flExpression: false,
+                flExpression: true,
             }
             this.getActive = this.getActive.bind(this)
             this.runCalc = this.runCalc.bind(this)
@@ -148,25 +148,29 @@ window.addEventListener("load", () => {
                         loopCnt++
                     }
                     let operator = operatorArray[i]
+                    let timesInt = 1
+                    if (operator.length === 2) {
+                        timesInt = -1
+                        operator = operator[0]
+                    } else if (operator.lent > 2) {
+                        throw new Error(`operator cannot have more than one operation: ${operator}`)
+                    }
                     let operation = this.state.funcValues[operator]
                     let curVal = parseFloat(total[i])
-                    let nextVal = parseFloat(total[i + 1])
-                    console.log(curVal, nextVal, total[i])
+                    let nextVal = parseFloat(total[i + 1] * timesInt)
                     if ("÷×".includes(operator) && loopCnt === 1) {
                         total[i] = operation(curVal, nextVal)
-                        console.log(total[i])
                         total.splice(i + 1, 1)
                         operatorArray.splice(i, 1)
                     } else if (loopCnt > 1) {
                         total[i] = operation(curVal, nextVal)
-                        console.log(total[i])
                         total.splice(i + 1, 1)
                         operatorArray.splice(i, 1)
                     } else if (loopCnt > 2) {
-                        console.log("well... that shouldn't be.")
+                        console.error("well... that shouldn't be.")
                         break;
                     } else {
-                        console.log("hello there")
+                        console.error("hello there")
                     }
                     i++
                 }
