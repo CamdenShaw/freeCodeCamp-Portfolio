@@ -15,7 +15,7 @@ class PreviewContainer extends React.Component {
                 ),
                 e(
                     "div",
-                    {key:"lastTyped", className:"last-typed"},
+                    {key:"lastTyped", id:"display", className:"last-typed"},
                     this.props.active ? this.props.active : "0"
                 )
             ]

@@ -55,9 +55,10 @@ window.addEventListener("load", () => {
                 isLastNum: false,
                 shouldClearHistory: false,
                 lastActive: "",
+                mainDisplay: "0",
                 calcHistory: "",
                 funcValues,
-                flExpression: true,
+                flExpression: false,
             }
             this.getActive = this.getActive.bind(this)
             this.runCalc = this.runCalc.bind(this)
@@ -67,15 +68,15 @@ window.addEventListener("load", () => {
             const clickedEl = event.target
             const clickedID = clickedEl.id
             const numRegEx = /^[-]?[0-9.]+$/
-            const {lastActive, calcHistory, isLastNum, shouldClearHistory} = this.state
+            const {lastActive, calcHistory, isLastNum, shouldClearHistory, mainDisplay} = this.state
             const currentDisplay = document.querySelector(".last-typed").innerText
             let isNum = false, clearHistory = false
-            let newDisplay = "", newCalc = "", lastStr = "", newHistory = ""
+            let newDisplay = "", newCalc = "", lastStr = "", newHistory = "", lastCharIdx = -1, newLastActive = ""
+            const shouldConcatenate = !shouldClearHistory &&(numRegEx.test(lastActive) || (currentDisplay === "-" && isLastNum))
 
             if (clickedEl.parentElement.classList.contains("nums")) {
-                const nextVal = (lastActive && lastActive.includes(".") && clickedID === "decimal") ? "" : event.target.innerText
-                const shouldConcatenate = (numRegEx.test(lastActive) || (currentDisplay === "-" && isLastNum))
-                newDisplay = (shouldConcatenate ? lastActive : "") + nextVal
+                const nextVal = (mainDisplay && mainDisplay.includes(".") && clickedID === "decimal") ? "" : event.target.innerText
+                newDisplay = (shouldConcatenate ? mainDisplay : "") + nextVal
                 newDisplay = newDisplay[newDisplay.length - 1] !== "." && parseFloat(newDisplay) === 0 ? "0" : newDisplay
                 newCalc = shouldClearHistory ? "" : this.state.calcHistory
                 isNum = true
@@ -87,29 +88,39 @@ window.addEventListener("load", () => {
                         lastStr  = isLastNum ? currentDisplay : ""
                         newHistory = calcHistory
                         newDisplay = this.runCalc(newHistory+lastStr)
+                        newLastActive = event.target.innerText
                         clearHistory = true;
                         break
                     case "percentage":
                         newDisplay = event.target.innerText
                         lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
-                        newHistory = shouldClearHistory ? "" : calcHistory
+                        newHistory = shouldClearHistory ? mainDisplay + newDisplay : calcHistory
                         break
                     case "subtract":
                         newDisplay = event.target.innerText
                         lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
-                        newHistory = shouldClearHistory ? "" : calcHistory
-                        isNum = !numRegEx.test(lastActive)
+                        newHistory = shouldClearHistory ? mainDisplay + newDisplay : calcHistory
+                        isNum = !numRegEx.test(mainDisplay)
                         break
                     default:
                         newDisplay = event.target.innerText
                         lastStr = isLastNum ? (currentDisplay + newDisplay) : ""
-                        newHistory = shouldClearHistory ? "" : calcHistory
+                        newHistory = shouldClearHistory ? mainDisplay + newDisplay : calcHistory
+                        if (mainDisplay.length === 1 && !isLastNum) {
+                            lastCharIdx = newHistory.length - 1
+                            newHistory = newHistory.substring(0, lastCharIdx) + newDisplay
+                        }
                         break
                 }
+
                 newCalc = newHistory + lastStr
             }
+
+            newLastActive = newLastActive === "" ? newDisplay : lastActive
+
             this.setState({
-                lastActive: newDisplay,
+                lastActive: newLastActive,
+                mainDisplay: newDisplay,
                 calcHistory: newCalc,
                 isLastNum: isNum,
                 shouldClearHistory: clearHistory,
@@ -165,7 +176,7 @@ window.addEventListener("load", () => {
                 }
             }
 
-            return total
+            return total.toString()
         }
 
         render() {
@@ -174,7 +185,7 @@ window.addEventListener("load", () => {
                 {className:"container", tabIndex: 0, onKeyDown:this.musicalTyping},
                 [e(
                     PreviewContainer,
-                    {key: "preview", active:this.state.lastActive, history:this.state.calcHistory}
+                    {key: "preview", active:this.state.mainDisplay, history:this.state.calcHistory}
                 ), e(
                     "div",
                     {key: "button-container", className: "calc-container"},
