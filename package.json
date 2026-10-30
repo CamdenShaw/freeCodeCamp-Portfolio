@@ -28,7 +28,7 @@
         "gulp-sass": "^5.1.0",
         "gulp-uglify": "^3.0.0",
         "node-sass": "^7.0.1",
-        "nodemailer": "^6.7.2",
+        "nodemailer": "^10.1.4",
         "sass": "^1.49.8"
     },
     "scripts": {
